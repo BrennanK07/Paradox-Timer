@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 html{
-    background-color: #222222;
+    background-color: #111111;
 }
 
 h1{
@@ -9,15 +11,14 @@ h1{
 #timer{
     color: #ffffff;
     text-align: center;
-    font-size: 8vw;
+    font-size: 14vw;
+    font-weight: normal;
+    font-family: 'Bebas Neue', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
     /*Helps align vertically*/
     
-}
 
-
-/*Removes the highlight feature from the timer*/
-#timer {
+    /*Removes the highlighting feature from the timer*/
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
@@ -28,4 +29,4 @@ h1{
     */
     -ms-user-select: none;
     user-select: none;
- }
+}
