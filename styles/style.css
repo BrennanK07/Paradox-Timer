@@ -1,0 +1,31 @@
+html{
+    background-color: #222222;
+}
+
+h1{
+    color: #ffffff;
+}
+
+#timer{
+    color: #ffffff;
+    text-align: center;
+    font-size: 8vw;
+
+    /*Helps align vertically*/
+    
+}
+
+
+/*Removes the highlight feature from the timer*/
+#timer {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+ 
+    /*
+      Introduced in IE 10.
+      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+    */
+    -ms-user-select: none;
+    user-select: none;
+ }
