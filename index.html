@@ -3,9 +3,17 @@
 <link rel="stylesheet" href="styles/style.css">
 
 <html>
+    <section class="header">
+        <h1>Cubing Timer v2.0</h1>
+
+        <div id="bottom"></div>
+            <h1 id="ScrambleText">Scramble Goes Here</h1>
+        </div>
+    </section>
+
     <div class="sidenav">
         <span id="ScrambleSelection">
-            <label id="Select">Scramble Type:</label>
+            <label id="Select">Scramble Type</label>
             <select name="scramble" id="scramble">
                 <option value="3">3x3</option>
                 <option value="2">2x2</option>
@@ -27,22 +35,15 @@
         </span>
 
         <br>
+
         <button onclick="openNav()">Settings</button>
         <br>
         <button id="ViewTimeLog">View Times</button>
     </div>
 
     <div class="main">
-        <span id="UI">
-            <h1>Cubing Timer v2.0</h1>
-        </span>
-        
         <span id="TimeElements">
             <h2 id="timer">0.000</h2>
-        </span>
-        
-        <span>
-            <h1 id="ScrambleText">Scramble Goes Here</h1>
         </span>
     </div>
 

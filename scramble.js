@@ -11,6 +11,7 @@ var uiWatch = window.setInterval(function(){
 
     if(IsUIChanged() == true){
         GetScrambleFromUI();
+        document.getElementById("scramble").blur();
     }
 
 }, 10);
@@ -219,6 +220,8 @@ function GenerateScramble(scrambleType){
             if(Random(4) == 0){
                 generatedScramble += "3";
                 isWide = true;
+            }else if(Random(3) == 1){
+                isWide = true;
             }
             
             if(randomNumber == 0){
@@ -277,6 +280,8 @@ function GenerateScramble(scrambleType){
 
             if(Random(4) == 0){
                 generatedScramble += "3";
+                isWide = true;
+            }else if(Random(3) == 1){
                 isWide = true;
             }
             
