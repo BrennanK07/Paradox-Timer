@@ -24,6 +24,7 @@ function GenerateScramble(scrambleType){
     let generatedScramble;
 
     if(scrambleType == "2"){
+        ChangeTextSize(1.5);
         generatedScramble = "";
 
         for(let i = 0; i < 15; i++){
@@ -55,6 +56,7 @@ function GenerateScramble(scrambleType){
     }
 
     if(scrambleType == "3" || scrambleType == "3bld" || scrambleType == "3oh"){
+        ChangeTextSize(1.5);
         generatedScramble = "";
 
         for(let i = 0; i < 20; i++){
@@ -103,7 +105,8 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "4"){
+    if(scrambleType == "4" || scrambleType == "4bld"){
+        ChangeTextSize(1.25);
         generatedScramble = "";
 
         for(let i = 0; i < 40; i++){
@@ -156,7 +159,9 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "5"){
+    if(scrambleType == "5" || scrambleType == "5bld"){
+        ChangeTextSize(1.2);
+
         generatedScramble = "";
 
         for(let i = 0; i < 60; i++){
@@ -210,6 +215,7 @@ function GenerateScramble(scrambleType){
     }
 
     if(scrambleType == "6"){
+        ChangeTextSize(1.1);
         generatedScramble = "";
 
         for(let i = 0; i < 80; i++){
@@ -271,6 +277,7 @@ function GenerateScramble(scrambleType){
     }
 
     if(scrambleType == "7"){
+        ChangeTextSize(1);
         generatedScramble = "";
 
         for(let i = 0; i < 100; i++){
@@ -337,6 +344,7 @@ function GenerateScramble(scrambleType){
     }
     
     if(scrambleType == "megaminx"){
+        ChangeTextSize(1.25);
         generatedScramble = "";
         for(let i = 0; i < 6; i++){
             for(let j = 0; j < 9; j++){
@@ -483,6 +491,23 @@ function GenerateScramble(scrambleType){
         }
     }
 
+    if(scrambleType == "sq1"){
+        ChangeTextSize(1.25);
+        generatedScramble = ""
+        for(var i = 0; i < 15; i++){
+            var TopNotation = Random(10) - 5;
+            var BottomNotation = Random(10) - 5;
+            
+            //Eliminates the chance of having a "(0, 0)" notation
+            while(TopNotation == 0 && BottomNotation == 0){
+                TopNotation = Random(10) - 5;
+                BottomNotation = Random(10) - 5;
+            }
+
+            generatedScramble += "(" + TopNotation + ", " + BottomNotation + ")" + " / "
+        }
+    }
+
     return(generatedScramble);
 }
 
@@ -502,4 +527,9 @@ function IsUIChanged(){
         console.log("Change detected");
         return true;
     }
+}
+
+//Works off of em
+function ChangeTextSize(newSize){
+    document.getElementById("ScrambleText").style.fontSize = (newSize + "em")
 }
