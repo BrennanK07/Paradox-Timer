@@ -235,3 +235,15 @@ element::-webkit-scrollbar {
 #SessionName{
   font-size: 1.5em;
 }
+
+#CreateSession{
+  width: 15%;
+}
+
+#sessionScramble{
+  width: 15%;
+}
+
+#SessionTitle{
+  font-size: 2.5em;
+}

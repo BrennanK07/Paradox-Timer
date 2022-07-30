@@ -1,5 +1,5 @@
-function CreateNewSession(cubeType, name) {
-
+function CreateNewSession() {
+  
 }
 
 function OpenSessionGenerator() {
