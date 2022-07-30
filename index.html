@@ -4,17 +4,18 @@
 
 <html>
     <section class="header">
-        <h1>Cubing Timer v2.0</h1>
-
         <div id="bottom"></div>
-            <h1 id="ScrambleText">Scramble Goes Here</h1>
+            <h1 id="ScrambleText">Scramble Type Not Set</h1>
         </div>
     </section>
 
     <div class="sidenav">
+        <h1 id="title">Cubing Timer v2.0</h1>
+
         <span id="ScrambleSelection">
             <label id="Select">Scramble Type</label>
             <select name="scramble" id="scramble">
+                <option value="notSet" hidden>Select a Scramble Type</option>
                 <option value="3">3x3</option>
                 <option value="2">2x2</option>
                 <option value="4">4x4</option>
