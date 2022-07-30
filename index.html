@@ -44,7 +44,7 @@
         <br>
         <button id="ViewTimeLog">View Times</button>
 
-        <button>Create New Session</button>
+        <button onclick="OpenSessionGenerator()">Create New Session</button>
 
         <select>
 
@@ -68,6 +68,22 @@
           <a href="#">Timer</a>
           <a href="#">Extra Features</a>
           <a href="#">Advanced</a>
+        </div>
+      
+    </div>
+
+    <div id="sessionMenu" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="CloseSessionGenerator()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content">
+          <form>
+            <label id="SessionNameText">Session Name</label>
+            <br>
+            <input type="text" id="SessionName">
+          </form>
         </div>
       
     </div>
