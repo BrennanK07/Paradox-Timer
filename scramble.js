@@ -17,7 +17,7 @@ var uiWatch = window.setInterval(function(){
 }, 10);
 
 function GetScrambleFromUI(){
-    document.getElementById("ScrambleText").innerHTML = GenerateScramble(document.getElementById("scramble").value).toString();
+    document.getElementById("ScrambleText").innerHTML = GenerateScramble(document.getElementById("scramble").value);
 }
 
 function GenerateScramble(scrambleType){

@@ -1,5 +1,5 @@
 function CreateNewSession() {
-  
+  console.log("Creating New Session");
 }
 
 function OpenSessionGenerator() {
