@@ -335,8 +335,7 @@ function GenerateScramble(scrambleType){
     if(scrambleType == "garbage"){
         generatedScramble = "You need to get a life";
     }
-
-    //Fix, outputs "Undefined" before any notations
+    
     if(scrambleType == "megaminx"){
         generatedScramble = "";
         for(let i = 0; i < 6; i++){
@@ -362,6 +361,125 @@ function GenerateScramble(scrambleType){
             else{
                 generatedScramble += " U' \n"
             }
+        }
+    }
+
+    if(scrambleType == "pyraminx"){
+        generatedScramble = "";
+
+        for(let i = 0; i < 8; i++){
+            while(randomNumber == oldRandomNumber){
+                randomNumber = Random(3);
+            }
+            
+            if(randomNumber == 0){
+                //U, D
+                if(Random(2) == 0){
+                    generatedScramble += "U"
+                }
+                else{
+                    generatedScramble += "D"
+                }
+            }
+            else if(randomNumber == 1){
+                //L, R
+                if(Random(2) == 0){
+                    generatedScramble += "L"
+                }
+                else{
+                    generatedScramble += "R"
+                }
+            }
+            else{
+                //F, B
+                if(Random(2) == 0){
+                    generatedScramble += "F"
+                }
+                else{
+                    generatedScramble += "B"
+                }
+            }
+
+            if(Random(2) == 1){
+                generatedScramble += `'`;
+            }
+
+            generatedScramble += " ";
+
+            oldRandomNumber = randomNumber;
+        }
+
+        for(let i = 0; i < 2; i++){
+            while(randomNumber == oldRandomNumber){
+                randomNumber = Random(3);
+            }
+            
+            if(randomNumber == 0){
+                //U, D
+                if(Random(2) == 0){
+                    generatedScramble += "u"
+                }
+                else{
+                    generatedScramble += "d"
+                }
+            }
+            else if(randomNumber == 1){
+                //L, R
+                if(Random(2) == 0){
+                    generatedScramble += "l"
+                }
+                else{
+                    generatedScramble += "r"
+                }
+            }
+            else{
+                //F, B
+                if(Random(2) == 0){
+                    generatedScramble += "f"
+                }
+                else{
+                    generatedScramble += "b"
+                }
+            }
+
+            if(Random(2) == 1){
+                generatedScramble += `'`;
+            }
+
+            generatedScramble += " ";
+
+            oldRandomNumber = randomNumber;
+        }
+    }
+
+    if(scrambleType == "skewb"){
+        generatedScramble = "";
+
+        for(let i = 0; i < 8; i++){
+            while(randomNumber == oldRandomNumber){
+                randomNumber = Random(3);
+            }
+            
+            if(randomNumber == 0){
+                //U, D
+                generatedScramble += "L";
+            }
+            else if(randomNumber == 1){
+                //L, R
+                generatedScramble += "U";
+            }
+            else{
+                //F, B
+                generatedScramble += "R";
+            }
+
+            if(Random(2) == 1){
+                generatedScramble += `'`;
+            }
+
+            generatedScramble += " ";
+
+            oldRandomNumber = randomNumber;
         }
     }
 
