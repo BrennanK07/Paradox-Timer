@@ -331,6 +331,7 @@ function GenerateScramble(scrambleType){
         }
     }
 
+    //I'd rather die than add support to clock, #ENDCLOCK
     if(scrambleType == "garbage"){
         generatedScramble = "You need to get a life";
     }
