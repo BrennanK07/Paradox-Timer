@@ -17,7 +17,9 @@ var uiWatch = window.setInterval(function(){
 }, 10);
 
 function GetScrambleFromUI(){
-    document.getElementById("ScrambleText").innerHTML = GenerateScramble(document.getElementById("scramble").value);
+    if(document.getElementById("scramble").value != "notSet"){
+        document.getElementById("ScrambleText").innerHTML = GenerateScramble(document.getElementById("scramble").value);
+    }
 }
 
 function GenerateScramble(scrambleType){
