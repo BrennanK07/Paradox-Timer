@@ -8,7 +8,6 @@ var newValue;
 
 
 var uiWatch = window.setInterval(function(){
-
     if(IsUIChanged() == true){
         GetScrambleFromUI();
         document.getElementById("scramble").blur();
