@@ -7,46 +7,46 @@ var oldValue;
 var newValue;
 
 
-var uiWatch = window.setInterval(function(){
-    if(IsUIChanged() == true){
+var uiWatch = window.setInterval(function () {
+    if (IsUIChanged() == true) {
         GetScrambleFromUI();
         document.getElementById("scramble").blur();
     }
 
 }, 10);
 
-function GetScrambleFromUI(){
-    if(document.getElementById("scramble").value != "notSet"){
+function GetScrambleFromUI() {
+    if (document.getElementById("scramble").value != "notSet") {
         document.getElementById("ScrambleText").innerHTML = GenerateScramble(document.getElementById("scramble").value);
     }
 }
 
-function GenerateScramble(scrambleType){
+function GenerateScramble(scrambleType) {
     let generatedScramble;
 
-    if(scrambleType == "2"){
+    if (scrambleType == "2") {
         ChangeTextSize(1.5);
         generatedScramble = "";
 
-        for(let i = 0; i < 15; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 15; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 generatedScramble += "R";
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 generatedScramble += "U";
             }
-            else{
+            else {
                 generatedScramble += "F";
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
-            else if(Random(4) == 1){
+            else if (Random(4) == 1) {
                 generatedScramble += "2";
             }
 
@@ -56,47 +56,47 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "3" || scrambleType == "3bld" || scrambleType == "3oh"){
+    if (scrambleType == "3" || scrambleType == "3bld" || scrambleType == "3oh") {
         ChangeTextSize(1.5);
         generatedScramble = "";
 
-        for(let i = 0; i < 20; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 20; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "U"
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "L"
                 }
-                else{
+                else {
                     generatedScramble += "R"
                 }
             }
-            else{
+            else {
                 //F, B
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "F"
                 }
-                else{
+                else {
                     generatedScramble += "B"
                 }
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
-            else if(Random(4) == 1){
+            else if (Random(4) == 1) {
                 generatedScramble += "2";
             }
 
@@ -106,51 +106,51 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "4" || scrambleType == "4bld"){
+    if (scrambleType == "4" || scrambleType == "4bld") {
         ChangeTextSize(1.25);
         generatedScramble = "";
 
-        for(let i = 0; i < 40; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 40; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "U"
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "L"
                 }
-                else{
+                else {
                     generatedScramble += "R"
                 }
             }
-            else{
+            else {
                 //F, B
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "F"
                 }
-                else{
+                else {
                     generatedScramble += "B"
                 }
             }
 
-            if(Random(4) == 0){
+            if (Random(4) == 0) {
                 generatedScramble += "w"
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
-            else if(Random(4) == 0){
+            else if (Random(4) == 0) {
                 generatedScramble += "2";
             }
 
@@ -160,52 +160,52 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "5" || scrambleType == "5bld"){
+    if (scrambleType == "5" || scrambleType == "5bld") {
         ChangeTextSize(1.2);
 
         generatedScramble = "";
 
-        for(let i = 0; i < 60; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 60; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "U"
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "L"
                 }
-                else{
+                else {
                     generatedScramble += "R"
                 }
             }
-            else{
+            else {
                 //F, B
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "F"
                 }
-                else{
+                else {
                     generatedScramble += "B"
                 }
             }
 
-            if(Random(4) == 0){
+            if (Random(4) == 0) {
                 generatedScramble += "w"
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
-            else if(Random(4) == 0){
+            else if (Random(4) == 0) {
                 generatedScramble += "2";
             }
 
@@ -215,59 +215,59 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "6"){
+    if (scrambleType == "6") {
         ChangeTextSize(1.1);
         generatedScramble = "";
 
-        for(let i = 0; i < 80; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 80; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
 
-            if(Random(4) == 0){
+            if (Random(4) == 0) {
                 generatedScramble += "3";
                 isWide = true;
-            }else if(Random(3) == 1){
+            } else if (Random(3) == 1) {
                 isWide = true;
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "U"
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "L"
                 }
-                else{
+                else {
                     generatedScramble += "R"
                 }
             }
-            else{
+            else {
                 //F, B
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "F"
                 }
-                else{
+                else {
                     generatedScramble += "B"
                 }
             }
 
-            if(isWide == true){
+            if (isWide == true) {
                 generatedScramble += "w"
                 isWide = false;
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
-            else if(Random(4) == 0){
+            else if (Random(4) == 0) {
                 generatedScramble += "2";
             }
 
@@ -277,59 +277,59 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "7"){
+    if (scrambleType == "7") {
         ChangeTextSize(1);
         generatedScramble = "";
 
-        for(let i = 0; i < 100; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 100; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
 
-            if(Random(4) == 0){
+            if (Random(4) == 0) {
                 generatedScramble += "3";
                 isWide = true;
-            }else if(Random(3) == 1){
+            } else if (Random(3) == 1) {
                 isWide = true;
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "U"
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "L"
                 }
-                else{
+                else {
                     generatedScramble += "R"
                 }
             }
-            else{
+            else {
                 //F, B
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "F"
                 }
-                else{
+                else {
                     generatedScramble += "B"
                 }
             }
 
-            if(isWide == true){
+            if (isWide == true) {
                 generatedScramble += "w"
                 isWide = false;
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
-            else if(Random(4) == 0){
+            else if (Random(4) == 0) {
                 generatedScramble += "2";
             }
 
@@ -340,99 +340,99 @@ function GenerateScramble(scrambleType){
     }
 
     //I'd rather die than add support to clock, #ENDCLOCK
-    if(scrambleType == "garbage"){
+    if (scrambleType == "garbage") {
         generatedScramble = "You need to get a life";
     }
-    
-    if(scrambleType == "megaminx"){
+
+    if (scrambleType == "megaminx") {
         ChangeTextSize(1.25);
         generatedScramble = "";
-        for(let i = 0; i < 3; i++){
-            for(let j = 0; j < 9; j++){
-                if(Random(2)==0){
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 9; j++) {
+                if (Random(2) == 0) {
                     generatedScramble += "R";
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
 
-                if(Random(2)==0){
+                if (Random(2) == 0) {
                     generatedScramble += "++ ";
                 }
-                else{
+                else {
                     generatedScramble += "-- "
                 }
             }
 
-            if(Random(2)==0){
+            if (Random(2) == 0) {
                 generatedScramble += " U ";
             }
-            else{
+            else {
                 generatedScramble += " U' "
             }
 
-            for(let j = 0; j < 9; j++){
-                if(Random(2)==0){
+            for (let j = 0; j < 9; j++) {
+                if (Random(2) == 0) {
                     generatedScramble += "R";
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
 
-                if(Random(2)==0){
+                if (Random(2) == 0) {
                     generatedScramble += "++ ";
                 }
-                else{
+                else {
                     generatedScramble += "-- "
                 }
             }
 
-            if(Random(2)==0){
+            if (Random(2) == 0) {
                 generatedScramble += " U <br>";
             }
-            else{
+            else {
                 generatedScramble += " U' <br>"
             }
         }
     }
 
-    if(scrambleType == "pyraminx"){
+    if (scrambleType == "pyraminx") {
         generatedScramble = "";
 
-        for(let i = 0; i < 8; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 8; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "U"
                 }
-                else{
+                else {
                     generatedScramble += "D"
                 }
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "L"
                 }
-                else{
+                else {
                     generatedScramble += "R"
                 }
             }
-            else{
+            else {
                 //F, B
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "F"
                 }
-                else{
+                else {
                     generatedScramble += "B"
                 }
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
 
@@ -441,40 +441,40 @@ function GenerateScramble(scrambleType){
             oldRandomNumber = randomNumber;
         }
 
-        for(let i = 0; i < 2; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 2; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "u"
                 }
-                else{
+                else {
                     generatedScramble += "d"
                 }
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "l"
                 }
-                else{
+                else {
                     generatedScramble += "r"
                 }
             }
-            else{
+            else {
                 //F, B
-                if(Random(2) == 0){
+                if (Random(2) == 0) {
                     generatedScramble += "f"
                 }
-                else{
+                else {
                     generatedScramble += "b"
                 }
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
 
@@ -484,28 +484,28 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "skewb"){
+    if (scrambleType == "skewb") {
         generatedScramble = "";
 
-        for(let i = 0; i < 8; i++){
-            while(randomNumber == oldRandomNumber){
+        for (let i = 0; i < 8; i++) {
+            while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
-            
-            if(randomNumber == 0){
+
+            if (randomNumber == 0) {
                 //U, D
                 generatedScramble += "L";
             }
-            else if(randomNumber == 1){
+            else if (randomNumber == 1) {
                 //L, R
                 generatedScramble += "U";
             }
-            else{
+            else {
                 //F, B
                 generatedScramble += "R";
             }
 
-            if(Random(2) == 1){
+            if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
 
@@ -515,70 +515,70 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    if(scrambleType == "3multi"){
+    if (scrambleType == "3multi") {
         ChangeTextSize(1);
         generatedScramble = "";
 
-        for(var j = 0; j < 5; j++){
+        for (var j = 0; j < 5; j++) {
             generatedScramble += (j + 1) + ". ";
 
-            for(let i = 0; i < 20; i++){
-                while(randomNumber == oldRandomNumber){
+            for (let i = 0; i < 20; i++) {
+                while (randomNumber == oldRandomNumber) {
                     randomNumber = Random(3);
                 }
-                
-                if(randomNumber == 0){
+
+                if (randomNumber == 0) {
                     //U, D
-                    if(Random(2) == 0){
+                    if (Random(2) == 0) {
                         generatedScramble += "U"
                     }
-                    else{
+                    else {
                         generatedScramble += "D"
                     }
                 }
-                else if(randomNumber == 1){
+                else if (randomNumber == 1) {
                     //L, R
-                    if(Random(2) == 0){
+                    if (Random(2) == 0) {
                         generatedScramble += "L"
                     }
-                    else{
+                    else {
                         generatedScramble += "R"
                     }
                 }
-                else{
+                else {
                     //F, B
-                    if(Random(2) == 0){
+                    if (Random(2) == 0) {
                         generatedScramble += "F"
                     }
-                    else{
+                    else {
                         generatedScramble += "B"
                     }
                 }
-    
-                if(Random(2) == 1){
+
+                if (Random(2) == 1) {
                     generatedScramble += `'`;
                 }
-                else if(Random(4) == 1){
+                else if (Random(4) == 1) {
                     generatedScramble += "2";
                 }
-    
+
                 generatedScramble += " ";
-    
+
                 oldRandomNumber = randomNumber;
             }
             generatedScramble += "<br>"
         }
     }
 
-    if(scrambleType == "sq1"){
+    if (scrambleType == "sq1") {
         ChangeTextSize(1.25);
         generatedScramble = ""
-        for(var i = 0; i < 15; i++){
+        for (var i = 0; i < 15; i++) {
             var TopNotation = Random(10) - 5;
             var BottomNotation = Random(10) - 5;
-            
+
             //Eliminates the chance of having a "(0, 0)" notation
-            while(TopNotation == 0 && BottomNotation == 0){
+            while (TopNotation == 0 && BottomNotation == 0) {
                 TopNotation = Random(10) - 5;
                 BottomNotation = Random(10) - 5;
             }
@@ -587,28 +587,28 @@ function GenerateScramble(scrambleType){
         }
     }
 
-    return(generatedScramble);
+    return (generatedScramble);
 }
 
-function Random(highBound){
-    return(Math.round(Math.random() * (highBound - 1)));
+function Random(highBound) {
+    return (Math.round(Math.random() * (highBound - 1)));
 }
 
-function IsUIChanged(){
+function IsUIChanged() {
     oldvalue = newValue;
     newValue = document.getElementById("scramble").value;
 
-    if(oldValue == newValue){
+    if (oldValue == newValue) {
         console.log("No Change detected");
         return false;
     }
-    else if(oldvalue != newValue){
+    else if (oldvalue != newValue) {
         console.log("Change detected");
         return true;
     }
 }
 
 //Works off of em
-function ChangeTextSize(newSize){
+function ChangeTextSize(newSize) {
     document.getElementById("ScrambleText").style.fontSize = (newSize + "em")
 }

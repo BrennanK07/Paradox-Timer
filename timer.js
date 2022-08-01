@@ -3,37 +3,37 @@ var TimerString;
 var SolveTime;
 
 //Main timekeeping function
-var intervalId = window.setInterval(function(){
+var intervalId = window.setInterval(function () {
     let CurrentTime = new Date().getTime() / 1000;
 
     TimeString = SecondsToTime((CompareTime(startTime, new Date().getTime() / 1000)));
 
-    if(isSolving == true){
+    if (isSolving == true) {
         document.getElementById("timer").innerHTML = TimeString.slice(0, -2);
-    }else{
-        if(SolveTime == undefined){
+    } else {
+        if (SolveTime == undefined) {
             document.getElementById("timer").innerHTML = "0.000";
         }
-        else{
+        else {
             document.getElementById("timer").innerHTML = SolveTime;
         }
     }
 
 }, 11);
 
-function StartTimer(){
+function StartTimer() {
     startTime = new Date().getTime() / 1000;
 }
 
-function StopTimer(){
+function StopTimer() {
     SolveTime = SecondsToTime((CompareTime(startTime, new Date().getTime() / 1000)));
 }
 
-function CompareTime(startingTime, currentTime){
-    return(currentTime - startingTime);
+function CompareTime(startingTime, currentTime) {
+    return (currentTime - startingTime);
 }
 
-function TimeToSeconds(formattedTime){ //Converts XX:YY.ZZZ to seconds
+function TimeToSeconds(formattedTime) { //Converts XX:YY.ZZZ to seconds
     let formattedSeconds = 0;
     let timeArray = "";
     timeArray = formattedTime.toString();
@@ -44,39 +44,39 @@ function TimeToSeconds(formattedTime){ //Converts XX:YY.ZZZ to seconds
     formattedSeconds += parseInt(timeArray[1]);
     formattedSeconds += parseint(timeArray[2]) / 1000;
 
-    return(formattedSeconds);
+    return (formattedSeconds);
 }
 
-function SecondsToTime(timeInSeconds){ //Converts seconds to proper time format as XX:YY.ZZZ
+function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format as XX:YY.ZZZ
     let minutes = Math.floor(timeInSeconds / 60);
-    if(minutes < 10 && minutes != 0){
+    if (minutes < 10 && minutes != 0) {
         minutes = "" + minutes.toString() + ":";
     }
-    else if(minutes == 0){
+    else if (minutes == 0) {
         minutes = "";
-    }else{
+    } else {
         minutes = minutes.toString() + ":";
     }
 
     let seconds = Math.floor(timeInSeconds % 60);
-    if(seconds < 10 && minutes != 0){
+    if (seconds < 10 && minutes != 0) {
         seconds = "0" + seconds.toString() + ".";
-    }else{
+    } else {
         seconds = seconds.toString() + ".";
     }
 
     let milliseconds = Math.floor((timeInSeconds - Math.floor(timeInSeconds)) * 1000);
-    if(milliseconds < 10 && milliseconds != 0){
+    if (milliseconds < 10 && milliseconds != 0) {
         milliseconds = "0" + milliseconds.toString();
     }
 
-    if(milliseconds < 100){
+    if (milliseconds < 100) {
         milliseconds = "0" + milliseconds.toString();
     }
 
-    else if(milliseconds == 0){
+    else if (milliseconds == 0) {
         milliseconds = "000";
     }
 
-    return(minutes.toString() + seconds.toString() + milliseconds)
+    return (minutes.toString() + seconds.toString() + milliseconds)
 }

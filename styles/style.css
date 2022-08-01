@@ -2,39 +2,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-html{
-    background-color: #050505;
+html {
+  background-color: #050505;
 }
 
-h1{
-    color: #ffffff;
-    font-size: 1.5em;
-    text-align: center;
+h1 {
+  color: #ffffff;
+  font-size: 1.5em;
+  text-align: center;
 }
 
-label{
-    color: #ffffff;
+label {
+  color: #ffffff;
 }
 
 .sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 15%; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #1f1f1f; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 15%;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  background-color: #1f1f1f;
+  /* Black */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 20px;
 }
 
-label{
+label {
   font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
   font-size: 1em;
   text-align: center;
 }
 
-select{
+select {
   width: 100%;
   border: none;
   font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
@@ -52,14 +59,15 @@ select{
 }
 
 select:hover {
-  background-color:#717171;
+  background-color: #717171;
   transition: 0.2s;
 }
-select:focus{
+
+select:focus {
   background-color: #414141;
 }
 
-button{
+button {
   width: 100%;
   border: none;
   font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
@@ -74,16 +82,17 @@ button{
 }
 
 button:hover {
-  background-color:#717171;
+  background-color: #717171;
   transition: 0.2s;
 }
 
 .main {
-    margin-left: 15%; /* Same as the width of the sidebar */
-    padding: 0px 10px;
+  margin-left: 15%;
+  /* Same as the width of the sidebar */
+  padding: 0px 10px;
 }
 
-#ScrambleText{
+#ScrambleText {
   font-weight: lighter;
   font-size: 1.5em;
   font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -91,38 +100,38 @@ button:hover {
   text-align-last: center;
 }
 
-a{
-    font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+a {
+  font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
 }
 
-#timer{
-    /*DEBUG
+#timer {
+  /*DEBUG
     border:0;
     border: 2px dotted;
     END OF DEBUG*/
 
-    color: #ffffff;
-    text-align: center;
-    font-size: 18vw;
-    font-weight: normal;
-    letter-spacing: 5px;
-    font-family: 'Bebas Neue', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    line-height: 34px;
-    height: 35px;
-    /*Helps align vertically*/
-    
+  color: #ffffff;
+  text-align: center;
+  font-size: 18vw;
+  font-weight: normal;
+  letter-spacing: 5px;
+  font-family: 'Bebas Neue', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 34px;
+  height: 35px;
+  /*Helps align vertically*/
 
-    /*Removes the highlighting feature from the timer*/
-    -moz-user-select: -moz-none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
- 
-    /*
+
+  /*Removes the highlighting feature from the timer*/
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  /*
       Introduced in IE 10.
       See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
     */
-    -ms-user-select: none;
-    user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #bottom {
@@ -133,65 +142,81 @@ a{
 
 /* The Overlay (background) */
 .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
-    height: 100%;
-    width: 0;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-  }
-  
-  /* Position the content inside the overlay */
-  .overlay-content {
-    position: relative;
-    top: 25%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-  }
-  
-  /* The navigation links inside the overlay */
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+  /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/opacity */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%;
+  /* 25% from the top */
+  width: 100%;
+  /* 100% width */
+  text-align: center;
+  /* Centered text/links */
+  margin-top: 30px;
+  /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  /* Display block instead of inline */
+  transition: 0.3s;
+  /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
   .overlay a {
-    padding: 8px;
-    text-decoration: none;
-    font-size: 36px;
-    color: #818181;
-    display: block; /* Display block instead of inline */
-    transition: 0.3s; /* Transition effects on hover (color) */
+    font-size: 20px
   }
-  
-  /* When you mouse over the navigation links, change their color */
-  .overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
-  }
-  
-  /* Position the close button (top right corner) */
+
   .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
   }
-  
-  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
-  @media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-      font-size: 40px;
-      top: 15px;
-      right: 35px;
-    }
-  }
+}
 
 /*Stuff for Top Banner*/
 .header {
   width: 85%;
-  padding:30px 0;
+  padding: 30px 0;
   text-align: center;
   background: #262626;
   color: white;
@@ -209,7 +234,7 @@ a{
   border-radius: 10px;
   cursor: pointer;
   font-weight: 300;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
 .btn-bgstroke:hover {
@@ -219,31 +244,34 @@ a{
 
 /* hide scrollbar but allow scrolling */
 element {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll; 
+  -ms-overflow-style: none;
+  /* for Internet Explorer, Edge */
+  scrollbar-width: none;
+  /* for Firefox */
+  overflow-y: scroll;
 }
 
 element::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
+  display: none;
+  /* for Chrome, Safari, and Opera */
 }
 
-#SessionNameText{
+#SessionNameText {
   font-size: 2em;
 }
 
-#SessionName{
+#SessionName {
   font-size: 1.5em;
 }
 
-#CreateSession{
+#CreateSession {
   width: 15%;
 }
 
-#sessionScramble{
+#sessionScramble {
   width: 15%;
 }
 
-#SessionTitle{
+#SessionTitle {
   font-size: 2.5em;
 }
