@@ -1,5 +1,9 @@
+var Session = [];
+
 function CreateNewSession() {
-  console.log("Creating New Session");
+  Session[Session.length] = document.getElementById("SessionName").value;
+
+  console.log(document.getElementById("SessionName").value);
 }
 
 function OpenSessionGenerator() {
