@@ -1,16 +1,28 @@
 var Session = [];
 var SessionScrambles = [];
+var sessionSelect = document.getElementById("Sessions");
 
 function CreateNewSession() {
 	for (var i = 0; i < Session.length; i++) {
 		if (document.getElementById("SessionName").value == Session[i]) {
 			alert("This session name already exists!")
+			return;
 		}
 	}
 
-	Session[Session.length] = document.getElementById("SessionName").value;
+	if(document.getElementById("sessionScramble").value == "notSet"){
+		alert("You didn't select a scramble type!");
+		return;
+	}
 
-	document.getElementById("Sessions").add(Session[Session.length])
+	Session[Session.length] = document.getElementById("SessionName").value;
+	SessionScrambles[Session.length] = document.getElementById("sessionScramble").value;
+
+	var option = document.createElement('option');
+	option.value = Session[Session.length];
+	option.innerHTML = Session[Session.length];
+
+	sessionSelect.appendChild(option);
 	CloseSessionGenerator();
 }
 
