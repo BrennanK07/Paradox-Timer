@@ -26,7 +26,7 @@ function CreateNewSession() {
 	CloseSessionGenerator();
 }
 
-function OpenSessionGenerator() {
+function OpenSessionGenerator() {  
 	document.getElementById("sessionMenu").style.width = "100%";
 	OnMainPage = false;
 }
@@ -35,4 +35,8 @@ function OpenSessionGenerator() {
 function CloseSessionGenerator() {
 	document.getElementById("sessionMenu").style.width = "0%";
 	OnMainPage = true;
+}
+
+function AddTimeToSession(time, scramble){
+	
 }

@@ -16,7 +16,7 @@ label {
   color: #ffffff;
 }
 
-.sidenav {
+.Lsidenav {
   height: 100%;
   /* Full-height: remove this if you want "auto" height */
   width: 15%;
@@ -33,6 +33,31 @@ label {
   overflow-x: hidden;
   /* Disable horizontal scroll */
   padding-top: 20px;
+
+  /*Leaves space for the Scramble banner*/
+  margin-top: 6%;
+}
+
+.Rsidenav {
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 15%;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  right: 0;
+  background-color: #1f1f1f;
+  /* Black */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 20px;
+
+  /*Leaves space for the Scramble banner*/
+  margin-top: 6%;
 }
 
 label {
@@ -88,8 +113,13 @@ button:hover {
 
 .main {
   margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 7%;
+  
   /* Same as the width of the sidebar */
-  padding: 0px 10px;
+  padding: 0, 10px;
+
+  border: dotted #ffffff;
 }
 
 #ScrambleText {
@@ -117,9 +147,10 @@ a {
   letter-spacing: 5px;
   font-family: 'Bebas Neue', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 34px;
-  height: 35px;
-  /*Helps align vertically*/
 
+  /*Helps align vertically*/
+  border: dotted;
+  transform: translate(0%, -50%);
 
   /*Removes the highlighting feature from the timer*/
   -moz-user-select: -moz-none;
@@ -215,14 +246,21 @@ a {
 
 /*Stuff for Top Banner*/
 .header {
-  width: 85%;
-  padding: 30px 0;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 9;
+  width: 100%;
+  /*padding: 30px 0px;*/
   text-align: center;
   background: #262626;
   color: white;
-  margin-left: 15%;
+  /*margin-left: 15%;
+  margin-right: 15%;*/
   padding-top: 0.5%;
   padding-bottom: 0.5%;
+
+  
 }
 
 
@@ -274,4 +312,12 @@ element::-webkit-scrollbar {
 
 #SessionTitle {
   font-size: 2.5em;
+}
+
+#title{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-top: solid #4285EA;
+  border-bottom:solid #4285EA;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
 }
