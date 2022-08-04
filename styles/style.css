@@ -3,321 +3,331 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 html {
-  background-color: #050505;
+	background-color: #232323;
+	width: 100vw;
+	height: 100vh;
 }
 
 h1 {
-  color: #ffffff;
-  font-size: 1.5em;
-  text-align: center;
+	color: #ffffff;
+	font-size: 1.5em;
+	text-align: center;
 }
 
 label {
-  color: #ffffff;
+	color: #ffffff;
 }
 
 .Lsidenav {
-  height: 100%;
-  /* Full-height: remove this if you want "auto" height */
-  width: 15%;
-  /* Set the width of the sidebar */
-  position: fixed;
-  /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1;
-  /* Stay on top */
-  top: 0;
-  /* Stay at the top */
-  left: 0;
-  background-color: #1f1f1f;
-  /* Black */
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  padding-top: 20px;
+	height: 100%;
+	/* Full-height: remove this if you want "auto" height */
+	width: 15%;
+	/* Set the width of the sidebar */
+	position: fixed;
+	/* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1;
+	/* Stay on top */
+	top: 0;
+	/* Stay at the top */
+	left: 0;
+	background-color: #2f2f2f;
+	/* Black */
+	overflow-x: hidden;
+	/* Disable horizontal scroll */
+	padding-top: 20px;
 
-  /*Leaves space for the Scramble banner*/
-  margin-top: 6%;
+	/*Leaves space for the Scramble banner*/
+	margin-top: 85px;
+
+	box-shadow: 10px 0px 10px 5px #131313;
 }
 
 .Rsidenav {
-  height: 100%;
-  /* Full-height: remove this if you want "auto" height */
-  width: 15%;
-  /* Set the width of the sidebar */
-  position: fixed;
-  /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1;
-  /* Stay on top */
-  top: 0;
-  /* Stay at the top */
-  right: 0;
-  background-color: #1f1f1f;
-  /* Black */
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  padding-top: 20px;
+	height: 100%;
+	/* Full-height: remove this if you want "auto" height */
+	width: 15%;
+	/* Set the width of the sidebar */
+	position: fixed;
+	/* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1;
+	/* Stay on top */
+	top: 0;
+	/* Stay at the top */
+	right: 0;
+	background-color: #2f2f2f;
+	/* Black */
+	overflow-x: hidden;
+	/* Disable horizontal scroll */
+	padding-top: 20px;
 
-  /*Leaves space for the Scramble banner*/
-  margin-top: 6%;
+	/*Leaves space for the Scramble banner*/
+	margin-top: 85px;
+
+	box-shadow: -10px 0px 10px 5px #131313;
 }
 
 label {
-  font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
-  font-size: 1em;
-  text-align: center;
+	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+	font-size: 1em;
+	text-align: center;
 }
 
 select {
-  width: 100%;
-  border: none;
-  font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
-  margin-top: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: bold;
-  font-size: 1em;
-  text-align: center;
-  appearance: none;
+	width: 100%;
+	border: none;
+	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+	margin-top: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 1em;
+	text-align: center;
+	appearance: none;
 
-  background-color: #414141;
-  color: #fff;
-  font-weight: lighter;
+	background-color: #212121;
+	color: #fff;
+	font-weight: lighter;
 }
 
 select:hover {
-  background-color: #717171;
-  transition: 0.2s;
+	background-color: #717171;
+	transition: 0.2s;
 }
 
 select:focus {
-  background-color: #414141;
+	background-color: #212121;
 }
 
 button {
-  width: 100%;
-  border: none;
-  font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
-  margin-top: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-weight: bold;
-  font-size: 1em;
-  background-color: #414141;
-  color: #fff;
-  font-weight: lighter;
+	width: 100%;
+	border: none;
+	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+	margin-top: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	font-size: 1em;
+	background-color: #212121;
+	color: #fff;
+	font-weight: lighter;
 }
 
 button:hover {
-  background-color: #717171;
-  transition: 0.2s;
+	background-color: #717171;
+	transition: 0.2s;
 }
 
 .main {
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-top: 7%;
-  
-  /* Same as the width of the sidebar */
-  padding: 0, 10px;
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 350px;
 
-  border: dotted #ffffff;
+	/* Same as the width of the sidebar */
 }
 
 #ScrambleText {
-  font-weight: lighter;
-  font-size: 1.5em;
-  font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  text-align: justify;
-  text-align-last: center;
+	font-weight: lighter;
+	padding-left: 1em;
+	padding-right: 1em;
+	font-size: 1.5em;
+	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	text-align: justify;
+	text-align-last: center;
 }
 
 a {
-  font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
 }
 
 #timer {
-  /*DEBUG
+	/*DEBUG
     border:0;
     border: 2px dotted;
     END OF DEBUG*/
 
-  color: #ffffff;
-  text-align: center;
-  font-size: 18vw;
-  font-weight: normal;
-  letter-spacing: 5px;
-  font-family: 'Bebas Neue', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  line-height: 34px;
+	color: #ffffff;
+	text-align: center;
+	font-size: 18vw;
+	font-weight: normal;
+	letter-spacing: 5px;
+	font-family: 'Bebas Neue', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	line-height: 34px;
 
-  /*Helps align vertically*/
-  border: dotted;
-  transform: translate(0%, -50%);
+	text-size-adjust: auto;
 
-  /*Removes the highlighting feature from the timer*/
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
+	padding-left: 0;
+	padding-right: 0;
 
-  /*
+	/*Helps align vertically*/
+	transform: translate(0%, -50%);
+
+	/*Removes the highlighting feature from the timer*/
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+	/*
       Introduced in IE 10.
       See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
     */
-  -ms-user-select: none;
-  user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 #bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 /* The Overlay (background) */
 .overlay {
-  /* Height & width depends on how you want to reveal the overlay (see JS below) */
-  height: 100%;
-  width: 0;
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  background-color: rgb(0, 0, 0);
-  /* Black fallback color */
-  background-color: rgba(0, 0, 0, 0.9);
-  /* Black w/opacity */
-  overflow-x: hidden;
-  /* Disable horizontal scroll */
-  transition: 0.5s;
-  /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+	/* Height & width depends on how you want to reveal the overlay (see JS below) */
+	height: 100%;
+	width: 0;
+	position: fixed;
+	/* Stay in place */
+	z-index: 1;
+	/* Sit on top */
+	left: 0;
+	top: 0;
+	background-color: rgb(0, 0, 0);
+	/* Black fallback color */
+	background-color: rgba(0, 0, 0, 0.9);
+	/* Black w/opacity */
+	overflow-x: hidden;
+	/* Disable horizontal scroll */
+	transition: 0.5s;
+	/* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 
 /* Position the content inside the overlay */
 .overlay-content {
-  position: relative;
-  top: 25%;
-  /* 25% from the top */
-  width: 100%;
-  /* 100% width */
-  text-align: center;
-  /* Centered text/links */
-  margin-top: 30px;
-  /* 30px top margin to avoid conflict with the close button on smaller screens */
+	position: relative;
+	top: 25%;
+	/* 25% from the top */
+	width: 100%;
+	/* 100% width */
+	text-align: center;
+	/* Centered text/links */
+	margin-top: 30px;
+	/* 30px top margin to avoid conflict with the close button on smaller screens */
 }
 
 /* The navigation links inside the overlay */
 .overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  /* Display block instead of inline */
-  transition: 0.3s;
-  /* Transition effects on hover (color) */
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #818181;
+	display: block;
+	/* Display block instead of inline */
+	transition: 0.3s;
+	/* Transition effects on hover (color) */
 }
 
 /* When you mouse over the navigation links, change their color */
 .overlay a:hover,
 .overlay a:focus {
-  color: #f1f1f1;
+	color: #f1f1f1;
 }
 
 /* Position the close button (top right corner) */
 .overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
-  .overlay a {
-    font-size: 20px
-  }
+	.overlay a {
+		font-size: 20px
+	}
 
-  .overlay .closebtn {
-    font-size: 40px;
-    top: 15px;
-    right: 35px;
-  }
+	.overlay .closebtn {
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+	}
 }
 
 /*Stuff for Top Banner*/
 .header {
-  position: absolute;
-  top:0;
-  left:0;
-  z-index: 9;
-  width: 100%;
-  /*padding: 30px 0px;*/
-  text-align: center;
-  background: #262626;
-  color: white;
-  /*margin-left: 15%;
-  margin-right: 15%;*/
-  padding-top: 0.5%;
-  padding-bottom: 0.5%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	height: 75px;
+	width: 100%;
+	/*padding: 30px 0px;*/
+	text-align: center;
+	background: #050505;
+	color: white;
+	/*margin-left: 15%;
+	margin-right: 15%;*/
+	padding-top: 0.5%;
+	padding-bottom: 0.5%;
 
-  
+	box-shadow: 0px 10px 10px 5px #050505;
 }
 
 
 .btn-bgstroke {
-  font-size: 20px;
-  display: inline-block;
-  border: 1px solid white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 300;
-  margin-top: 30px;
+	font-size: 20px;
+	display: inline-block;
+	border: 1px solid white;
+	padding: 10px 20px;
+	border-radius: 10px;
+	cursor: pointer;
+	font-weight: 300;
+	margin-top: 30px;
 }
 
 .btn-bgstroke:hover {
-  background-color: white;
-  color: #33cccc;
+	background-color: white;
+	color: #33cccc;
 }
 
 /* hide scrollbar but allow scrolling */
 element {
-  -ms-overflow-style: none;
-  /* for Internet Explorer, Edge */
-  scrollbar-width: none;
-  /* for Firefox */
-  overflow-y: scroll;
+	-ms-overflow-style: none;
+	/* for Internet Explorer, Edge */
+	scrollbar-width: none;
+	/* for Firefox */
+	overflow-y: scroll;
 }
 
 element::-webkit-scrollbar {
-  display: none;
-  /* for Chrome, Safari, and Opera */
+	display: none;
+	/* for Chrome, Safari, and Opera */
 }
 
 #SessionNameText {
-  font-size: 2em;
+	font-size: 2em;
 }
 
 #SessionName {
-  font-size: 1.5em;
+	font-size: 1.5em;
 }
 
 #CreateSession {
-  width: 15%;
+	width: 15%;
 }
 
 #sessionScramble {
-  width: 15%;
+	width: 15%;
 }
 
 #SessionTitle {
-  font-size: 2.5em;
+	font-size: 2.5em;
 }
 
-#title{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border-top: solid #4285EA;
-  border-bottom:solid #4285EA;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+#title {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	border-top: solid #4285EA;
+	border-bottom: solid #4285EA;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
 }
