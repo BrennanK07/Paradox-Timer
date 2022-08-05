@@ -10,7 +10,7 @@ let OnMainPage = true;
 
 //The main repeating function that determines all other actions for the website
 var mainFunction = window.setInterval(function () {
-    if (OnMainPage) {
+    if (OnMainPage && IsFocused) {
         //Starts the timerQuery / timer if possible
         if (isPressing == true && isSolving == false && waitingToStart == false && justFinished == false) {
             ChangeTimerColor("#FF2222");
@@ -60,13 +60,13 @@ function ChangeTimerColor(colorToChangeTo) {
 
 //Listens for keyboard actions
 document.addEventListener('keydown', function (event) {
-    if (event.code == 'Space') {
+    if (event.code == 'Space' && IsFocused) {
         isPressing = true;
     }
 });
 
 document.addEventListener('keyup', function (event) {
-    if (event.code == 'Space') {
+    if (event.code == 'Space' && IsFocused) {
         isPressing = false;
         justFinished = false;
         ChangeTimerColor("#FFFFFF");

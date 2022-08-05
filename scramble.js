@@ -599,11 +599,9 @@ function IsUIChanged() {
     newValue = document.getElementById("scramble").value;
 
     if (oldValue == newValue) {
-        console.log("No Change detected");
         return false;
     }
     else if (oldvalue != newValue) {
-        console.log("Change detected");
         return true;
     }
 }
