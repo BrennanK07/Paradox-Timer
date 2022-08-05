@@ -19,7 +19,7 @@ var intervalId = window.setInterval(function () {
         }
     }
 
-}, 11);
+}, 1);
 
 function StartTimer() {
     startTime = new Date().getTime() / 1000;
@@ -33,6 +33,7 @@ function CompareTime(startingTime, currentTime) {
     return (currentTime - startingTime);
 }
 
+//Not working and not useful
 function TimeToSeconds(formattedTime) { //Converts XX:YY.ZZZ to seconds
     let formattedSeconds = 0;
     let timeArray = "";
@@ -40,20 +41,32 @@ function TimeToSeconds(formattedTime) { //Converts XX:YY.ZZZ to seconds
 
     timeArray = timeArray.split([':', '.']);
 
-    formattedSeconds = parseInt(timeArray[0]) * 60;
-    formattedSeconds += parseInt(timeArray[1]);
-    formattedSeconds += parseint(timeArray[2]) / 1000;
+    formattedSeconds = parseInt(timeArray[0]) * 3600;
+    formattedSeconds += parseInt(timeArray[1]) * 60;
+    formattedSeconds += parseint(timeArray[2]);
+    ormattedSeconds += parseint(timeArray[3]) / 1000;
 
     return (formattedSeconds);
 }
 
+//Not working, outputting 123:2:24.123
 function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format as XX:YY.ZZZ
-    let minutes = Math.floor(timeInSeconds / 60);
+    let hours = Math.floor(timeInSeconds / 3600);
+    if(hours == 0){
+        hours = "";
+    }else{
+        hours += ":";
+    }
+
+    let minutes = Math.floor(timeInSeconds / 60) - (Math.floor(timeInSeconds / 3600) * 60);
     if (minutes < 10 && minutes != 0) {
         minutes = "" + minutes.toString() + ":";
     }
-    else if (minutes == 0) {
+    else if (minutes == 0 && hours == 0) {
         minutes = "";
+    }
+    else if(minutes < 10 && hours != 0){
+        minutes = "0" + minutes.toString() + ":";
     } else {
         minutes = minutes.toString() + ":";
     }
@@ -78,5 +91,5 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
         milliseconds = "000";
     }
 
-    return (minutes.toString() + seconds.toString() + milliseconds)
+    return (hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
 }
