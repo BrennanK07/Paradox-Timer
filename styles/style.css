@@ -144,7 +144,6 @@ a {
     border:0;
     border: 2px dotted;
     END OF DEBUG*/
-
 	color: #ffffff;
 	text-align: center;
 	font-size: 18vw;
@@ -155,8 +154,7 @@ a {
 
 	text-size-adjust: auto;
 
-	padding-left: 0;
-	padding-right: 0;
+
 
 	/*Helps align vertically*/
 	transform: translate(0%, -50%);
@@ -187,7 +185,7 @@ a {
 	width: 0;
 	position: fixed;
 	/* Stay in place */
-	z-index: 1;
+	z-index: 101;
 	/* Sit on top */
 	left: 0;
 	top: 0;
@@ -330,4 +328,29 @@ element::-webkit-scrollbar {
 	border-bottom: solid #4285EA;
 	padding-top: 0.3em;
 	padding-bottom: 0.3em;
+}
+
+#InfoBox{
+	position: absolute;
+    z-index: 100;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	top: 50%;
+	font-size: 3em;
+	text-align: center;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+	/*Removes the highlighting feature from the timer*/
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+	/*
+      Introduced in IE 10.
+      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+    */
+	-ms-user-select: none;
+	user-select: none;
 }
