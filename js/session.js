@@ -2,7 +2,15 @@ var Session = [];
 var SessionScrambles = [];
 var sessionSelect = document.getElementById("Sessions");
 
-function CreateNewSession() {
+function CreateNewSession(sessionName, scrambleType) {
+	if(sessionName == null){
+		sessionName = document.getElementById("SessionName").value;
+	}
+
+	if(scrambleType == null){
+		scrambleType = document.getElementById("sessionScramble").value;
+	}
+
 	for (var i = 0; i < Session.length; i++) {
 		if (document.getElementById("SessionName").value == Session[i]) {
 			alert("This session name already exists!")
@@ -15,11 +23,11 @@ function CreateNewSession() {
 		return;
 	}
 
-	Session[Session.length] = document.getElementById("SessionName").value;
-	SessionScrambles[Session.length] = document.getElementById("sessionScramble").value;
+	Session[Session.length] = sessionName;
+	SessionScrambles[Session.length] = scrambleType;
 
 	sessionSelect.innerHTML += "<option value = " + Session[Session.length - 1] + ">" + Session[Session.length - 1] + "</option>";
-	
+
 	CloseSessionGenerator();
 }
 
