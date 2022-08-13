@@ -18,11 +18,8 @@ function CreateNewSession() {
 	Session[Session.length] = document.getElementById("SessionName").value;
 	SessionScrambles[Session.length] = document.getElementById("sessionScramble").value;
 
-	var option = document.createElement('option');
-	option.value = Session[Session.length];
-	option.innerHTML = Session[Session.length];
-
-	sessionSelect.appendChild(option);
+	sessionSelect.innerHTML += "<option value = " + Session[Session.length - 1] + ">" + Session[Session.length - 1] + "</option>";
+	
 	CloseSessionGenerator();
 }
 
@@ -37,6 +34,6 @@ function CloseSessionGenerator() {
 	OnMainPage = true;
 }
 
-function AddTimeToSession(time, scramble){
+function AddTimeToSession(time, scramble, session){
 	
 }

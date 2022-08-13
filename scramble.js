@@ -96,7 +96,7 @@ function GenerateScramble(scrambleType) {
             if (Random(2) == 1) {
                 generatedScramble += `'`;
             }
-            else if (Random(4) == 1) {
+            else if (Random(2) == 0) {
                 generatedScramble += "2";
             }
 
