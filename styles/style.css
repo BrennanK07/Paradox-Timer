@@ -354,7 +354,34 @@ element::-webkit-scrollbar {
 }
 
 #Buttons{
-	vertical-align: bottom;
+	position: absolute;
+	bottom: 12.5%;
+}
+
+table{
+	width: 100%;
+	border: 2px white solid;
+	border-collapse: collapse;
+	color: white;
+	font-family: 'Open Sans';
+
+}
+
+th{
+	border: 2px white solid;
+	border-collapse: collapse;
+
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+td{
+	border: 2px white solid;
+	border-collapse: collapse;
+}
+
+#TimeColumn{
+	width: 62%;
 }
 
 #InfoBox{
