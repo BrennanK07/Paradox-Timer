@@ -15,39 +15,41 @@
 <div class="Lsidenav">
     <h1 id="title">Times</h1>
 
-    <span id="ScrambleSelection">
-        <select name="scramble" id="scramble">
-            <option value="notSet" hidden>Select a Scramble Type</option>
-            <option value="3">3x3</option>
-            <option value="2">2x2</option>
-            <option value="4">4x4</option>
-            <option value="5">5x5</option>
-            <option value="6">6x6</option>
-            <option value="7">7x7</option>
-            <option value="3bld">3x3 Blind</option>
-            <option value="3oh">3x3 One Hand</option>
-            <option value="megaminx">Megaminx</option>
-            <option value="pyraminx">Pyraminx</option>
-            <option value="skewb">Skweb</option>
-            <option value="sq1">Square One</option>
-            <option value="4bld">4x4 Blind</option>
-            <option value="5bld">5x5 Blind</option>
-            <option value="3multi">3x3 Multi-Blind</option>
+    <div id="Buttons">
+        <span id="ScrambleSelection">
+            <select name="scramble" id="scramble">
+                <option value="notSet" hidden>Select a Scramble Type</option>
+                <option value="3">3x3</option>
+                <option value="2">2x2</option>
+                <option value="4">4x4</option>
+                <option value="5">5x5</option>
+                <option value="6">6x6</option>
+                <option value="7">7x7</option>
+                <option value="3bld">3x3 Blind</option>
+                <option value="3oh">3x3 One Hand</option>
+                <option value="megaminx">Megaminx</option>
+                <option value="pyraminx">Pyraminx</option>
+                <option value="skewb">Skweb</option>
+                <option value="sq1">Square One</option>
+                <option value="4bld">4x4 Blind</option>
+                <option value="5bld">5x5 Blind</option>
+                <option value="3multi">3x3 Multi-Blind</option>
+            </select>
+        </span>
+
+        <br>
+
+        <button onclick="openNav()">Settings</button>
+        <br>
+        <button id="ViewTimeLog">View Times</button>
+
+        <button onclick="OpenSessionGenerator()">Session Manager</button>
+
+        <select id="Sessions">
+            <label>Select a Session</label>
+            <option value="notSet" hidden>Select a Session</option>
         </select>
-    </span>
-
-    <br>
-
-    <button onclick="openNav()">Settings</button>
-    <br>
-    <button id="ViewTimeLog">View Times</button>
-
-    <button onclick="OpenSessionGenerator()">Session Manager</button>
-
-    <select id="Sessions">
-        <label>Select a Session</label>
-        <option value="notSet" hidden>Select a Session</option>
-    </select>
+    </div>
 </div>
 
 <div class="Rsidenav">
@@ -109,7 +111,20 @@
             <br>
 
             <button id="CreateSession" onclick="CreateNewSession()" type="button">Create Session</button>
+
+            <br>
+            <br>
+            <label id="SessionTitle">Session Delete</label>
+            <br>
+            <select id="SessionDeleteMenu">
+                <option value="notSet" hidden>Select a Session To Delete</option>
+            </select>
+
+            <br>
+
+            <button id="DeleteSessionButton" type="button">Delete Session</button>
         </form>
+
     </div>
 
 </div>

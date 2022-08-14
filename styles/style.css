@@ -144,6 +144,9 @@ a {
     border:0;
     border: 2px dotted;
     END OF DEBUG*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	color: #ffffff;
 	text-align: center;
 	font-size: 18vw;
@@ -157,7 +160,18 @@ a {
 
 
 	/*Helps align vertically*/
-	transform: translate(0%, -50%);
+	width: auto;
+	margin-left: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	top: 50%;
+	bottom: 0;
+	vertical-align: center;
+	text-align: center;
+	display: grid;
 
 	/*Removes the highlighting feature from the timer*/
 	-moz-user-select: -moz-none;
@@ -328,6 +342,19 @@ element::-webkit-scrollbar {
 	border-bottom: solid #4285EA;
 	padding-top: 0.3em;
 	padding-bottom: 0.3em;
+}
+
+#SessionDeleteMenu{
+	width: 15%;
+}
+
+#DeleteSessionButton{
+	width: 15%;
+	font-size: 1em;
+}
+
+#Buttons{
+	vertical-align: bottom;
 }
 
 #InfoBox{

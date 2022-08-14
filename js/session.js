@@ -31,6 +31,10 @@ function CreateNewSession(sessionName, scrambleType) {
 	CloseSessionGenerator();
 }
 
+function RemoveSession(sessionToDelete){
+	
+}
+
 function OpenSessionGenerator() {  
 	document.getElementById("sessionMenu").style.width = "100%";
 	OnMainPage = false;
