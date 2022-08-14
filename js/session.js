@@ -29,6 +29,9 @@ function CreateNewSession(sessionName, scrambleType) {
 	sessionSelect.innerHTML += "<option value = " + Session[Session.length - 1] + ">" + Session[Session.length - 1] + "</option>";
 
 	CloseSessionGenerator();
+
+	//Adds options to the "Delete Session" Menu
+	document.getElementById("SessionDeleteMenu").innerHTML += "<option value = " + Session[Session.length - 1] + ">" + Session[Session.length - 1] + "</option>";
 }
 
 function RemoveSession(sessionToDelete){
