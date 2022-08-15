@@ -384,6 +384,12 @@ td{
 	width: 62%;
 }
 
+.Stat{
+	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+	color: #ffffff;
+	padding-left: 10px;
+}
+
 #InfoBox{
 	position: absolute;
     z-index: 100;

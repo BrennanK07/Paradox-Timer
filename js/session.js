@@ -1,37 +1,28 @@
-var Session = [];
-var SessionScrambles = [];
+var sessions = [];
 var sessionSelect = document.getElementById("Sessions");
 
+class Session{
+	constructor(name, scrambleType){
+		this.sessionName = name;
+		this.scrambleType = scrambleType;
+		let totalSolves = 0;
+	}
+}
+
+//All info stored on one solve
+class Solve{
+	constructor(time, scramble)
+}
+
 function CreateNewSession(sessionName, scrambleType) {
-	if(sessionName == null){
-		sessionName = document.getElementById("SessionName").value;
-	}
-
-	if(scrambleType == null){
-		scrambleType = document.getElementById("sessionScramble").value;
-	}
-
-	for (var i = 0; i < Session.length; i++) {
-		if (document.getElementById("SessionName").value == Session[i]) {
-			alert("This session name already exists!")
-			return;
-		}
-	}
-
-	if(document.getElementById("sessionScramble").value == "notSet"){
-		alert("You didn't select a scramble type!");
-		return;
-	}
-
-	Session[Session.length] = sessionName;
-	SessionScrambles[Session.length] = scrambleType;
+	
 
 	sessionSelect.innerHTML += "<option value = " + Session[Session.length - 1] + ">" + Session[Session.length - 1] + "</option>";
 
 	CloseSessionGenerator();
 
 	//Adds options to the "Delete Session" Menu
-	document.getElementById("SessionDeleteMenu").innerHTML += "<option value = " + Session[Session.length - 1] + ">" + Session[Session.length - 1] + "</option>";
+	
 }
 
 function RemoveSession(sessionToDelete){
