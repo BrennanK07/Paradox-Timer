@@ -1,23 +1,19 @@
 var sessions = [];
 var sessionSelect = document.getElementById("Sessions");
 
-class Session{
-	constructor(name, scrambleType){
-		this.sessionName = name;
-		this.scrambleType = scrambleType;
-		let totalSolves = 0;
+//All info stored on one solve
+class Solve{
+	constructor(time, scramble, difference){
+		this.time = time;
+		this.scramble = scramble;
+		this.difference = difference;
 	}
 }
 
-//All info stored on one solve
-class Solve{
-	constructor(time, scramble)
-}
-
 function CreateNewSession(sessionName, scrambleType) {
-	
+	sessions[sessions.length] = {name: sessionName, Scramble: scrambleType, totalSolves: 0, solves: []};
 
-	sessionSelect.innerHTML += "<option value = " + Session[Session.length - 1] + ">" + Session[Session.length - 1] + "</option>";
+	sessionSelect.innerHTML += "<option value = " + sessions[sessions.length - 1].name + ">" + sessions[sessions.length - 1].name + "</option>";
 
 	CloseSessionGenerator();
 
