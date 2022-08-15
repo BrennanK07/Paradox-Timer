@@ -19,7 +19,7 @@ var intervalId = window.setInterval(function () {
         }
     }
 
-}, 1);
+}, 0.1);
 
 function StartTimer() {
     startTime = new Date().getTime() / 1000;
