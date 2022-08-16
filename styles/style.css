@@ -378,10 +378,20 @@ th{
 td{
 	border: 2px white solid;
 	border-collapse: collapse;
+	text-align: center;
 }
 
 #TimeColumn{
-	width: 62%;
+	width: 42%;
+}
+
+#NumberColumn{
+	width: 17%;
+}
+
+#timeTable{
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .Stat{
@@ -413,4 +423,9 @@ td{
     */
 	-ms-user-select: none;
 	user-select: none;
+}
+
+/*Removes the scrollbar*/
+::-webkit-scrollbar {
+    display: none;
 }

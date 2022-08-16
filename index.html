@@ -18,16 +18,25 @@
     <br>
 
     <table id="timeTable">
-        <tr>
-            <th id="TimeColumn">Time</th>
-            <th>Difference</th>
-        </tr>
-
-        <tr>
-            <th>XX:YY.ZZZ</th>
-            <th>+1:45.245</th>
-        </tr>
+        <tbody>
+            <tr>
+                <th id="NumberColumn">#</th>
+                <th id="TimeColumn">Time</th>
+                <th>Difference</th>
+            </tr>
+        </tbody>
     </table>
+</div>
+
+<div class="Rsidenav">
+    <h1 id="title">Statistics</h1>
+
+    <h2 id="best" class="Stat">Best: </h2>
+    <h2 id="worst" class="Stat">Worst: </h2>
+    <h2 id="ao5" class="Stat">Ao5: </h2>
+    <h2 id="ao12" class="Stat">Ao12: </h2>
+
+    <h1 id="title">Graph</h1>
 
     <div id="Buttons">
         <span id="ScrambleSelection">
@@ -64,17 +73,6 @@
             <option value="notSet" hidden>Select a Session</option>
         </select>
     </div>
-</div>
-
-<div class="Rsidenav">
-    <h1 id="title">Statistics</h1>
-
-    <h2 id="best" class="Stat">Best: </h2>
-    <h2 id="worst" class="Stat">Worst: </h2>
-    <h2 id="ao5" class="Stat">Ao5: </h2>
-    <h2 id="ao12" class="Stat">Ao12: </h2>
-
-    <h1 id="title">Graph</h1>
 </div>
 
 <div class="main" id="main">
@@ -131,7 +129,7 @@
 
             <br>
 
-            <button id="CreateSession" onclick="CreateNewSession()" type="button">Create Session</button>
+            <button id="CreateSession" onclick="GetSessionInfo()" type="button">Create Session</button>
 
             <br>
             <br>

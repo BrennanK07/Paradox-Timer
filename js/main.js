@@ -10,6 +10,9 @@ let OnMainPage = true;
 
 //The main repeating function that determines all other actions for the website
 var mainFunction = window.setInterval(function () {
+    
+    let sessionSelected = document.getElementById("Sessions").value; //The session that's currently in use
+
     if (OnMainPage && IsFocused) {
         //Starts the timerQuery / timer if possible
         if (isPressing == true && isSolving == false && waitingToStart == false && justFinished == false) {
@@ -44,6 +47,9 @@ var mainFunction = window.setInterval(function () {
 
             StopTimer();
             //console.log("Timer Stopping");
+
+            //Code to add the solve time to the session
+            //addTimeToSession();
         }
 
         if (isSolving == true) {
