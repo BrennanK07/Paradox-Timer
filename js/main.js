@@ -10,14 +10,14 @@ let OnMainPage = true;
 
 //The main repeating function that determines all other actions for the website
 var mainFunction = window.setInterval(function () {
-    
+
     var sessionSelected = document.getElementById("Sessions").value; //The session that's currently in use
 
     if (OnMainPage && IsFocused) {
         //Starts the timerQuery / timer if possible
         if (isPressing == true && isSolving == false && waitingToStart == false && justFinished == false) {
             //Checks to make sure there is a session selected
-            if(sessionSelected == "notSet"){
+            if (sessionSelected == "notSet") {
                 alert("You didn't select a session to use!")
                 isPressing = false;
                 return;
@@ -57,16 +57,18 @@ var mainFunction = window.setInterval(function () {
 
             //Code to add the solve time to the session
             sessionSelect.value.totalSolves++;
-            console.log(sessionSelect.totalSolves);
             addTimeToSession(GetSolveNumber(), SolveTime, document.getElementById("ScrambleText").innerHTML);
 
             //Regenerates Scramble
+            GenerateScramble(GetScrambleFromUI());
         }
 
         if (isSolving == true) {
             ChangeTimerColor("#FFFFFF");
         }
     }
+
+    currentActiveSession = GetActiveSession();
 }, 1);
 
 function ChangeTimerColor(colorToChangeTo) {

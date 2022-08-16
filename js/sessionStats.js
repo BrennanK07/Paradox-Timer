@@ -14,6 +14,7 @@ function addToTable(number, time, difference){
 
 function addTimeToSession(number, time, scramble){
     addToTable(number, time, CalculateDifference(time));
+    sessions[currentActiveSession].totalSolves++;
 }
 
 function removeTimeFromSession(){
@@ -33,9 +34,11 @@ function CalculateAverage(){
 }
 
 function GetSolveNumber(){
-    return sessionSelect.value.totalSolves;
+    return sessions[currentActiveSession].totalSolves;
 }
 
 function GetActiveSession(){
-    return sessionSelect.value;
+    let arrayIndex;
+    arrayIndex = sessions.map(object => object.name).indexOf(document.getElementById("Sessions").value);
+    return arrayIndex;
 }

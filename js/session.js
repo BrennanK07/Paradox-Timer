@@ -1,5 +1,6 @@
 var sessions = [];
 var sessionSelect = document.getElementById("Sessions");
+var currentActiveSession;
 
 //All info stored on one solve
 class Solve{
@@ -28,7 +29,8 @@ function CreateNewSession(sessionName, scrambleType) {
 	}
 
 	sessions[sessions.length] = {name: "", Scramble: "", totalSolves: 0, solves: []};
-	sessions[0].name = sessionName;
+	sessions[sessions.length - 1].Scramble = scrambleType;
+	sessions[sessions.length - 1].name = sessionName;
 
 	sessionSelect.innerHTML += "<option value = " + sessions[sessions.length - 1].name + ">" + sessions[sessions.length - 1].name + "</option>";
 
