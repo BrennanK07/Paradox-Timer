@@ -13,13 +13,29 @@ function addToTable(number, time, difference){
 }
 
 function addTimeToSession(number, time, scramble){
-    
+    addToTable(number, time, CalculateDifference(time));
+}
+
+function removeTimeFromSession(){
+
+}
+
+function RedrawTable(){
+
+}
+
+function CalculateDifference(solveTime){
+    return 0;
+}
+
+function CalculateAverage(){
+    var average;
 }
 
 function GetSolveNumber(){
-    return sessionSelected.number;
+    return sessionSelect.value.totalSolves;
 }
 
 function GetActiveSession(){
-    return sessionSelected;
+    return sessionSelect.value;
 }
