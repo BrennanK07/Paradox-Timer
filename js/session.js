@@ -2,15 +2,6 @@ var sessions = [];
 var sessionSelect = document.getElementById("Sessions");
 var currentActiveSession;
 
-//All info stored on one solve
-class Solve{
-	constructor(time, scramble, difference){
-		this.time = time;
-		this.scramble = scramble;
-		this.difference = difference;
-	}
-}
-
 function GetSessionInfo(){ //For "Create New Session"
 	let SessionName = document.getElementById("SessionName").value;
 	let ScrambleType = document.getElementById("sessionScramble").value;

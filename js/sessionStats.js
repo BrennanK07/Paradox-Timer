@@ -13,8 +13,10 @@ function addToTable(number, time, difference){
 }
 
 function addTimeToSession(number, time, scramble){
-    addToTable(number, time, CalculateDifference(time));
     sessions[currentActiveSession].totalSolves++;
+    addToTable(number + 1, time, CalculateDifference(time));
+
+    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = {time: time, scramble: scramble, difference: CalculateDifference(time)};
 }
 
 function removeTimeFromSession(){
