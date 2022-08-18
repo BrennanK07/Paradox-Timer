@@ -9,6 +9,11 @@ function GetSessionInfo(){ //For "Create New Session"
 }
 
 function CreateNewSession(sessionName, scrambleType) {
+	if(sessions.map(object => object.name).indexOf(sessionName) != -1){
+		alert("Session Name Already Exists!");
+		return;
+	}
+
 	if(sessionName == ""){
 		alert("You didn't give it a name!")
 		return;
@@ -23,12 +28,12 @@ function CreateNewSession(sessionName, scrambleType) {
 	sessions[sessions.length - 1].Scramble = scrambleType;
 	sessions[sessions.length - 1].name = sessionName;
 
-	sessionSelect.innerHTML += "<option value = " + sessions[sessions.length - 1].name + ">" + sessions[sessions.length - 1].name + "</option>";
+	sessionSelect.innerHTML += `<option value = "` + sessions[sessions.length - 1].name + `">` + sessions[sessions.length - 1].name + "</option>";
 
 	CloseSessionGenerator();
 
 	//Adds options to the "Delete Session" Menu
-	document.getElementById("SessionDeleteMenu").innerHTML += "<option value = " + sessions[sessions.length - 1].name + ">" + sessions[sessions.length - 1].name + "</option>";
+	document.getElementById("SessionDeleteMenu").innerHTML += `<option value = "` + sessions[sessions.length - 1].name + `">` + sessions[sessions.length - 1].name + "</option>";
 }
 
 function RemoveSession(sessionToDelete){
