@@ -1,6 +1,7 @@
 var startTime;
 var TimerString;
 var SolveTime;
+var SolveTimeInSeconds;
 
 //Main timekeeping function
 var intervalId = window.setInterval(function () {
@@ -27,30 +28,26 @@ function StartTimer() {
 
 function StopTimer() {
     SolveTime = SecondsToTime((CompareTime(startTime, new Date().getTime() / 1000)));
+    SolveTimeInSeconds = CompareTime(startTime, new Date().getTime() / 1000);
 }
 
 function CompareTime(startingTime, currentTime) {
     return (currentTime - startingTime);
 }
 
-//Not working and not useful
-function TimeToSeconds(formattedTime) { //Converts XX:YY.ZZZ to seconds
-    let formattedSeconds = 0;
-    let timeArray = "";
-    timeArray = formattedTime.toString();
-
-    timeArray = timeArray.split([':', '.']);
-
-    formattedSeconds = parseInt(timeArray[0]) * 3600;
-    formattedSeconds += parseInt(timeArray[1]) * 60;
-    formattedSeconds += parseint(timeArray[2]);
-    ormattedSeconds += parseint(timeArray[3]) / 1000;
-
-    return (formattedSeconds);
-}
-
 //Not working, outputting 123:2:24.123
 function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format as XX:YY.ZZZ
+    let isNegataive = false;
+
+    if(timeInSeconds == NaN){
+        return(0.000);
+    }
+
+    if(timeInSeconds < 0){
+        isNegataive = true;
+        timeInSeconds = timeInSeconds.toString().replace('-', '')
+    }
+
     let hours = Math.floor(timeInSeconds / 3600);
     if(hours == 0){
         hours = "";
@@ -91,5 +88,9 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
         milliseconds = "000";
     }
 
-    return (hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
+    if(isNegataive == false){
+        return (hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
+    }else{
+        return ('-' + hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
+    }
 }

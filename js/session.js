@@ -24,7 +24,7 @@ function CreateNewSession(sessionName, scrambleType) {
 		return;
 	}
 
-	sessions[sessions.length] = {name: "", Scramble: "", totalSolves: 0, solves: []};
+	sessions[sessions.length] = {name: "", Scramble: "", totalSolves: 0, solves: [], best: 0, bestAo5: 0, bestAo12: 0};
 	sessions[sessions.length - 1].Scramble = scrambleType;
 	sessions[sessions.length - 1].name = sessionName;
 

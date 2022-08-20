@@ -57,7 +57,7 @@ var mainFunction = window.setInterval(function () {
 
             //Code to add the solve time to the session
             sessionSelect.value.totalSolves++;
-            addTimeToSession(GetSolveNumber(), SolveTime, document.getElementById("ScrambleText").innerHTML);
+            addTimeToSession(GetSolveNumber(), SolveTime, document.getElementById("ScrambleText").innerHTML, SolveTimeInSeconds);
 
             //Regenerates Scramble
             GenerateScramble(GetScrambleFromUI());
@@ -69,6 +69,8 @@ var mainFunction = window.setInterval(function () {
     }
 
     currentActiveSession = GetActiveSession();
+
+    average = CalculateAverage();
 }, 1);
 
 function ChangeTimerColor(colorToChangeTo) {
