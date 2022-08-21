@@ -35,7 +35,6 @@ function CompareTime(startingTime, currentTime) {
     return (currentTime - startingTime);
 }
 
-//Not working, outputting 123:2:24.123
 function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format as XX:YY.ZZZ
     let isNegataive = false;
 
