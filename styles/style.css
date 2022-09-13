@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Mono&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
 html {
 	background-color: #232323;
@@ -152,10 +152,9 @@ a {
 	left: 50%;
 	color: #ffffff;
 	text-align: center;
-	font-size: 20vw;
-	font-weight: normal;
-	letter-spacing: 5px;
-	font-family: 'Bebas Neue', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-size: 15vw;
+	font-weight: bold;
+	font-family: 'Monsterrat', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	line-height: 34px;
 
 	text-size-adjust: auto;

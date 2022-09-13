@@ -17,7 +17,7 @@ function addToTable(number, time, difference) {
 function addTimeToSession(number, time, scramble, timeSeconds) {
     CalculateAverage();
     sessions[currentActiveSession].totalSolves++;
-    addToTable(number + 1, time, CalculateDifference(timeSeconds));
+    //addToTable(number + 1, time, CalculateDifference(timeSeconds)); Stuff is added to table on reload
 
     sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(time) };
     console.log(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1]);
@@ -34,11 +34,13 @@ function addTimeToSession(number, time, scramble, timeSeconds) {
     } else {
         document.getElementById("ao12").innerHTML = "Ao12: -";
     }
+
+    ReloadSessions();
 }
 
 function removeTimeFromSession() {
     CalculateAverage();
-    RedrawTable();
+    ReloadSessions();
 }
 
 function removeRecentTime() {
@@ -46,10 +48,6 @@ function removeRecentTime() {
     sessions[currentActiveSession].solves.pop();
     sessions[currentActiveSession].totalSolves--;
     table.deleteRow(1);
-}
-
-function RedrawTable() {
-
 }
 
 function CalculateDifference(solveTime) {

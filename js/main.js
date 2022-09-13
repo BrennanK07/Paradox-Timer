@@ -59,6 +59,9 @@ var mainFunction = window.setInterval(function () {
             sessionSelect.value.totalSolves++;
             addTimeToSession(GetSolveNumber(), SolveTime, document.getElementById("ScrambleText").innerHTML, SolveTimeInSeconds);
 
+            //Reloads the table to display the right information
+            ReloadSessions();
+
             //Regenerates Scramble
             GenerateScramble(GetScrambleFromUI());
         }
