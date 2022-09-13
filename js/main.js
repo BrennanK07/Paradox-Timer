@@ -5,6 +5,7 @@ let waitingToStart = false; //Active when waiting for the light to turn green
 let isPressing = false; //If the user is interacting (Space / touch / mouse)
 let pressTime; //Time the player press the start button
 let justFinished = false;
+let previousSession;
 
 let OnMainPage = true;
 
@@ -70,8 +71,12 @@ var mainFunction = window.setInterval(function () {
             ChangeTimerColor("#FFFFFF");
         }
     }
-
+    previousSession = currentActiveSession;
     currentActiveSession = GetActiveSession();
+
+    if(previousSession != currentActiveSession){
+        ReloadSessions();
+    }
 
     average = CalculateAverage();
 }, 1);
