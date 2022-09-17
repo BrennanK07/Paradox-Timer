@@ -39,7 +39,7 @@
     <h1 id="title">Graph</h1>
 
     <div id="Buttons">
-        <span id="ScrambleSelection">
+        <span id="ScrambleSelection" id="button">
             <select name="scramble" id="scramble">
                 <option value="notSet" hidden>Select a Scramble Type</option>
                 <option value="3">3x3</option>
@@ -62,13 +62,13 @@
 
         <br>
 
-        <button onclick="openNav()">Settings</button>
+        <button onclick="openNav()" id="button">Settings</button>
         <br>
-        <button id="Info">Information</button>
+        <button id="Info" id="button">Information</button>
 
-        <button onclick="OpenSessionGenerator()">Session Manager</button>
+        <button onclick="OpenSessionGenerator()" id="button">Session Manager</button>
 
-        <select id="Sessions">
+        <select id="Sessions" id="button">
             <label>Select a Session</label>
             <option value="notSet" hidden>Select a Session</option>
         </select>
@@ -159,3 +159,4 @@
 <script src="js/save.js"></script>
 <script src="js/main.js"></script>
 <script src="js/customization.js"></script>
+<script src="js/graph.js"></script>
