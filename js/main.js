@@ -58,7 +58,7 @@ var mainFunction = window.setInterval(function () {
 
             //Code to add the solve time to the session
             sessionSelect.value.totalSolves++;
-            addTimeToSession(GetSolveNumber(), SolveTime, document.getElementById("ScrambleText").innerHTML, SolveTimeInSeconds);
+            addTimeToSession(GetSolveNumber(), SolveTime, document.getElementById("ScrambleText").innerHTML, SolveTimeInSeconds, false, false);
 
             //Reloads the table to display the right information
             ReloadSessions();

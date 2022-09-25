@@ -14,12 +14,15 @@ function addToTable(number, time, difference) {
     cell3.innerHTML = difference;
 }
 
-function addTimeToSession(number, time, scramble, timeSeconds) {
+//state of 0 = completed, no penalties
+//state of 1 = +2
+//state of 2 = DNF
+function addTimeToSession(number, time, scramble, timeSeconds, DNF, p2) { //DNF and plus 2
     CalculateAverage();
     sessions[currentActiveSession].totalSolves++;
     //addToTable(number + 1, time, CalculateDifference(timeSeconds)); Stuff is added to table on reload
 
-    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(time) };
+    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(time), DNF: false, plus2: false };
     console.log(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1]);
 
     //For ao5 and ao12
@@ -128,7 +131,58 @@ document.addEventListener('keydown', function (event) {
         delete keysPressed['p'];
         removeRecentTime();
     }
+
+    if (keysPressed['k']) { //DNF
+        delete keysPressed['k'];
+        MakeTimeDNF();
+    }
+
+    if (keysPressed['l']) { //+2
+        delete keysPressed['l'];
+        MakeTimePlus2();
+    }
 });
+
+function MakeTimeDNF() {
+    if (sessions[currentActiveSession].solves.length == 0 || sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].plus2 == true) {
+        return;
+    }
+
+    if (sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].DNF == false) {
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].DNF = true;
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = "DNF";
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].difference = "-"
+        //TimeSeconds is not modified and DNF is determined by the physical time rather than the seconds (If it were the seconds equalling "DNF" as well, it would not save the solve time in case of a misclick of the DNF button)
+    } else {
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].DNF = false;
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = SecondsToTime(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds);
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].difference = CalculateDifference(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds);
+    }
+
+    ReloadSessions();
+}
+
+function MakeTimePlus2() {
+    if (sessions[currentActiveSession].solves.length == 0 || sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].DNF == true) {
+        return;
+    }
+
+    if (sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].plus2 == false) {
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].plus2 = true;
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds = sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds + 2;
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = SecondsToTime(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds);
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = '+' + sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time;
+    } else {
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].plus2 = false;
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds = sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds - 2;
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = SecondsToTime(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds);
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time = sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].time.replace('+', '');
+    }
+
+    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].difference = CalculateDifference(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds);
+
+    ReloadSessions();
+}
 
 document.addEventListener('keyup', (event) => {
     delete keysPressed[event.key];

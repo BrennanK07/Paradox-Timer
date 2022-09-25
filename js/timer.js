@@ -93,3 +93,7 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
         return ('-' + hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
     }
 }
+
+function RemoveTimeJunk(timeValue){
+    
+}
