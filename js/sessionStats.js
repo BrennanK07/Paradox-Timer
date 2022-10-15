@@ -159,6 +159,19 @@ function MakeTimeDNF() {
         sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].difference = CalculateDifference(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds);
     }
 
+    /*For re-calculating the ao5 / 12*/
+    if (sessions[currentActiveSession].totalSolves >= 5) {
+        document.getElementById("ao5").innerHTML = "Ao5: " + SecondsToTime(CalculateAo5());
+    } else {
+        document.getElementById("ao5").innerHTML = "Ao5: -";
+    }
+
+    if (sessions[currentActiveSession].totalSolves >= 12) {
+        document.getElementById("ao12").innerHTML = "Ao12: " + SecondsToTime(CalculateAo12());
+    } else {
+        document.getElementById("ao12").innerHTML = "Ao12: -";
+    }
+
     ReloadSessions();
 }
 
@@ -180,6 +193,19 @@ function MakeTimePlus2() {
     }
 
     sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].difference = CalculateDifference(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].timeSeconds);
+
+    /*For re-calculating the ao5 / 12*/
+    if (sessions[currentActiveSession].totalSolves >= 5) {
+        document.getElementById("ao5").innerHTML = "Ao5: " + SecondsToTime(CalculateAo5());
+    } else {
+        document.getElementById("ao5").innerHTML = "Ao5: -";
+    }
+
+    if (sessions[currentActiveSession].totalSolves >= 12) {
+        document.getElementById("ao12").innerHTML = "Ao12: " + SecondsToTime(CalculateAo12());
+    } else {
+        document.getElementById("ao12").innerHTML = "Ao12: -";
+    }
 
     ReloadSessions();
 }

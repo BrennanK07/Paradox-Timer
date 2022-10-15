@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+
 html {
 	background-color: #232323;
 	width: 100vw;
@@ -337,7 +338,7 @@ element::-webkit-scrollbar {
 	width: 15%;
 }
 
-#Sessions{
+#Sessions {
 	font-weight: bold;
 }
 
@@ -353,22 +354,22 @@ element::-webkit-scrollbar {
 	padding-bottom: 0.3em;
 }
 
-#SessionDeleteMenu{
+#SessionDeleteMenu {
 	width: 15%;
 }
 
-#DeleteSessionButton{
+#DeleteSessionButton {
 	width: 15%;
 	font-size: 1em;
 }
 
-#Buttons{
+#Buttons {
 	position: fixed;
 	bottom: 4px;
 	right: -10;
 }
 
-table{
+table {
 	width: 100%;
 	border: 2px white solid;
 	border-collapse: collapse;
@@ -377,7 +378,7 @@ table{
 
 }
 
-th{
+th {
 	border: 2px white solid;
 	border-collapse: collapse;
 
@@ -385,34 +386,52 @@ th{
 	padding-bottom: 2px;
 }
 
-td{
+td {
 	border: 2px white solid;
 	border-collapse: collapse;
 	text-align: center;
 }
 
-#TimeColumn{
+#TimeColumn {
 	width: 42%;
 }
 
-#NumberColumn{
+#NumberColumn {
 	width: 17%;
 }
 
-#timeTable{
+#timeTable {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 
-.Stat{
+.Stat {
 	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
 	color: #ffffff;
 	padding-left: 10px;
 }
 
-#InfoBox{
+.material-symbols-outlined {
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 200,
+		'GRAD' 0,
+		'opsz' 48;
+
+
+
+	color: #ffffff;
+}
+
+.menuButtonArray {
+	position: fixed;
+	bottom: 0px;
+	left: 16%;
+}
+
+#InfoBox {
 	position: absolute;
-    z-index: 100;
+	z-index: 100;
 	margin-left: auto;
 	margin-right: auto;
 	left: 0;
@@ -437,5 +456,5 @@ td{
 
 /*Removes the scrollbar*/
 ::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
