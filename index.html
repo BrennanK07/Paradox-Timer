@@ -7,162 +7,163 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 
+<body>
+    <html>
 
-<html>
+    <head>
+        <title>Cubing Timer v2.0</title>
+    </head>
 
-<head>
-    <title>Cubing Timer v2.0</title>
-</head>
+    <section class="header" id="header">
+        <h1 id="ScrambleText">Scramble Type Not Set</h1>
+    </section>
 
-<section class="header" id="header">
-    <h1 id="ScrambleText">Scramble Type Not Set</h1>
-</section>
+    <div class="Lsidenav" id="Lsidenav">
+        <div class="tableHeader">
+            <h1 id="title" class="title">Graph</h1>
 
-<div class="Lsidenav">
-    <div class="tableHeader">
-        <h1 id="title">Graph</h1>
+            <div id="graph"></div>
 
-        <div id="graph"></div>
+            <h1 id="title" class="title">Times</h1>
 
-        <h1 id="title">Times</h1>
+            <br>
+        </div>
 
-        <br>
+        <table id="timeTable">
+            <tbody id="tableBody">
+                <tr>
+                    <th id="NumberColumn">#</th>
+                    <th id="TimeColumn">Time</th>
+                    <th>Difference</th>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <table id="timeTable">
-        <tbody id="tableBody">
-            <tr>
-                <th id="NumberColumn">#</th>
-                <th id="TimeColumn">Time</th>
-                <th>Difference</th>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <div class="Rsidenav" id="Rsidenav">
+        <h1 id="title" class="title">Statistics</h1>
 
-<div class="Rsidenav">
-    <h1 id="title">Statistics</h1>
+        <h2 id="best" class="Stat">Best: </h2>
+        <h2 id="bestao5" class="Stat">Best Ao5: </h2>
+        <h2 id="ao5" class="Stat">Ao5: </h2>
+        <h2 id="ao12" class="Stat">Ao12: </h2>
 
-    <h2 id="best" class="Stat">Best: </h2>
-    <h2 id="bestao5" class="Stat">Best Ao5: </h2>
-    <h2 id="ao5" class="Stat">Ao5: </h2>
-    <h2 id="ao12" class="Stat">Ao12: </h2>
+        <div id="Buttons">
+            <span id="ScrambleSelection" id="button" class="button">
+                <select name="scramble" id="scramble" class="button">
+                    <option value="notSet" hidden>Select a Scramble Type</option>
+                    <option value="3">3x3</option>
+                    <option value="2">2x2</option>
+                    <option value="4">4x4</option>
+                    <option value="5">5x5</option>
+                    <option value="6">6x6</option>
+                    <option value="7">7x7</option>
+                    <option value="3bld">3x3 Blind</option>
+                    <option value="3oh">3x3 One Hand</option>
+                    <option value="megaminx">Megaminx</option>
+                    <option value="pyraminx">Pyraminx</option>
+                    <option value="skewb">Skweb</option>
+                    <option value="sq1">Square One</option>
+                    <option value="4bld">4x4 Blind</option>
+                    <option value="5bld">5x5 Blind</option>
+                    <option value="3multi">3x3 Multi-Blind</option>
+                </select>
+            </span>
 
-    <div id="Buttons">
-        <span id="ScrambleSelection" id="button">
-            <select name="scramble" id="scramble">
-                <option value="notSet" hidden>Select a Scramble Type</option>
-                <option value="3">3x3</option>
-                <option value="2">2x2</option>
-                <option value="4">4x4</option>
-                <option value="5">5x5</option>
-                <option value="6">6x6</option>
-                <option value="7">7x7</option>
-                <option value="3bld">3x3 Blind</option>
-                <option value="3oh">3x3 One Hand</option>
-                <option value="megaminx">Megaminx</option>
-                <option value="pyraminx">Pyraminx</option>
-                <option value="skewb">Skweb</option>
-                <option value="sq1">Square One</option>
-                <option value="4bld">4x4 Blind</option>
-                <option value="5bld">5x5 Blind</option>
-                <option value="3multi">3x3 Multi-Blind</option>
+            <br>
+
+            <button onclick="openNav()" id="button" class="button">Settings</button>
+            <br>
+            <button id="Info" id="button" class="button">Information</button>
+
+            <button onclick="OpenSessionGenerator()" id="button" class="button">Session Manager</button>
+
+            <select id="Sessions" id="button" class="button">
+                <label>Select a Session</label>
+                <option value="notSet" hidden>Select a Session</option>
             </select>
-        </span>
-
-        <br>
-
-        <button onclick="openNav()" id="button">Settings</button>
-        <br>
-        <button id="Info" id="button">Information</button>
-
-        <button onclick="OpenSessionGenerator()" id="button">Session Manager</button>
-
-        <select id="Sessions" id="button">
-            <label>Select a Session</label>
-            <option value="notSet" hidden>Select a Session</option>
-        </select>
-    </div>
-</div>
-
-<div class="main" id="main">
-    <h1 id="InfoBox">Click here to refocus</h1>
-    <h2 id="timer">0.000</h2>
-
-    <div class="menuButtonArray">
-        
-    </div>
-</div>
-
-<div id="settingsMenu" class="overlay">
-
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
-    <!-- Overlay content -->
-    <div class="overlay-content">
-        <a href="#">Customization</a>
-        <a href="#">Timer</a>
-        <a href="#">Extra Features</a>
-        <a href="#">Advanced</a>
+        </div>
     </div>
 
-</div>
+    <div class="main" id="main">
+        <h1 id="InfoBox">Click here to refocus</h1>
+        <h2 id="timer">0.000</h2>
 
-<div id="sessionMenu" class="overlay">
+        <div class="menuButtonArray">
 
-    <!-- Button to close the overlay navigation -->
-    <a href="javascript:void(0)" class="closebtn" onclick="CloseSessionGenerator()">&times;</a>
+        </div>
+    </div>
 
-    <!-- Overlay content -->
-    <div class="overlay-content">
-        <label id="SessionTitle">Session Creator</label>
-        <br>
-        <form>
-            <input type="text" id="SessionName" placeholder="Session Name">
-            <br>
+    <div id="settingsMenu" class="overlay">
 
-            <select name="sessionScramble" id="sessionScramble">
-                <option value="notSet" hidden>Select a Scramble Type</option>
-                <option value="3">3x3</option>
-                <option value="2">2x2</option>
-                <option value="4">4x4</option>
-                <option value="5">5x5</option>
-                <option value="6">6x6</option>
-                <option value="7">7x7</option>
-                <option value="3bld">3x3 Blind</option>
-                <option value="3oh">3x3 One Hand</option>
-                <option value="megaminx">Megaminx</option>
-                <option value="pyraminx">Pyraminx</option>
-                <option value="skewb">Skweb</option>
-                <option value="sq1">Square One</option>
-                <option value="4bld">4x4 Blind</option>
-                <option value="5bld">5x5 Blind</option>
-                <option value="3multi">3x3 Multi-Blind</option>
-            </select>
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-            <br>
-
-            <button id="CreateSession" onclick="GetSessionInfo()" type="button">Create Session</button>
-
-            <br>
-            <br>
-            <label id="SessionTitle">Session Delete</label>
-            <br>
-            <select id="SessionDeleteMenu">
-                <option value="notSet" hidden>Select a Session To Delete</option>
-            </select>
-
-            <br>
-
-            <button id="DeleteSessionButton" type="button">Delete Session</button>
-        </form>
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <a href="#">Customization</a>
+            <a href="#">Timer</a>
+            <a href="#">Extra Features</a>
+            <a href="#">Advanced</a>
+        </div>
 
     </div>
 
-</div>
+    <div id="sessionMenu" class="overlay">
 
-</html>
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="CloseSessionGenerator()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <label id="SessionTitle">Session Creator</label>
+            <br>
+            <form>
+                <input type="text" id="SessionName" placeholder="Session Name">
+                <br>
+
+                <select name="sessionScramble" id="sessionScramble">
+                    <option value="notSet" hidden>Select a Scramble Type</option>
+                    <option value="3">3x3</option>
+                    <option value="2">2x2</option>
+                    <option value="4">4x4</option>
+                    <option value="5">5x5</option>
+                    <option value="6">6x6</option>
+                    <option value="7">7x7</option>
+                    <option value="3bld">3x3 Blind</option>
+                    <option value="3oh">3x3 One Hand</option>
+                    <option value="megaminx">Megaminx</option>
+                    <option value="pyraminx">Pyraminx</option>
+                    <option value="skewb">Skweb</option>
+                    <option value="sq1">Square One</option>
+                    <option value="4bld">4x4 Blind</option>
+                    <option value="5bld">5x5 Blind</option>
+                    <option value="3multi">3x3 Multi-Blind</option>
+                </select>
+
+                <br>
+
+                <button id="CreateSession" onclick="GetSessionInfo()" type="button">Create Session</button>
+
+                <br>
+                <br>
+                <label id="SessionTitle">Session Delete</label>
+                <br>
+                <select id="SessionDeleteMenu">
+                    <option value="notSet" hidden>Select a Session To Delete</option>
+                </select>
+
+                <br>
+
+                <button id="DeleteSessionButton" type="button">Delete Session</button>
+            </form>
+
+        </div>
+
+    </div>
+
+    </html>
+</body>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="js/focus.js"></script>

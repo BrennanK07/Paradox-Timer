@@ -31,7 +31,6 @@ label {
 	top: 0;
 	/* Stay at the top */
 	left: 0;
-	background-color: #2f2f2f;
 	/* Black */
 	overflow-x: hidden;
 	/* Disable horizontal scroll */
@@ -55,7 +54,6 @@ label {
 	top: 0;
 	/* Stay at the top */
 	right: 0;
-	background-color: #2f2f2f;
 	/* Black */
 	overflow-x: hidden;
 	/* Disable horizontal scroll */
@@ -369,15 +367,6 @@ element::-webkit-scrollbar {
 	right: -10;
 }
 
-table {
-	width: 100%;
-	border: 2px white solid;
-	border-collapse: collapse;
-	color: white;
-	font-family: 'Open Sans';
-
-}
-
 th {
 	border: 2px white solid;
 	border-collapse: collapse;
@@ -386,8 +375,8 @@ th {
 	padding-bottom: 2px;
 }
 
-td {
-	border: 2px white solid;
+td, tr, th {
+	border: 2px blue solid;
 	border-collapse: collapse;
 	text-align: center;
 }
@@ -401,6 +390,13 @@ td {
 }
 
 #timeTable {
+	width: 100%;
+	border: 2px white solid;
+	border-collapse: collapse;
+	border-color: white;
+	font-family: 'Open Sans';
+	
+
 	overflow-y: auto;
 	overflow-x: hidden;
 }

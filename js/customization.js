@@ -1,16 +1,16 @@
 var timer = document.getElementById("timer");
 var background = document.getElementById("html");
-var leftSideBarBackground = document.getElementById("Lsidenav")
-var rightSideBarBackground = document.getElementById("Rsidenav")
-var scrambleText = document.getElementById("ScrambleText")
-var scrambleBackground = document.getElementById("header")
-var titleTextColor = document.getElementById("title")
-var titleStripeColor = document.getElementById("title")
-var buttonBackgroundColor = document.getElementById("button")
-var buttonBackgroundHover = document.getElementById("button:hover")
-var buttonTextColor = document.getElementById("button")
-var tableColor = document.getElementById("timeTable")
-var tableTextColor = document.getElementById("tableBody")
+var leftSideBarBackground = document.getElementById("Lsidenav");
+var rightSideBarBackground = document.getElementById("Rsidenav");
+var scrambleText = document.getElementById("ScrambleText");
+var scrambleBackground = document.getElementById("header");
+var titleTextColor = document.querySelectorAll('.title');
+var titleStripeColor = document.querySelectorAll('.title');
+var buttonBackgroundColor = document.querySelectorAll('.button');
+var buttonTextColor = document.querySelectorAll('.button');
+var tableColor = document.querySelectorAll('td, th, tr');
+var tableTextColor = document.getElementById("tableBody");
+var statsTextColor = document.querySelectorAll('.Stat');
 
 var setConfig;
 
@@ -26,10 +26,10 @@ var DefaultConfig = {
     titleTextColor: "#FFFFFF",
     titleStripeColor: "#4285EA",
     buttonBackgroundColor: "#212121",
-    buttonBackgroundHover: "#717171",
     buttonTextColor: "#FFFFFF",
     tableColor: "#FFFFFF",
-    tableTextColor: "#00FF00"
+    tableTextColor: "#00FF00",
+    statsTextColor: "#FFFFFF"
 };
 
 var Configs = [];
@@ -44,5 +44,42 @@ function GetActiveConfig(){
 }
 
 function SetCustomizations(layout) {
-    
+    timer.style.color = "#000000";
+
+    document.body.style.backgroundColor = "#000000";
+
+    leftSideBarBackground.style.backgroundColor = "#000000";
+
+    rightSideBarBackground.style.backgroundColor = "#000000";
+
+    scrambleText.style.color = "#000000";
+
+    scrambleBackground.style.backgroundColor = "#000000";
+
+    titleTextColor.forEach(textObject => {
+        textObject.style.color = "#000000";
+    });
+
+    titleStripeColor.forEach(stripeObject => {
+        stripeObject.style.borderTop = "#000000";
+        stripeObject.style.borderBottom = "#000000";
+    });
+
+    buttonBackgroundColor.forEach(buttonObject =>{
+        buttonObject.style.backgroundColor = "#000000";
+    });
+
+    buttonTextColor.forEach(buttonTextObject =>{
+        buttonTextObject.style.color = "#000000";
+    });
+
+    tableColor.forEach(tableColorObject =>{
+        tableColorObject.style.border = "2px " + "#000000" + " solid";
+    });
+
+    tableTextColor.style.color = "#000000";
+
+    statsTextColor.forEach(statObject =>{
+        statObject.style.color = "#000000";
+    });
 }
