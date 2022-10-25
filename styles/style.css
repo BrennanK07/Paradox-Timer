@@ -4,7 +4,7 @@
 
 
 html {
-	background-color: #232323;
+	/*background-color: #232323;*/
 	width: 100vw;
 	height: 100vh;
 }
@@ -376,7 +376,7 @@ th {
 }
 
 td, tr, th {
-	border: 2px blue solid;
+	border: 2px white solid;
 	border-collapse: collapse;
 	text-align: center;
 }

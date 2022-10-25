@@ -68,7 +68,7 @@ var mainFunction = window.setInterval(function () {
         }
 
         if (isSolving == true) {
-            ChangeTimerColor("#FFFFFF");
+            ChangeTimerColor(Configs[GetActiveConfig()].timerColor);
         }
     }
     previousSession = currentActiveSession;
@@ -98,7 +98,7 @@ document.addEventListener('keyup', function (event) {
     if (event.code == 'Space' && IsFocused) {
         isPressing = false;
         justFinished = false;
-        ChangeTimerColor("#FFFFFF");
+        ChangeTimerColor(Configs[GetActiveConfig()].timerColor);
 
         //Resets the query if the timer failed to stat
         if (waitingToStart == true && !((new Date().getTime() / 1000 - pressTime) >= 0.5)) {

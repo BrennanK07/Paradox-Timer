@@ -28,7 +28,7 @@ var DefaultConfig = {
     buttonBackgroundColor: "#212121",
     buttonTextColor: "#FFFFFF",
     tableColor: "#FFFFFF",
-    tableTextColor: "#00FF00",
+    tableTextColor: "#FFFFFF",
     statsTextColor: "#FFFFFF"
 };
 
@@ -36,50 +36,62 @@ var Configs = [];
 Configs[0] = DefaultConfig;
 
 setConfig = GetActiveConfig();
-SetCustomizations(setConfig);
+SetCustomizations(Configs[setConfig]);
 
-function GetActiveConfig(){
+function GetActiveConfig() {
     //DEBUG, FIX LATER
     return 0;
 }
 
+var UpdateConfigs = window.setInterval(function () {
+    var layout = Configs[GetActiveConfig()];
+    var tableColor = document.querySelectorAll('td, th, tr');
+    var tableTextColor = document.getElementById("tableBody");
+
+    tableColor.forEach(tableColorObject => {
+        tableColorObject.style.border = "2px " + layout.tableColor + " solid";
+    });
+
+    tableTextColor.style.color = layout.tableTextColor;
+}, 10);
+
 function SetCustomizations(layout) {
-    timer.style.color = "#000000";
+    timer.style.color = layout.timerColor;
 
-    document.body.style.backgroundColor = "#000000";
+    document.body.style.backgroundColor = layout.background;
 
-    leftSideBarBackground.style.backgroundColor = "#000000";
+    leftSideBarBackground.style.backgroundColor = layout.leftSideBarBackground;
 
-    rightSideBarBackground.style.backgroundColor = "#000000";
+    rightSideBarBackground.style.backgroundColor = layout.rightSideBarBackground;
 
-    scrambleText.style.color = "#000000";
+    scrambleText.style.color = layout.scrambleText;
 
-    scrambleBackground.style.backgroundColor = "#000000";
+    scrambleBackground.style.backgroundColor = layout.scrambleBackground;
 
     titleTextColor.forEach(textObject => {
-        textObject.style.color = "#000000";
+        textObject.style.color = layout.titleTextColor;
     });
 
     titleStripeColor.forEach(stripeObject => {
-        stripeObject.style.borderTop = "#000000";
-        stripeObject.style.borderBottom = "#000000";
+        stripeObject.style.borderTop = "solid " + layout.titleStripeColor + " 2px";
+        stripeObject.style.borderBottom = "solid " + layout.titleStripeColor + " 2px";
     });
 
-    buttonBackgroundColor.forEach(buttonObject =>{
-        buttonObject.style.backgroundColor = "#000000";
+    buttonBackgroundColor.forEach(buttonObject => {
+        buttonObject.style.backgroundColor = layout.buttonBackgroundColor;
     });
 
-    buttonTextColor.forEach(buttonTextObject =>{
-        buttonTextObject.style.color = "#000000";
+    buttonTextColor.forEach(buttonTextObject => {
+        buttonTextObject.style.color = layout.buttonTextColor;
     });
 
-    tableColor.forEach(tableColorObject =>{
-        tableColorObject.style.border = "2px " + "#000000" + " solid";
+    tableColor.forEach(tableColorObject => {
+        tableColorObject.style.border = "2px " + layout.tableColor + " solid";
     });
 
-    tableTextColor.style.color = "#000000";
+    tableTextColor.style.color = layout.tableTextColor;
 
-    statsTextColor.forEach(statObject =>{
-        statObject.style.color = "#000000";
+    statsTextColor.forEach(statObject => {
+        statObject.style.color = layout.statsTextColor;
     });
 }
