@@ -32,8 +32,116 @@ var DefaultConfig = {
     statsTextColor: "#FFFFFF"
 };
 
+var NavyBlueConfig = {
+    name: "NavyBlueConfig",
+    timerColor: "#FFFFFF",
+    background: "#244455",
+    leftSideBarBackground: "#133344",
+    rightSideBarBackground: "#133344",
+    scrambleText: "#FFFFFF",
+    scrambleBackground: "#022233",
+    titleTextColor: "#FFFFFF",
+    titleStripeColor: "#2285CA",
+    buttonBackgroundColor: "#012131",
+    buttonTextColor: "#FFFFFF",
+    tableColor: "#FFFFFF",
+    tableTextColor: "#FFFFFF",
+    statsTextColor: "#FFFFFF"
+};
+
+var GreenConfig = {
+    name: "GreenConfig",
+    timerColor: "#FFFFFF",
+    background: "#446444",
+    leftSideBarBackground: "#335333",
+    rightSideBarBackground: "#335333",
+    scrambleText: "#FFFFFF",
+    scrambleBackground: "#224222",
+    titleTextColor: "#FFFFFF",
+    titleStripeColor: "#42A57A",
+    buttonBackgroundColor: "#214121",
+    buttonTextColor: "#FFFFFF",
+    tableColor: "#FFFFFF",
+    tableTextColor: "#FFFFFF",
+    statsTextColor: "#FFFFFF"
+};
+
+var OrangeConfig = {
+    name: "OrangeConfig",
+    timerColor: "#FFFFFF",
+    background: "#645444",
+    leftSideBarBackground: "#534333",
+    rightSideBarBackground: "#534333",
+    scrambleText: "#FFFFFF",
+    scrambleBackground: "#423222",
+    titleTextColor: "#FFFFFF",
+    titleStripeColor: "#A29500",
+    buttonBackgroundColor: "#313121",
+    buttonTextColor: "#FFFFFF",
+    tableColor: "#FFFFFF",
+    tableTextColor: "#FFFFFF",
+    statsTextColor: "#FFFFFF"
+};
+
+var YellowConfig = {
+    name: "YellowConfig",
+    timerColor: "#FFFFFF",
+    background: "#848444",
+    leftSideBarBackground: "#838333",
+    rightSideBarBackground: "#838333",
+    scrambleText: "#FFFFFF",
+    scrambleBackground: "#626222",
+    titleTextColor: "#FFFFFF",
+    titleStripeColor: "#C2B500",
+    buttonBackgroundColor: "#515121",
+    buttonTextColor: "#FFFFFF",
+    tableColor: "#FFFFFF",
+    tableTextColor: "#FFFFFF",
+    statsTextColor: "#FFFFFF"
+};
+
+var RedConfig = {
+    name: "RedConfig",
+    timerColor: "#FFFFFF",
+    background: "#744444",
+    leftSideBarBackground: "#633333",
+    rightSideBarBackground: "#633333",
+    scrambleText: "#FFFFFF",
+    scrambleBackground: "#522222",
+    titleTextColor: "#FFFFFF",
+    titleStripeColor: "#725050",
+    buttonBackgroundColor: "#512121",
+    buttonTextColor: "#FFFFFF",
+    tableColor: "#FFFFFF",
+    tableTextColor: "#FFFFFF",
+    statsTextColor: "#FFFFFF"
+};
+
+var PurpleConfig = {
+    name: "PurpleConfig",
+    timerColor: "#FFFFFF",
+    background: "#744474",
+    leftSideBarBackground: "#633363",
+    rightSideBarBackground: "#633363",
+    scrambleText: "#FFFFFF",
+    scrambleBackground: "#522252",
+    titleTextColor: "#FFFFFF",
+    titleStripeColor: "#725070",
+    buttonBackgroundColor: "#512151",
+    buttonTextColor: "#FFFFFF",
+    tableColor: "#FFFFFF",
+    tableTextColor: "#FFFFFF",
+    statsTextColor: "#FFFFFF"
+};
+
 var Configs = [];
 Configs[0] = DefaultConfig;
+Configs[1] = NavyBlueConfig;
+Configs[2] = GreenConfig;
+Configs[3] = OrangeConfig;
+Configs[4] = YellowConfig;
+Configs[5] = RedConfig;
+Configs[6] = PurpleConfig;
 
 setConfig = GetActiveConfig();
 SetCustomizations(Configs[setConfig]);
