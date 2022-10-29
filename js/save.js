@@ -10,7 +10,7 @@ function SaveData(){
     localStorage.setItem("Test", 1); //Value indicates if a save has happened already, and will make the load system attempt to load
 }
 
-window.addEventListener("beforeunload", function(e){
+window.addEventListener("beforeunload", function(){
     SaveData();
  }, false);
 

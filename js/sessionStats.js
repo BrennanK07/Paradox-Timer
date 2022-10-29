@@ -22,21 +22,24 @@ function addTimeToSession(number, time, scramble, timeSeconds, DNF, p2) { //DNF 
     sessions[currentActiveSession].totalSolves++;
     //addToTable(number + 1, time, CalculateDifference(timeSeconds)); Stuff is added to table on reload
 
-    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(timeSeconds), DNF: false, plus2: false };
-    console.log(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1]);
+    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(timeSeconds), DNF: false, plus2: false, ao5: 0, ao12: 0 };
 
     //For ao5 and ao12
     if (sessions[currentActiveSession].totalSolves >= 5) {
         document.getElementById("ao5").innerHTML = "Ao5: " + SecondsToTime(CalculateAo5());
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].ao5 = CalculateAo5();
     } else {
         document.getElementById("ao5").innerHTML = "Ao5: -";
     }
 
     if (sessions[currentActiveSession].totalSolves >= 12) {
         document.getElementById("ao12").innerHTML = "Ao12: " + SecondsToTime(CalculateAo12());
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].ao12 = CalculateAo12();
     } else {
         document.getElementById("ao12").innerHTML = "Ao12: -";
     }
+
+    console.log(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1]);
 
     ReloadSessions();
 }
