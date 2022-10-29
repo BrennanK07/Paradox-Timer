@@ -146,9 +146,11 @@ Configs[6] = PurpleConfig;
 setConfig = GetActiveConfig();
 SetCustomizations(Configs[setConfig]);
 
+var testing = 0;
+
 function GetActiveConfig() {
     //DEBUG, FIX LATER
-    return 0;
+    return 1;
 }
 
 var UpdateConfigs = window.setInterval(function () {

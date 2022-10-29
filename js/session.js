@@ -36,12 +36,23 @@ function CreateNewSession(sessionName, scrambleType) {
 	document.getElementById("SessionDeleteMenu").innerHTML += `<option value = "` + sessions[sessions.length - 1].name + `">` + sessions[sessions.length - 1].name + "</option>";
 }
 
-function RemoveSession(sessionToDelete) {
+function AddSessionToList(sessionToAdd) {
+	sessionSelect.innerHTML += `<option value = "` + sessionToAdd.name + `">` + sessionToAdd.name + "</option>";
+	document.getElementById("SessionDeleteMenu").innerHTML += `<option value = "` + sessionToAdd.name + `">` + sessionToAdd.name + "</option>";
+}
 
+function RemoveSession(sessionToDelete) {
+	if (confirm("Are you sure you want to delete " + sessionToDelete + "?") == true) {
+		let index = sessions.map(object => object.name).indexOf(sessionToDelete)
+
+		sessions.splice(index, 1);
+
+		window.location.reload();
+	}
 }
 
 function ReloadSessions() {
-	while(table.rows.length > 1){
+	while (table.rows.length > 1) {
 		table.deleteRow(1);
 	}
 
