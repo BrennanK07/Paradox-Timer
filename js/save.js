@@ -2,7 +2,6 @@
 
 function SaveData(){
     var SessionData = sessions;
-    console.log("Saving Website Data");
     localStorage.setItem("SessionArray", JSON.stringify(SessionData));
     console.log(JSON.stringify(sessions))
 
@@ -13,7 +12,6 @@ function SaveData(){
 
 window.addEventListener("beforeunload", function(e){
     SaveData();
-    alert("Saving");
  }, false);
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -23,8 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
 function LoadData() {
     //console.log("Loading Website Data");
     if (localStorage.getItem("Test") == 1) {
-        console.log("Website Save Data Found! Loading...");
-
         sessions = JSON.parse(localStorage.getItem("SessionArray"));
 
         for(var i = 0; i < sessions.length; i++){

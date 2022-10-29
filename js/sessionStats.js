@@ -22,7 +22,7 @@ function addTimeToSession(number, time, scramble, timeSeconds, DNF, p2) { //DNF 
     sessions[currentActiveSession].totalSolves++;
     //addToTable(number + 1, time, CalculateDifference(timeSeconds)); Stuff is added to table on reload
 
-    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(time), DNF: false, plus2: false };
+    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(timeSeconds), DNF: false, plus2: false };
     console.log(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1]);
 
     //For ao5 and ao12
@@ -57,6 +57,7 @@ function CalculateDifference(solveTime) {
     if (sessions[currentActiveSession].totalSolves == 1) {
         return "0.000";
     }
+    //console.log(solveTime + " " + average);
     return SecondsToTime(solveTime - average);
 }
 
