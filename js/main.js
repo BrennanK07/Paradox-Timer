@@ -85,8 +85,6 @@ function ChangeTimerColor(colorToChangeTo) {
     document.getElementById("timer").style.color = colorToChangeTo.toString();
 }
 
-
-
 //Listens for keyboard actions
 document.addEventListener('keydown', function (event) {
     if (event.code == 'Space' && IsFocused) {

@@ -8,6 +8,11 @@ function GetSessionInfo() { //For "Create New Session"
 	CreateNewSession(SessionName, ScrambleType);
 }
 
+function GetSessionData(){
+	return sessions;
+}
+
+
 function CreateNewSession(sessionName, scrambleType) {
 	if (sessions.map(object => object.name).indexOf(sessionName) != -1) {
 		alert("Session Name Already Exists!");
@@ -61,6 +66,9 @@ function ReloadSessions() {
 			addToTable(i + 1, sessions[currentActiveSession].solves[i].time, sessions[currentActiveSession].solves[i].difference);
 		}
 	}
+
+	console.log("Reloading Session");
+	ForceDrawChart();
 }
 
 function OpenSessionGenerator() {

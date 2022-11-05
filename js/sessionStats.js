@@ -54,6 +54,7 @@ function removeRecentTime() {
     sessions[currentActiveSession].solves.pop();
     sessions[currentActiveSession].totalSolves--;
     table.deleteRow(1);
+    ReloadSessions();
 }
 
 function CalculateDifference(solveTime) {

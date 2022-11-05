@@ -198,7 +198,7 @@ function GenerateScramble(scrambleType) {
                 }
             }
 
-            if (Random(4) == 0) {
+            if (Random(2) == 0) {
                 generatedScramble += "w"
             }
 
@@ -289,7 +289,7 @@ function GenerateScramble(scrambleType) {
             if (Random(4) == 0) {
                 generatedScramble += "3";
                 isWide = true;
-            } else if (Random(3) == 1) {
+            } else if (Random(2) == 1) {
                 isWide = true;
             }
 

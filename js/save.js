@@ -16,6 +16,7 @@ window.addEventListener("beforeunload", function(){
 
 document.addEventListener("DOMContentLoaded", function() {
     LoadData();
+    console.log("Loading data");
 });
 
 function LoadData() {
