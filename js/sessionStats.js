@@ -23,6 +23,9 @@ function addTimeToSession(number, time, scramble, timeSeconds, DNF, p2) { //DNF 
     //addToTable(number + 1, time, CalculateDifference(timeSeconds)); Stuff is added to table on reload
 
     sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(timeSeconds), DNF: false, plus2: false, ao5: 0, ao12: 0 };
+    
+    //Recalculates Ao5 and Ao12
+    sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1] = { time: time, timeSeconds: timeSeconds, scramble: scramble, difference: CalculateDifference(timeSeconds), DNF: false, plus2: false, ao5: CalculateAo5(), ao12: CalculateAo12()};
 
     //For ao5 and ao12
     if (sessions[currentActiveSession].totalSolves >= 5) {
@@ -40,6 +43,23 @@ function addTimeToSession(number, time, scramble, timeSeconds, DNF, p2) { //DNF 
     }
 
     console.log(sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1]);
+
+    if (sessions[currentActiveSession].totalSolves != 0) {
+        sessions[currentActiveSession].best = CalculatePB();
+        document.getElementById("best").innerHTML = "Best: " + SecondsToTime(CalculatePB());
+    }else{
+        sessions[currentActiveSession].best = 0;
+        document.getElementById("best").innerHTML = "Best: -";
+    }
+    
+    if (sessions[currentActiveSession].totalSolves >= 5) {
+        sessions[currentActiveSession].bestAo5 = CalculateBestAo5();
+        document.getElementById("bestao5").innerHTML = "Best Ao5: " + SecondsToTime(CalculateBestAo5());
+        console.log(CalculateBestAo5());
+    }else{
+        sessions[currentActiveSession].bestAo5 = 0;
+        document.getElementById("bestao5").innerHTML = "Best Ao5: -";
+    }
 
     ReloadSessions();
 }
@@ -76,6 +96,32 @@ function CalculateAverage() {
     }
 }
 
+function CalculatePB() {
+    let PBbuffer;
+    PBbuffer = sessions[currentActiveSession].solves[0].timeSeconds;
+
+    for (var i = 0; i < sessions[currentActiveSession].solves.length; i++) {
+        if (sessions[currentActiveSession].solves[i].timeSeconds < PBbuffer) {
+            PBbuffer = sessions[currentActiveSession].solves[i].timeSeconds;
+        }
+    }
+
+    return PBbuffer;
+}
+
+function CalculateBestAo5() {
+    let Ao5buffer;
+    Ao5buffer = sessions[currentActiveSession].solves[0].ao5;
+
+    for (var i = 0; i < sessions[currentActiveSession].solves.length; i++) {
+        if (sessions[currentActiveSession].solves[i].Ao5 < Ao5buffer) {
+            Ao5buffer = sessions[currentActiveSession].solves[i].Ao5;
+        }
+    }
+
+    return Ao5buffer;
+}
+
 function CalculateAo5() {
     let ao5 = 0;
     let solves = [];
@@ -95,6 +141,31 @@ function CalculateAo5() {
         return ao5;
     } else {
         return "-";
+    }
+}
+
+function ReloadStats() {
+    //For ao5 and ao12
+    if (sessions[currentActiveSession].totalSolves >= 5) {
+        document.getElementById("ao5").innerHTML = "Ao5: " + SecondsToTime(CalculateAo5());
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].ao5 = CalculateAo5();
+    } else {
+        document.getElementById("ao5").innerHTML = "Ao5: -";
+    }
+
+    if (sessions[currentActiveSession].totalSolves >= 12) {
+        document.getElementById("ao12").innerHTML = "Ao12: " + SecondsToTime(CalculateAo12());
+        sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].ao12 = CalculateAo12();
+    } else {
+        document.getElementById("ao12").innerHTML = "Ao12: -";
+    }
+
+    if (sessions[currentActiveSession].totalSolves != 0) {
+        sessions[currentActiveSession].PB = CalculatePB();
+        document.getElementById("best").innerHTML = "Best: " + SecondsToTime(CalculatePB());
+    }else{
+        sessions[currentActiveSession].PB = 0;
+        document.getElementById("best").innerHTML = "Best: -";
     }
 }
 
@@ -177,6 +248,14 @@ function MakeTimeDNF() {
         document.getElementById("ao12").innerHTML = "Ao12: -";
     }
 
+    if (sessions[currentActiveSession].totalSolves != 0) {
+        sessions[currentActiveSession].PB = CalculatePB();
+        document.getElementById("best").innerHTML = "Best: " + SecondsToTime(CalculatePB());
+    }else{
+        sessions[currentActiveSession].PB = 0;
+        document.getElementById("best").innerHTML = "Best: -";
+    }
+
     ReloadSessions();
 }
 
@@ -210,6 +289,14 @@ function MakeTimePlus2() {
         document.getElementById("ao12").innerHTML = "Ao12: " + SecondsToTime(CalculateAo12());
     } else {
         document.getElementById("ao12").innerHTML = "Ao12: -";
+    }
+
+    if (sessions[currentActiveSession].totalSolves != 0) {
+        sessions[currentActiveSession].PB = CalculatePB();
+        document.getElementById("best").innerHTML = "Best: " + SecondsToTime(CalculatePB());
+    }else{
+        sessions[currentActiveSession].PB = 0;
+        document.getElementById("best").innerHTML = "Best: -";
     }
 
     ReloadSessions();

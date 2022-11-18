@@ -1,4 +1,5 @@
 var sessionData = GetSessionData();
+window.addEventListener('resize', ForceDrawChart);
 
 // Load google charts
 google.charts.load('current', { 'packages': ['corechart'] });
@@ -11,7 +12,9 @@ function ForceDrawChart() {
 
 // Draw the chart and set the chart values
 function drawChart() {
-    if (currentActiveSession == -1) {
+    sessionData = GetSessionData();
+
+    if (currentActiveSession == -1 || sessionData[currentActiveSession].totalSolves == 0) {
         graphArray = [ //ADD SUPPORT FOR PB'S SOON
             ['Task', 'Solve Time', 'Ao5', 'Ao12'],
             ['1', [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
@@ -24,7 +27,7 @@ function drawChart() {
             'title': '',
             'width': `100%`,
             'height': `20%`,
-            'backgroundColor': { fill: "#ffffff" }
+            'backgroundColor': { fill: Configs[setConfig].leftSideBarBackground }
 
         };
 
@@ -54,7 +57,7 @@ function drawChart() {
         'title': '',
         'width': `100%`,
         'height': `20%`,
-        'backgroundColor': { fill: "#ffffff" }
+        'backgroundColor': { fill: Configs[setConfig].leftSideBarBackground }
 
     };
 

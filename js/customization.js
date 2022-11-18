@@ -32,6 +32,40 @@ var DefaultConfig = {
     statsTextColor: "#FFFFFF"
 };
 
+var LightConfig = {
+    name: "Default",
+    timerColor: "#111111",
+    background: "#AAAAAA",
+    leftSideBarBackground: "#DDDDDD",
+    rightSideBarBackground: "#DDDDDD",
+    scrambleText: "#222222",
+    scrambleBackground: "#FFFFFF",
+    titleTextColor: "#222222",
+    titleStripeColor: "#4285EA",
+    buttonBackgroundColor: "#BBBBBB",
+    buttonTextColor: "#000000",
+    tableColor: "#000000",
+    tableTextColor: "#000000",
+    statsTextColor: "#000000"
+};
+
+var SolarizedDarkConfig = {
+    name: "Default",
+    timerColor: "#FFFFFF",
+    background: "#000000",
+    leftSideBarBackground: "#111111",
+    rightSideBarBackground: "#111111",
+    scrambleText: "#FFFFFF",
+    scrambleBackground: "#151515",
+    titleTextColor: "#FFFFFF",
+    titleStripeColor: "#4285EA",
+    buttonBackgroundColor: "#212121",
+    buttonTextColor: "#FFFFFF",
+    tableColor: "#FFFFFF",
+    tableTextColor: "#FFFFFF",
+    statsTextColor: "#FFFFFF"
+};
+
 var NavyBlueConfig = {
     name: "NavyBlueConfig",
     timerColor: "#FFFFFF",
@@ -142,6 +176,8 @@ Configs[3] = OrangeConfig;
 Configs[4] = YellowConfig;
 Configs[5] = RedConfig;
 Configs[6] = PurpleConfig;
+Configs[7] = SolarizedDarkConfig;
+Configs[8] = LightConfig;
 
 setConfig = GetActiveConfig();
 SetCustomizations(Configs[setConfig]);
@@ -150,7 +186,7 @@ var testing = 0;
 
 function GetActiveConfig() {
     //DEBUG, FIX LATER
-    return 1;
+    return 7;
 }
 
 var UpdateConfigs = window.setInterval(function () {

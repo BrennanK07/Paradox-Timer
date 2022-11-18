@@ -74,7 +74,7 @@
 
             <button onclick="openNav()" id="button" class="button">Settings</button>
             <br>
-            <button id="Info" id="button" class="button">Information</button>
+            <button id="Info" id="button" class="button" onclick="openInfo()">Information</button>
 
             <button onclick="OpenSessionGenerator()" id="button" class="button">Session Manager</button>
 
@@ -101,7 +101,7 @@
 
         <!-- Overlay content -->
         <div class="overlay-content">
-            <a href="#">Customization</a>
+            <a onclick="OpenCustomization()">Customization</a>
             <a href="#">Timer</a>
             <a href="#">Extra Features</a>
             <a href="#">Advanced</a>
@@ -157,11 +157,77 @@
 
                 <br>
 
-                <button id="DeleteSessionButton" type="button" onclick="RemoveSession(document.getElementById(`SessionDeleteMenu`).value)">Delete Session</button>
+                <button id="DeleteSessionButton" type="button"
+                    onclick="RemoveSession(document.getElementById(`SessionDeleteMenu`).value)">Delete Session</button>
             </form>
 
         </div>
 
+    </div>
+
+    <div id="infoMenu" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeInfo()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <label id="SessionTitle" class="title" id="title">Information</label>
+            <h2
+                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                If you have any comments or concerns, please reach out through email.example@gmail.com</h2>
+
+            <br>
+            <br>
+            <label id="SessionTitle" class="title" id="title">Credits</label>
+            <br>
+            <div class="row">
+                <div class="column">
+                    <h1
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                        Programmed By</h1>
+
+                    <h2
+                        style="color: white; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                        u/After-Yesterday-684</h2>
+
+                    <a href="https://www.reddit.com/user/After-Yesterday-684" target="_blank">
+                        <img src="https://www.redditinc.com/assets/images/site/reddit-logo.png"style="width:10%;height:10%">
+                    </a>
+                </div>
+
+                <div class="column">
+                    <h1
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                        UI Designed By</h1>
+
+                    <h2
+                        style="color: white; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                        @erattey_3</h2>
+
+                    <a href="https://www.instagram.com/erattey_3/" target="_blank">
+                        <img href="https://www.instagram.com/erattey_3/"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
+                            style="width:10%;height:10%">
+                    </a>
+                </div>
+            </div>
+
+            <br>
+            <label id="SessionTitle" class="title" id="title">Contributions</label>
+        </div>
+    </div>
+
+    <div id="customizationMenu" class="overlay">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="CloseCustomization()">&times;</a>
+
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <label id="SessionTitle" class="title" id="title">Customization Menu</label>
+
+            <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Create New Configuration</h1>
+            <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Edit Existing Configuration</h1>
+        </div>
     </div>
 
     </html>

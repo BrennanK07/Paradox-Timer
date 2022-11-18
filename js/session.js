@@ -8,7 +8,7 @@ function GetSessionInfo() { //For "Create New Session"
 	CreateNewSession(SessionName, ScrambleType);
 }
 
-function GetSessionData(){
+function GetSessionData() {
 	return sessions;
 }
 
@@ -29,7 +29,7 @@ function CreateNewSession(sessionName, scrambleType) {
 		return;
 	}
 
-	sessions[sessions.length] = { name: "", Scramble: "", totalSolves: 0, solves: [], best: 0, bestAo5: 0, bestAo12: 0 };
+	sessions[sessions.length] = { name: "", Scramble: "", totalSolves: 0, solves: [], best: 0, bestAo5: 0, bestAo12: 0, PB: 0 };
 	sessions[sessions.length - 1].Scramble = scrambleType;
 	sessions[sessions.length - 1].name = sessionName;
 
@@ -68,6 +68,11 @@ function ReloadSessions() {
 	}
 
 	console.log("Reloading Session");
+
+	if (currentActiveSession != -1) {
+		ReloadStats();
+	}
+
 	ForceDrawChart();
 }
 

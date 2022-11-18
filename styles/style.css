@@ -39,7 +39,7 @@ label {
 	/*Leaves space for the Scramble banner*/
 	margin-top: 85px;
 
-	box-shadow: 10px 0px 10px 5px #1313138e;
+	box-shadow: 10px 0px 10px 5px #1313133f;
 }
 
 .Rsidenav {
@@ -62,7 +62,7 @@ label {
 	/*Leaves space for the Scramble banner*/
 	margin-top: 85px;
 
-	box-shadow: -10px 0px 10px 5px #1313138e;
+	box-shadow: -10px 0px 10px 5px #1313133f;
 }
 
 label {
@@ -423,6 +423,18 @@ td, tr, th {
 	position: fixed;
 	bottom: 0px;
 	left: 16%;
+}
+
+.column {
+	float: left;
+	width: 50%;
+}
+  
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
 }
 
 #InfoBox {
