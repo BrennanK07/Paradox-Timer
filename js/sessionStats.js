@@ -111,11 +111,11 @@ function CalculatePB() {
 
 function CalculateBestAo5() {
     let Ao5buffer;
-    Ao5buffer = sessions[currentActiveSession].solves[0].ao5;
+    Ao5buffer = sessions[currentActiveSession].solves[4].ao5; //Starts reading at 4 because the first 4 don't have an ao5. (Yes I'm a dumbass and this took me over 2 weeks to debug)
 
-    for (var i = 0; i < sessions[currentActiveSession].solves.length; i++) {
-        if (sessions[currentActiveSession].solves[i].Ao5 < Ao5buffer) {
-            Ao5buffer = sessions[currentActiveSession].solves[i].Ao5;
+    for (var i = 4; i < sessions[currentActiveSession].solves.length; i++) {
+        if (sessions[currentActiveSession].solves[i].ao5 < Ao5buffer) {
+            Ao5buffer = sessions[currentActiveSession].solves[i].ao5;
         }
     }
 
@@ -147,14 +147,14 @@ function CalculateAo5() {
 function ReloadStats() {
     //For ao5 and ao12
     if (sessions[currentActiveSession].totalSolves >= 5) {
-        document.getElementById("ao5").innerHTML = "Ao5: " + SecondsToTime(CalculateAo5());
+        document.getElementById("ao5").innerHTML = "Ao5: <strong>" + SecondsToTime(CalculateAo5()) + "</strong>";
         sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].ao5 = CalculateAo5();
     } else {
         document.getElementById("ao5").innerHTML = "Ao5: -";
     }
 
     if (sessions[currentActiveSession].totalSolves >= 12) {
-        document.getElementById("ao12").innerHTML = "Ao12: " + SecondsToTime(CalculateAo12());
+        document.getElementById("ao12").innerHTML = "Ao12: <strong>" + SecondsToTime(CalculateAo12()) + "</strong>";
         sessions[currentActiveSession].solves[sessions[currentActiveSession].solves.length - 1].ao12 = CalculateAo12();
     } else {
         document.getElementById("ao12").innerHTML = "Ao12: -";
@@ -162,10 +162,19 @@ function ReloadStats() {
 
     if (sessions[currentActiveSession].totalSolves != 0) {
         sessions[currentActiveSession].PB = CalculatePB();
-        document.getElementById("best").innerHTML = "Best: " + SecondsToTime(CalculatePB());
+        document.getElementById("best").innerHTML = "Best: <strong>" + SecondsToTime(CalculatePB()) + "</strong>";
     }else{
         sessions[currentActiveSession].PB = 0;
         document.getElementById("best").innerHTML = "Best: -";
+    }
+
+    if (sessions[currentActiveSession].totalSolves >= 5) {
+        sessions[currentActiveSession].bestAo5 = CalculateBestAo5();
+        document.getElementById("bestao5").innerHTML = "Best Ao5: <strong>" + SecondsToTime(CalculateBestAo5()) + "</strong>";
+        console.log(CalculateBestAo5());
+    }else{
+        sessions[currentActiveSession].bestAo5 = 0;
+        document.getElementById("bestao5").innerHTML = "Best Ao5: -";
     }
 }
 

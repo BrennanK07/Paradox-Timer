@@ -403,6 +403,7 @@ td, tr, th {
 
 .Stat {
 	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+	font-weight: lighter;
 	color: #ffffff;
 	padding-left: 10px;
 }
