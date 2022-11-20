@@ -57,8 +57,7 @@ function drawChart() {
         'title': '',
         'width': `100%`,
         'height': `20%`,
-        'backgroundColor': { fill: Configs[setConfig].leftSideBarBackground }
-
+        'backgroundColor': { fill: Configs[setConfig].leftSideBarBackground },
     };
 
     // Display the chart inside the <div> element with id="piechart"
@@ -72,11 +71,11 @@ function formatTime(timeToFormat) {
 
     timeToFormat = splitMulti(timeToFormat.toString(), [':', '.']);
 
-    for(var i = 0; timeToFormat.length < 4; i++){
+    for (var i = 0; timeToFormat.length < 4; i++) {
         timeToFormat.unshift("0");
     }
 
-    for(var j = 0; j < timeToFormat.length; j++){
+    for (var j = 0; j < timeToFormat.length; j++) {
         timeToFormat[j] = parseInt(timeToFormat[j]);
     }
 
@@ -84,9 +83,9 @@ function formatTime(timeToFormat) {
     return timeToFormat;
 }
 
-function splitMulti(str, tokens){
+function splitMulti(str, tokens) {
     var tempChar = tokens[0]; // We can use the first token as a temporary join character
-    for(var i = 1; i < tokens.length; i++){
+    for (var i = 1; i < tokens.length; i++) {
         str = str.split(tokens[i]).join(tempChar);
     }
     str = str.split(tempChar);

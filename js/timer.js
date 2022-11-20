@@ -20,7 +20,7 @@ var intervalId = window.setInterval(function () {
         }
     }
 
-}, 100);
+}, 1);
 
 function StartTimer() {
     startTime = new Date().getTime() / 1000;
