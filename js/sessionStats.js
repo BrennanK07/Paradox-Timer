@@ -171,7 +171,6 @@ function ReloadStats() {
     if (sessions[currentActiveSession].totalSolves >= 5) {
         sessions[currentActiveSession].bestAo5 = CalculateBestAo5();
         document.getElementById("bestao5").innerHTML = "Best Ao5: <strong>" + SecondsToTime(CalculateBestAo5()) + "</strong>";
-        console.log(CalculateBestAo5());
     }else{
         sessions[currentActiveSession].bestAo5 = 0;
         document.getElementById("bestao5").innerHTML = "Best Ao5: -";

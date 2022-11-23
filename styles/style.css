@@ -153,7 +153,8 @@ a {
 	text-align: center;
 	font-size: 15vw;
 	font-weight: bold;
-	font-family: 'Monsterrat', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-family: sans-serif;
+	/*Old fonts: 'Monsterrat', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', */
 	line-height: 34px;
 	font-variant-numeric: tabular-nums;
 
@@ -362,7 +363,7 @@ element::-webkit-scrollbar {
 }
 
 #Buttons {
-	position: fixed;
+	position: absolute;
 	bottom: 4px;
 	right: -10;
 }

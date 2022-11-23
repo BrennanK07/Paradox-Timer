@@ -3,9 +3,11 @@
 function SaveData(){
     var SessionData = sessions;
     localStorage.setItem("SessionArray", JSON.stringify(SessionData));
-    console.log(JSON.stringify(sessions))
 
-    console.log(JSON.parse(localStorage.getItem("SessionArray")));
+    localStorage.setItem("configurationInUse", setConfig);
+    //console.log(JSON.stringify(sessions))
+
+    //console.log(JSON.parse(localStorage.getItem("SessionArray")));
 
     localStorage.setItem("Test", 1); //Value indicates if a save has happened already, and will make the load system attempt to load
 }
@@ -26,6 +28,12 @@ function LoadData() {
 
         for(var i = 0; i < sessions.length; i++){
             AddSessionToList(sessions[i]);
+        }
+
+        setConfig = localStorage.getItem("configurationInUse");
+        configurationMenu.selectedIndex = setConfig;
+        if(configurationMenu.selectedIndex == -1){
+            configurationMenu.selectedIndex = 0;
         }
 
         if (typeof (Storage) !== "undefined") {

@@ -27,10 +27,9 @@ function drawChart() {
             'title': '',
             'width': `100%`,
             'height': `20%`,
-            'backgroundColor': { fill: Configs[setConfig].leftSideBarBackground }
+            'backgroundColor': { fill: Configs[GetActiveConfig()].leftSideBarBackground }
 
         };
-
         // Display the chart inside the <div> element with id="piechart"
         var chart = new google.visualization.LineChart(document.getElementById('graph'));
         chart.draw(data, options);

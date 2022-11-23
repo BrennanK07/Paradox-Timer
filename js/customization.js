@@ -12,6 +12,9 @@ var tableColor = document.querySelectorAll('td, th, tr');
 var tableTextColor = document.getElementById("tableBody");
 var statsTextColor = document.querySelectorAll('.Stat');
 
+var newConfigName = document.getElementById("ConfigurationName");
+var configurationMenu = document.getElementById("configSelection");
+
 var setConfig;
 
 //Presets for the settings
@@ -33,7 +36,7 @@ var DefaultConfig = {
 };
 
 var LightConfig = {
-    name: "Default",
+    name: "Light",
     timerColor: "#111111",
     background: "#AAAAAA",
     leftSideBarBackground: "#DDDDDD",
@@ -50,7 +53,7 @@ var LightConfig = {
 };
 
 var SolarizedDarkConfig = {
-    name: "Default",
+    name: "Solarized Dark",
     timerColor: "#FFFFFF",
     background: "#000000",
     leftSideBarBackground: "#111111",
@@ -67,7 +70,7 @@ var SolarizedDarkConfig = {
 };
 
 var NavyBlueConfig = {
-    name: "NavyBlueConfig",
+    name: "Navy Blue",
     timerColor: "#FFFFFF",
     background: "#244455",
     leftSideBarBackground: "#133344",
@@ -84,7 +87,7 @@ var NavyBlueConfig = {
 };
 
 var GreenConfig = {
-    name: "GreenConfig",
+    name: "Green",
     timerColor: "#FFFFFF",
     background: "#446444",
     leftSideBarBackground: "#335333",
@@ -101,7 +104,7 @@ var GreenConfig = {
 };
 
 var OrangeConfig = {
-    name: "OrangeConfig",
+    name: "Orange",
     timerColor: "#FFFFFF",
     background: "#645444",
     leftSideBarBackground: "#534333",
@@ -118,7 +121,7 @@ var OrangeConfig = {
 };
 
 var YellowConfig = {
-    name: "YellowConfig",
+    name: "Yellow",
     timerColor: "#FFFFFF",
     background: "#848444",
     leftSideBarBackground: "#838333",
@@ -135,7 +138,7 @@ var YellowConfig = {
 };
 
 var RedConfig = {
-    name: "RedConfig",
+    name: "Red",
     timerColor: "#FFFFFF",
     background: "#744444",
     leftSideBarBackground: "#633333",
@@ -152,7 +155,7 @@ var RedConfig = {
 };
 
 var PurpleConfig = {
-    name: "PurpleConfig",
+    name: "Purple",
     timerColor: "#FFFFFF",
     background: "#744474",
     leftSideBarBackground: "#633363",
@@ -179,14 +182,43 @@ Configs[6] = PurpleConfig;
 Configs[7] = SolarizedDarkConfig;
 Configs[8] = LightConfig;
 
+UpdateConfigurationSelectionMenu();
 setConfig = GetActiveConfig();
 SetCustomizations(Configs[setConfig]);
 
 var testing = 0;
 
+function UpdateConfigurationSelectionMenu(){
+    configurationMenu.innerHTML = "";
+    for(var i = 0; i < Configs.length; i++){
+        configurationMenu.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>"
+    }
+}
+
+var customizationWatch = window.setInterval(function () {
+    if (IsSelectionChanged() == true) {
+        setConfig = GetActiveConfig();
+    }
+
+}, 10);
+
+var OldValue;
+function IsSelectionChanged(){
+    if(configurationMenu.value != OldValue){
+        OldValue = configurationMenu.value;
+        google.charts.setOnLoadCallback(drawChart);
+        return true;
+    }else{
+        OldValue = configurationMenu.value;
+        return false;
+    }
+}
+
 function GetActiveConfig() {
-    //DEBUG, FIX LATER
-    return 7;
+    let currentIndex = configurationMenu.value;
+    SetCustomizations(Configs[currentIndex]);
+
+    return currentIndex;
 }
 
 var UpdateConfigs = window.setInterval(function () {
@@ -240,4 +272,28 @@ function SetCustomizations(layout) {
     statsTextColor.forEach(statObject => {
         statObject.style.color = layout.statsTextColor;
     });
+}
+
+function CreateNewConfiguration(){
+    if(newConfigName.value == ""){
+        alert("You didn't give the new configuration a name!");
+        return;
+    }
+
+    Configs[Configs.length + 1] = {
+        name: newConfigName.value,
+        timerColor: "#FFFFFF",
+        background: "#444444",
+        leftSideBarBackground: "#333333",
+        rightSideBarBackground: "#333333",
+        scrambleText: "#FFFFFF",
+        scrambleBackground: "#222222",
+        titleTextColor: "#FFFFFF",
+        titleStripeColor: "#4285EA",
+        buttonBackgroundColor: "#212121",
+        buttonTextColor: "#FFFFFF",
+        tableColor: "#FFFFFF",
+        tableTextColor: "#FFFFFF",
+        statsTextColor: "#FFFFFF"
+    };
 }

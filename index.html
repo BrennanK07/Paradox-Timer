@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <link rel="stylesheet" href="styles/style.css">
+<link rel="icon" href="icon.png">
 
 <!-- Add icon library -->
 <link rel="stylesheet"
@@ -70,10 +71,8 @@
                 </select>
             </span>
 
-            <br>
-
             <button onclick="openNav()" id="button" class="button">Settings</button>
-            <br>
+
             <button id="Info" id="button" class="button" onclick="openInfo()">Information</button>
 
             <button onclick="OpenSessionGenerator()" id="button" class="button">Session Manager</button>
@@ -224,11 +223,14 @@
         <!-- Overlay content -->
         <div class="overlay-content">
             <label id="SessionTitle" class="title" id="title">Customization Menu</label>
+            <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Change Active Configuration</h1>
+            <select name="configurationSelection" id="configSelection" class="button" onclick="GetActiveConfig()" style="width: 15%">
+            </select>
 
             <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Create New Configuration</h1>
             <input type="text" id="ConfigurationName" placeholder="Configuration Name" style="font-size: 1.5em">
             <br>
-            <button id="CreateConfiguration" onclick="" type="button" style="font-size: 1.5em; width: 15%">Create Configuration</button>
+            <button id="CreateConfiguration" onclick="CreateNewConfiguration()" type="button" style="font-size: 1.5em; width: 15%">Create Configuration</button>
             <br>
 
             <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Edit Existing Configuration</h1>
