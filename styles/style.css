@@ -363,8 +363,8 @@ element::-webkit-scrollbar {
 }
 
 #Buttons {
-	position: absolute;
-	bottom: 4px;
+	position: fixed;
+	bottom: 0.5%;
 	right: -10;
 }
 
