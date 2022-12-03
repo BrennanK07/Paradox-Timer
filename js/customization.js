@@ -1,3 +1,5 @@
+var Configs = [];
+
 var timer = document.getElementById("timer");
 var background = document.getElementById("html");
 var leftSideBarBackground = document.getElementById("Lsidenav");
@@ -14,6 +16,7 @@ var statsTextColor = document.querySelectorAll('.Stat');
 
 var newConfigName = document.getElementById("ConfigurationName");
 var configurationMenu = document.getElementById("configSelection");
+var configurationMenuForMod = document.getElementById("configSelectionforModifications");
 
 var setConfig;
 
@@ -53,7 +56,7 @@ var LightConfig = {
 };
 
 var SolarizedDarkConfig = {
-    name: "Solarized Dark",
+    name: "Midnight",
     timerColor: "#FFFFFF",
     background: "#000000",
     leftSideBarBackground: "#111111",
@@ -171,16 +174,22 @@ var PurpleConfig = {
     statsTextColor: "#FFFFFF"
 };
 
-var Configs = [];
-Configs[0] = DefaultConfig;
-Configs[1] = NavyBlueConfig;
-Configs[2] = GreenConfig;
-Configs[3] = OrangeConfig;
-Configs[4] = YellowConfig;
-Configs[5] = RedConfig;
-Configs[6] = PurpleConfig;
-Configs[7] = SolarizedDarkConfig;
-Configs[8] = LightConfig;
+InitializeDefaultConfigs();
+function InitializeDefaultConfigs() {
+    Configs[0] = DefaultConfig;
+    Configs[1] = NavyBlueConfig;
+    Configs[2] = GreenConfig;
+    Configs[3] = OrangeConfig;
+    Configs[4] = YellowConfig;
+    Configs[5] = RedConfig;
+    Configs[6] = PurpleConfig;
+    Configs[7] = SolarizedDarkConfig;
+    Configs[8] = LightConfig;
+
+    if (localStorage.getItem("Test") == 1) {
+        Configs = JSON.parse(localStorage.getItem("ConfigsArray"));
+    }
+}
 
 UpdateConfigurationSelectionMenu();
 setConfig = GetActiveConfig();
@@ -188,10 +197,12 @@ SetCustomizations(Configs[setConfig]);
 
 var testing = 0;
 
-function UpdateConfigurationSelectionMenu(){
+function UpdateConfigurationSelectionMenu() {
     configurationMenu.innerHTML = "";
-    for(var i = 0; i < Configs.length; i++){
+    configurationMenuForMod.innerHTML = "";
+    for (var i = 0; i < Configs.length; i++) {
         configurationMenu.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>"
+        configurationMenuForMod.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>";
     }
 }
 
@@ -203,12 +214,12 @@ var customizationWatch = window.setInterval(function () {
 }, 10);
 
 var OldValue;
-function IsSelectionChanged(){
-    if(configurationMenu.value != OldValue){
+function IsSelectionChanged() {
+    if (configurationMenu.value != OldValue) {
         OldValue = configurationMenu.value;
         google.charts.setOnLoadCallback(drawChart);
         return true;
-    }else{
+    } else {
         OldValue = configurationMenu.value;
         return false;
     }
@@ -217,11 +228,14 @@ function IsSelectionChanged(){
 function GetActiveConfig() {
     let currentIndex = configurationMenu.value;
     SetCustomizations(Configs[currentIndex]);
-
     return currentIndex;
 }
 
-var UpdateConfigs = window.setInterval(function () {
+function GetConfigs(){
+    return Configs;
+}
+
+/*var UpdateConfigs = window.setInterval(function () {
     var layout = Configs[GetActiveConfig()];
     var tableColor = document.querySelectorAll('td, th, tr');
     var tableTextColor = document.getElementById("tableBody");
@@ -231,7 +245,7 @@ var UpdateConfigs = window.setInterval(function () {
     });
 
     tableTextColor.style.color = layout.tableTextColor;
-}, 10);
+}, 10);*/ //Wrote this function months ago, dk tf it was for
 
 function SetCustomizations(layout) {
     timer.style.color = layout.timerColor;
@@ -274,13 +288,17 @@ function SetCustomizations(layout) {
     });
 }
 
-function CreateNewConfiguration(){
-    if(newConfigName.value == ""){
+function CreateNewConfiguration() {
+    if (newConfigName.value == "") {
         alert("You didn't give the new configuration a name!");
         return;
     }
+    else if (Configs.map(object => object.name).indexOf(newConfigName.value) != -1) {
+        alert("Session Name Already Exists!");
+        return;
+    }
 
-    Configs[Configs.length + 1] = {
+    Configs[Configs.length] = {
         name: newConfigName.value,
         timerColor: "#FFFFFF",
         background: "#444444",
@@ -296,4 +314,6 @@ function CreateNewConfiguration(){
         tableTextColor: "#FFFFFF",
         statsTextColor: "#FFFFFF"
     };
+
+    UpdateConfigurationSelectionMenu();
 }

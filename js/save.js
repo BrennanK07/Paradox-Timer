@@ -2,9 +2,13 @@
 
 function SaveData(){
     var SessionData = sessions;
+    var ConfigData = Configs;
     localStorage.setItem("SessionArray", JSON.stringify(SessionData));
 
     localStorage.setItem("configurationInUse", setConfig);
+
+    InitializeDefaultConfigs();
+    localStorage.setItem("ConfigsArray", JSON.stringify(Configs));
     //console.log(JSON.stringify(sessions))
 
     //console.log(JSON.parse(localStorage.getItem("SessionArray")));
@@ -18,13 +22,16 @@ window.addEventListener("beforeunload", function(){
 
 document.addEventListener("DOMContentLoaded", function() {
     LoadData();
-    console.log("Loading data");
+    //console.log("Loading data");
 });
 
 function LoadData() {
     //console.log("Loading Website Data");
     if (localStorage.getItem("Test") == 1) {
         sessions = JSON.parse(localStorage.getItem("SessionArray"));
+
+        //console.log(JSON.parse(localStorage.getItem("ConfigsArray")));
+        Configs = JSON.parse(localStorage.getItem("ConfigsArray")); //Function re-runs as the configuration settings are initialized
 
         for(var i = 0; i < sessions.length; i++){
             AddSessionToList(sessions[i]);
@@ -41,7 +48,9 @@ function LoadData() {
         } else {
             alert("WARNING! Your browser does not support Web Storage! Please use another browser to ensure that your data is saved.");
         }
+
+        InitializeDefaultConfigs();
     }else{
-        console.log("No Save Data Found");
+        //console.log("No Save Data Found");
     }
 }

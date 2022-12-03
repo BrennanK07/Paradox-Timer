@@ -67,7 +67,7 @@ function ReloadSessions() {
 		}
 	}
 
-	console.log("Reloading Session");
+	//console.log("Reloading Session");
 
 	if (currentActiveSession != -1) {
 		ReloadStats();
