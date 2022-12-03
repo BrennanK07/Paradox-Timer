@@ -72,8 +72,8 @@ var SolarizedDarkConfig = {
     statsTextColor: "#FFFFFF"
 };
 
-var NavyBlueConfig = {
-    name: "Navy Blue",
+var BlueConfig = {
+    name: "Blue",
     timerColor: "#FFFFFF",
     background: "#244455",
     leftSideBarBackground: "#133344",
@@ -173,11 +173,45 @@ var PurpleConfig = {
     tableTextColor: "#FFFFFF",
     statsTextColor: "#FFFFFF"
 };
+//For NavyBlue
+var NavyPallette = ["#D8DBE2", "#A9BCD0", "#58A4B0", "#373F51", "#1B1B1E"];
+
+var NavyBlueConfig = {
+    name: "Navy Blue",
+    timerColor: NavyPallette[0],
+    background: NavyPallette[4],
+    leftSideBarBackground: NavyPallette[3],
+    rightSideBarBackground: NavyPallette[3],
+    scrambleText: NavyPallette[3],
+    scrambleBackground: NavyPallette[0],
+    titleTextColor: NavyPallette[0],
+    titleStripeColor: NavyPallette[2],
+    buttonBackgroundColor: NavyPallette[1],
+    buttonTextColor: NavyPallette[4],
+    tableColor: NavyPallette[0],
+    tableTextColor: NavyPallette[0],
+    statsTextColor: NavyPallette[0]
+};
 
 InitializeDefaultConfigs();
 function InitializeDefaultConfigs() {
+    Configs = [];
+    GetDefaultConfigs();
+
+    if (localStorage.getItem("Test") == 1) {
+        var newConfigs = JSON.parse(localStorage.getItem("ConfigsArray"));
+        
+        for(var i = Configs.length; i < newConfigs.length; i++){
+            Configs[i] = newConfigs[i];
+        }
+
+        console.log(Configs);
+    }
+}
+
+function GetDefaultConfigs() {
     Configs[0] = DefaultConfig;
-    Configs[1] = NavyBlueConfig;
+    Configs[1] = BlueConfig;
     Configs[2] = GreenConfig;
     Configs[3] = OrangeConfig;
     Configs[4] = YellowConfig;
@@ -185,10 +219,7 @@ function InitializeDefaultConfigs() {
     Configs[6] = PurpleConfig;
     Configs[7] = SolarizedDarkConfig;
     Configs[8] = LightConfig;
-
-    if (localStorage.getItem("Test") == 1) {
-        Configs = JSON.parse(localStorage.getItem("ConfigsArray"));
-    }
+    Configs[9] = NavyBlueConfig;
 }
 
 UpdateConfigurationSelectionMenu();
@@ -231,7 +262,7 @@ function GetActiveConfig() {
     return currentIndex;
 }
 
-function GetConfigs(){
+function GetConfigs() {
     return Configs;
 }
 
