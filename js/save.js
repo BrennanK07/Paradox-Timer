@@ -2,13 +2,13 @@
 
 function SaveData(){
     var SessionData = sessions;
-    var ConfigData = Configs;
+    var ConfigData = GetConfigs();
     localStorage.setItem("SessionArray", JSON.stringify(SessionData));
 
     localStorage.setItem("configurationInUse", setConfig);
 
     InitializeDefaultConfigs();
-    localStorage.setItem("ConfigsArray", JSON.stringify(Configs));
+    localStorage.setItem("ConfigsArray", JSON.stringify(ConfigData));
     //console.log(JSON.stringify(sessions))
 
     //console.log(JSON.parse(localStorage.getItem("SessionArray")));

@@ -200,12 +200,12 @@ function InitializeDefaultConfigs() {
 
     if (localStorage.getItem("Test") == 1) {
         var newConfigs = JSON.parse(localStorage.getItem("ConfigsArray"));
+
+        console.log(newConfigs);
         
         for(var i = Configs.length; i < newConfigs.length; i++){
             Configs[i] = newConfigs[i];
         }
-
-        console.log(Configs);
     }
 }
 
