@@ -8,6 +8,7 @@ var intervalId = window.setInterval(function () {
     let CurrentTime = new Date().getTime() / 1000;
 
     TimeString = SecondsToTime((CompareTime(startTime, new Date().getTime() / 1000)));
+    //console.log(CompareTime(startTime, new Date().getTime() / 1000))
 
     if (isSolving == true) {
         document.getElementById("timer").innerHTML = TimeString.slice(0, -2);
@@ -75,15 +76,16 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
     }
 
     let milliseconds = Math.floor((timeInSeconds - Math.floor(timeInSeconds)) * 1000);
+    //console.log(Math.floor((timeInSeconds - Math.floor(timeInSeconds)) * 1000));
     if (milliseconds < 10 && milliseconds != 0) {
         milliseconds = "0" + milliseconds.toString();
     }
 
-    if (milliseconds < 100) {
+    if (milliseconds < 100 && milliseconds != 0) {
         milliseconds = "0" + milliseconds.toString();
     }
 
-    else if (milliseconds == 0) {
+    if (milliseconds == 0) {
         milliseconds = "000";
     }
 

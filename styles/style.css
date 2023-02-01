@@ -20,7 +20,7 @@ label {
 }
 
 .Lsidenav {
-	height: 90%;
+	height: 91%;
 	/* Full-height: remove this if you want "auto" height */
 	width: 15%;
 	/* Set the width of the sidebar */
@@ -43,7 +43,7 @@ label {
 }
 
 .Rsidenav {
-	height: 90%;
+	height: 91%;
 	/* Full-height: remove this if you want "auto" height */
 	width: 15%;
 	/* Set the width of the sidebar */
@@ -76,10 +76,13 @@ select {
 	border: none;
 	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
 	margin-top: 5px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 11.5px;
+	padding-bottom: 11.5px;
 	font-weight: bold;
 	font-size: 1em;
+	background-color: #212121;
+	color: #fff;
+	font-weight: lighter;
 	text-align: center;
 	appearance: none;
 
@@ -116,6 +119,52 @@ button:hover {
 	transition: 0.2s;
 }
 
+.MMbutton {
+	max-width: 19.5%;
+	border: none;
+	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+
+	border-left: #ffffff 2px solid;
+	border-right: #ffffff 2px solid;
+
+	font-size: 1em;
+	background-color: #212121;
+	color: #fff;
+	font-weight: lighter;
+}
+
+.MMbutton:hover {
+	background-color: #717171;
+	transition: 0.2s;
+}
+
+.MMbuttonRow {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.buttonRow {
+	position: absolute;
+	bottom: 0px;
+	left: 14%;
+	right: 14%;
+
+	width: 72%;
+	height: 7%;
+	display: flex;
+	justify-content: center;
+
+
+	/*
+	margin: auto;
+	bottom: 0px;
+	left: 15%;
+	right: 15%;
+	width: 100%;
+	*/
+}
+
 .main {
 	margin-left: 15%;
 	margin-right: 15%;
@@ -136,6 +185,13 @@ button:hover {
 	text-align: justify;
 	text-align-last: center;
 }
+
+#buttonRow {
+	position: absolute;
+	bottom: 0;
+	left: 15%;
+}
+
 
 a {
 	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
@@ -362,12 +418,6 @@ element::-webkit-scrollbar {
 	font-size: 1em;
 }
 
-#Buttons {
-	position: fixed;
-	bottom: 0.5%;
-	right: -10;
-}
-
 th {
 	border: 2px white solid;
 	border-collapse: collapse;
@@ -376,7 +426,9 @@ th {
 	padding-bottom: 2px;
 }
 
-td, tr, th {
+td,
+tr,
+th {
 	border: 2px white solid;
 	border-collapse: collapse;
 	text-align: center;
@@ -396,7 +448,7 @@ td, tr, th {
 	border-collapse: collapse;
 	border-color: white;
 	font-family: 'Open Sans';
-	
+
 
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -431,7 +483,7 @@ td, tr, th {
 	float: left;
 	width: 50%;
 }
-  
+
 /* Clear floats after the columns */
 .row:after {
 	content: "";
@@ -464,7 +516,7 @@ td, tr, th {
 	user-select: none;
 }
 
-.ConfigurationMenu{
+.ConfigurationMenu {
 	width: 10%;
 }
 

@@ -253,6 +253,8 @@ function SetCustomizationBoxes(indexValue){
 var customizationWatch = window.setInterval(function () {
     if (IsSelectionChanged() == true) {
         setConfig = GetActiveConfig();
+        
+        ForceDrawChart();
     }
 
 }, 10);
