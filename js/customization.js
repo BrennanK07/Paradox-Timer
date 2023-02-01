@@ -237,6 +237,19 @@ function UpdateConfigurationSelectionMenu() {
     }
 }
 
+function GetIndexOfConfigSelectMenu(){
+    var indexValueName = document.getElementById("configSelectionforModifications").value;
+    console.log(document.getElementById("configSelectionforModifications").value);
+    return Configs.map(object => object.name).indexOf(indexValueName);
+}
+
+document.getElementById("configSelectionforModifications").onchange = SetCustomizationBoxes(GetIndexOfConfigSelectMenu()); //Not changing currently :(
+
+function SetCustomizationBoxes(indexValue){
+    //Changes the customization boxes to the color corresponding to the current values
+    document.getElementById("timerTextConf").color = Configs[indexValue].timerColor;
+}
+
 var customizationWatch = window.setInterval(function () {
     if (IsSelectionChanged() == true) {
         setConfig = GetActiveConfig();

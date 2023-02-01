@@ -464,6 +464,10 @@ td, tr, th {
 	user-select: none;
 }
 
+.ConfigurationMenu{
+	width: 10%;
+}
+
 /*Removes the scrollbar*/
 ::-webkit-scrollbar {
 	display: none;
