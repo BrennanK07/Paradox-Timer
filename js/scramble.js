@@ -388,10 +388,10 @@ function GenerateScramble(scrambleType) {
             }
 
             if (Random(2) == 0) {
-                generatedScramble += " U <br>";
+                generatedScramble += " U";
             }
             else {
-                generatedScramble += " U' <br>"
+                generatedScramble += " U'"
             }
         }
     }

@@ -148,7 +148,7 @@
 
                 <br>
                 <br>
-                <label id="SessionTitle">Session Deletor</label>
+                <label id="SessionTitle">Delete Session</label>
                 <br>
                 <select id="SessionDeleteMenu">
                     <option value="notSet" hidden>Select a Session To Delete</option>
@@ -226,7 +226,7 @@
             <label style="color: white" id="SessionTitle" class="title" id="title">Customization Menu</label>
             <h1
                 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
-                Change Active Configuration</h1>
+                Active Configuration</h1>
             <select name="configurationSelection" id="configSelection" class="button" onclick="GetActiveConfig()"
                 style="width: 15%">
             </select>
@@ -243,8 +243,7 @@
             <h1
                 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
                 Edit Existing Configuration</h1>
-            <br>
-            <select name="configurationSelection" id="configSelectionforModifications" class="button"
+            <select name="configurationSelection" id="configSelectionforModifications" class="button" onchange="SetCustomizationBoxes(GetIndexOfConfigSelectMenu())">
                 onclick="GetActiveConfig()" style="width: 15%">
             </select>
 
@@ -352,5 +351,6 @@
 <script src="js/timer.js"></script>
 <script src="js/save.js"></script>
 <script src="js/customization.js"></script>
+<script src="cube_preview.js"></script>
 <script type="text/javascript" src="js/graph.js"></script>
 <script src="js/main.js"></script>

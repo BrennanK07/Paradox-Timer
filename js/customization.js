@@ -237,15 +237,15 @@ function UpdateConfigurationSelectionMenu() {
     }
 }
 
-function GetIndexOfConfigSelectMenu(){
+function GetIndexOfConfigSelectMenu(){ //Function not working; returning -1
     var indexValueName = document.getElementById("configSelectionforModifications").value;
     console.log(document.getElementById("configSelectionforModifications").value);
     return Configs.map(object => object.name).indexOf(indexValueName);
 }
 
-document.getElementById("configSelectionforModifications").onchange = SetCustomizationBoxes(GetIndexOfConfigSelectMenu()); //Not changing currently :(
-
 function SetCustomizationBoxes(indexValue){
+
+    console.log(indexValue);
     //Changes the customization boxes to the color corresponding to the current values
     document.getElementById("timerTextConf").color = Configs[indexValue].timerColor;
 }

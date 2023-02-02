@@ -165,6 +165,10 @@ button:hover {
 	*/
 }
 
+#configSelectionforModifications{
+	width: 15%;
+}
+
 .main {
 	margin-left: 15%;
 	margin-right: 15%;
