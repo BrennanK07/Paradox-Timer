@@ -516,7 +516,7 @@ function GenerateScramble(scrambleType) {
     }
 
     if (scrambleType == "3multi") {
-        ChangeTextSize(0.8);
+        ChangeTextSize(0.6);
         generatedScramble = "";
 
         for (var j = 0; j < 5; j++) {

@@ -238,16 +238,46 @@ function UpdateConfigurationSelectionMenu() {
 }
 
 function GetIndexOfConfigSelectMenu(){ //Function not working; returning -1
-    var indexValueName = document.getElementById("configSelectionforModifications").value;
-    console.log(document.getElementById("configSelectionforModifications").value);
-    return Configs.map(object => object.name).indexOf(indexValueName);
+    var indexValueName = parseInt(document.getElementById("configSelectionforModifications").value);
+    console.log(indexValueName); //Number is the index value of the config
+    return indexValueName;
 }
 
 function SetCustomizationBoxes(indexValue){
-
-    console.log(indexValue);
     //Changes the customization boxes to the color corresponding to the current values
-    document.getElementById("timerTextConf").color = Configs[indexValue].timerColor;
+    document.getElementById("timerTextConf").value = Configs[indexValue].timerColor;
+    document.getElementById("backgroundConf").value = Configs[indexValue].background;
+    document.getElementById("leftSideBarConf").value = Configs[indexValue].leftSideBarBackground;
+    document.getElementById("rightSideBarConf").value = Configs[indexValue].rightSideBarBackground;
+    document.getElementById("scrambleTextConf").value = Configs[indexValue].scrambleText;
+    document.getElementById("scrambleTextBackgroundConf").value = Configs[indexValue].scrambleBackground;
+    document.getElementById("titleTextConf").value = Configs[indexValue].titleTextColor;
+    document.getElementById("titleStripeConf").value = Configs[indexValue].titleStripeColor;
+    document.getElementById("buttonBackgroundConf").value = Configs[indexValue].buttonBackgroundColor;
+    document.getElementById("buttonTextConf").value = Configs[indexValue].buttonTextColor;
+    document.getElementById("tableBorderConf").value = Configs[indexValue].tableColor;
+    document.getElementById("tableTextConf").value = Configs[indexValue].tableTextColor;
+    document.getElementById("statsTextConf").value = Configs[indexValue].statsTextColor;
+}
+
+function SaveCustomizations(){
+    var configIndex = GetIndexOfConfigSelectMenu();
+
+    Configs[configIndex].timerColor = document.getElementById("timerTextConf").value;
+    Configs[configIndex].background = document.getElementById("backgroundConf").value;
+    Configs[configIndex].leftSideBarBackground = document.getElementById("leftSideBarConf").value;
+    Configs[configIndex].rightSideBarBackground = document.getElementById("rightSideBarConf").value;
+    Configs[configIndex].scrambleText = document.getElementById("scrambleTextConf").value;
+    Configs[configIndex].scrambleBackground = document.getElementById("scrambleTextBackgroundConf").value;
+    Configs[configIndex].titleTextColor = document.getElementById("titleTextConf").value;
+    Configs[configIndex].titleStripeColor = document.getElementById("titleStripeConf").value;
+    Configs[configIndex].buttonBackgroundColor = document.getElementById("buttonBackgroundConf").value;
+    Configs[configIndex].buttonTextColor = document.getElementById("buttonTextConf").value;
+    Configs[configIndex].tableColor = document.getElementById("tableBorderConf").value;
+    Configs[configIndex].tableTextColor = document.getElementById("tableTextConf").value;
+    Configs[configIndex].statsTextColor = document.getElementById("statsTextConf").value;
+
+    SetCustomizations(Configs[configIndex]);
 }
 
 var customizationWatch = window.setInterval(function () {

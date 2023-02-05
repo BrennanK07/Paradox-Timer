@@ -12,7 +12,7 @@
     <html>
 
     <head>
-        <title>Cubing Timer v2.0</title>
+        <title>Paradox Timer</title>
     </head>
 
     <section class="header" id="header">
@@ -22,7 +22,6 @@
     <div class="Lsidenav" id="Lsidenav">
         <div class="tableHeader">
             <h1 id="title" class="title">Times</h1>
-
             <br>
         </div>
 
@@ -47,8 +46,6 @@
         <h2 id="bestao5" class="Stat">Best Ao5: </h2>
         <h2 id="ao5" class="Stat">Ao5: </h2>
         <h2 id="ao12" class="Stat">Ao12: </h2>
-
-
     </div>
 
     <div class="main" id="main">
@@ -115,10 +112,12 @@
 
         <!-- Overlay content -->
         <div class="overlay-content">
-            <label id="SessionTitle" class="title" id="title">Session Creator</label>
+            <label id="SessionTitle" class="title" id="title">Session Manager</label>
             <br>
-            <br>
-            <br>
+
+            <h1
+                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
+                Create a New Session</h1>
             <form>
                 <input type="text" id="SessionName" placeholder="Session Name">
                 <br>
@@ -148,8 +147,9 @@
 
                 <br>
                 <br>
-                <label id="SessionTitle">Delete Session</label>
-                <br>
+                <h1
+                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
+                    Delete a Session</h1>
                 <select id="SessionDeleteMenu">
                     <option value="notSet" hidden>Select a Session To Delete</option>
                 </select>
@@ -224,118 +224,146 @@
         <!-- Overlay content -->
         <div class="overlay-content">
             <label style="color: white" id="SessionTitle" class="title" id="title">Customization Menu</label>
-            <h1
-                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
-                Active Configuration</h1>
-            <select name="configurationSelection" id="configSelection" class="button" onclick="GetActiveConfig()"
-                style="width: 15%">
-            </select>
-
-            <h1
-                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
-                Create New Configuration</h1>
-            <input type="text" id="ConfigurationName" placeholder="Configuration Name" style="font-size: 1.5em">
-            <br>
-            <button id="CreateConfiguration" onclick="CreateNewConfiguration()" type="button"
-                style="font-size: 1.5em; width: 15%">Create Configuration</button>
-            <br>
-
-            <h1
-                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
-                Edit Existing Configuration</h1>
-            <select name="configurationSelection" id="configSelectionforModifications" class="button" onchange="SetCustomizationBoxes(GetIndexOfConfigSelectMenu())">
-                onclick="GetActiveConfig()" style="width: 15%">
-            </select>
-
-            <br>
-            <br>
-
-            <div id="colorChangeChoices">
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Timer
-                </label>
-                <input type="color" id="timerTextConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Background
-                </label>
-                <input type="color" id="backgroundConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Left
-                    Sidebar </label>
-                <input type="color" id="leftSideBarConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Right
-                    Sidebar </label>
-                <input type="color" id="rightSideBarConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
-                    Text </label>
-                <input type="color" id="scrambleTextConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
-                    Text Background </label>
-                <input type="color" id="scrambleTextBackgroundConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Button
-                    Background </label>
-                <input type="color" id="buttonBackgroundConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Button
-                    Text </label>
-                <input type="color" id="buttonTextConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Table
-                    Border </label>
-                <input type="color" id="tableBorderConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Table
-                    Text </label>
-                <input type="color" id="tableTextConf" class="ConfigurationMenu">
-
-                <br>
-                <br>
-
-                <label
-                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Stats
-                    Text </label>
-                <input type="color" id="statsTextConf" class="ConfigurationMenu">
+            <div id="ActiveConfiguration">
+                <h1
+                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
+                    Active Configuration</h1>
+                <select name="configurationSelection" id="configSelection" class="button" onclick="GetActiveConfig()"
+                    style="width: 15%">
+                </select>
             </div>
+
+            <div id="CreateNewConfiguration">
+                <h1
+                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
+                    Create New Configuration</h1>
+                <input type="text" id="ConfigurationName" placeholder="Configuration Name" style="font-size: 1.5em">
+                <br>
+                <button id="CreateConfiguration" onclick="CreateNewConfiguration()" type="button"
+                    style="font-size: 1.5em; width: 15%">Create Configuration</button>
+                <br>
+            </div>
+
+            <div id="EditExistingConfiguration">
+                <h1
+                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
+                    Edit Existing Configuration</h1>
+
+                <select name="configurationSelection" id="configSelectionforModifications" class="button"
+                    onchange="SetCustomizationBoxes(GetIndexOfConfigSelectMenu())">
+                    onclick="GetActiveConfig()" style="width: 15%">
+                </select>
+
+                <br>
+                <br>
+
+                <div id="colorChangeChoices">
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Timer
+                    </label>
+                    <input type="color" id="timerTextConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Background
+                    </label>
+                    <input type="color" id="backgroundConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Left
+                        Sidebar </label>
+                    <input type="color" id="leftSideBarConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Right
+                        Sidebar </label>
+                    <input type="color" id="rightSideBarConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
+                        Text </label>
+                    <input type="color" id="scrambleTextConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
+                        Text Background </label>
+                    <input type="color" id="scrambleTextBackgroundConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
+                        Title Text Color </label>
+                    <input type="color" id="titleTextConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
+                        Title Stripe Color </label>
+                    <input type="color" id="titleStripeConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Button
+                        Background </label>
+                    <input type="color" id="buttonBackgroundConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Button
+                        Text </label>
+                    <input type="color" id="buttonTextConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Table
+                        Border </label>
+                    <input type="color" id="tableBorderConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Table
+                        Text </label>
+                    <input type="color" id="tableTextConf" class="ConfigurationMenu">
+
+                    <br>
+                    <br>
+
+                    <label
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Stats
+                        Text </label>
+                    <input type="color" id="statsTextConf" class="ConfigurationMenu">
+                </div>
+            </div>
+
+            <br>
+
+            <button style="width:20%;" onclick="SaveCustomizations()">Save Changes</button>
         </div>
     </div>
 
@@ -351,6 +379,6 @@
 <script src="js/timer.js"></script>
 <script src="js/save.js"></script>
 <script src="js/customization.js"></script>
-<script src="cube_preview.js"></script>
+<script src="js/cube_preview.js"></script>
 <script type="text/javascript" src="js/graph.js"></script>
 <script src="js/main.js"></script>
