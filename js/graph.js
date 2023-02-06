@@ -27,7 +27,7 @@ function drawChart() {
             'title': '',
             'width': `100%`,
             'height': `20%`,
-            'backgroundColor': { fill: Configs[GetActiveConfig()].leftSideBarBackground }
+            'backgroundColor': { fill: Configs[GetActiveConfig()].rightSideBarBackground }
 
         };
         // Display the chart inside the <div> element with id="piechart"
@@ -56,7 +56,7 @@ function drawChart() {
         'title': '',
         'width': `100%`,
         'height': `20%`,
-        'backgroundColor': { fill: Configs[setConfig].leftSideBarBackground },
+        'backgroundColor': { fill: Configs[setConfig].rightSideBarBackground },
     };
 
     // Display the chart inside the <div> element with id="piechart"

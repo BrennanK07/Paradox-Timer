@@ -225,7 +225,7 @@ function GetDefaultConfigs() {
 UpdateConfigurationSelectionMenu();
 setConfig = GetActiveConfig();
 SetCustomizations(Configs[setConfig]);
-
+SetCustomizationBoxes(0);
 var testing = 0;
 
 function UpdateConfigurationSelectionMenu() {
