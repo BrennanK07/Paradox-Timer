@@ -17,6 +17,7 @@ var statsTextColor = document.querySelectorAll('.Stat');
 var newConfigName = document.getElementById("ConfigurationName");
 var configurationMenu = document.getElementById("configSelection");
 var configurationMenuForMod = document.getElementById("configSelectionforModifications");
+var removeConfigurationMenu = document.getElementById("removeConfigSelection");
 
 var setConfig;
 
@@ -231,9 +232,22 @@ var testing = 0;
 function UpdateConfigurationSelectionMenu() {
     configurationMenu.innerHTML = "";
     configurationMenuForMod.innerHTML = "";
+    removeConfigurationMenu.innerHTML = "";
+
     for (var i = 0; i < Configs.length; i++) {
         configurationMenu.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>"
         configurationMenuForMod.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>";
+        removeConfigurationMenu.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>";
+    }
+}
+
+function DeleteConfiguration(){
+    if(confirm("Are you sure you would like to delete this?") == true){
+        Configs.splice(parseInt(removeConfigurationMenu.value), 1);
+
+        window.location.reload();
+    }else{
+        return;
     }
 }
 
