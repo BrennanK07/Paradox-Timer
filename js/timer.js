@@ -39,19 +39,19 @@ function CompareTime(startingTime, currentTime) {
 function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format as XX:YY.ZZZ
     let isNegataive = false;
 
-    if(timeInSeconds == NaN){
-        return(0.000);
+    if (timeInSeconds == NaN) {
+        return (0.000);
     }
 
-    if(timeInSeconds < 0){
+    if (timeInSeconds < 0) {
         isNegataive = true;
         timeInSeconds = timeInSeconds.toString().replace('-', '')
     }
 
     let hours = Math.floor(timeInSeconds / 3600);
-    if(hours == 0){
+    if (hours == 0) {
         hours = "";
-    }else{
+    } else {
         hours += ":";
     }
 
@@ -62,7 +62,7 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
     else if (minutes == 0 && hours == 0) {
         minutes = "";
     }
-    else if(minutes < 10 && hours != 0){
+    else if (minutes < 10 && hours != 0) {
         minutes = "0" + minutes.toString() + ":";
     } else {
         minutes = minutes.toString() + ":";
@@ -89,9 +89,9 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
         milliseconds = "000";
     }
 
-    if(isNegataive == false){
+    if (isNegataive == false) {
         return (hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
-    }else{
+    } else {
         return ('-' + hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
     }
 }

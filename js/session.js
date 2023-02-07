@@ -1,5 +1,6 @@
 var sessions = [];
 var sessionSelect = document.getElementById("Sessions");
+var scrambleSelect = document.getElementById("scramble");
 var currentActiveSession;
 
 function GetSessionInfo() { //For "Create New Session"
@@ -70,6 +71,10 @@ function ReloadSessions() {
 	//console.log("Reloading Session");
 
 	if (currentActiveSession != -1) {
+		//Also changes the scramble type to match the session
+		scrambleSelect.value = sessions[currentActiveSession].Scramble;
+
+		
 		ReloadStats();
 	}
 

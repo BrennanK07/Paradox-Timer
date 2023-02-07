@@ -203,8 +203,8 @@ function InitializeDefaultConfigs() {
         var newConfigs = JSON.parse(localStorage.getItem("ConfigsArray"));
 
         console.log(newConfigs);
-        
-        for(var i = Configs.length; i < newConfigs.length; i++){
+
+        for (var i = Configs.length; i < newConfigs.length; i++) {
             Configs[i] = newConfigs[i];
         }
     }
@@ -241,23 +241,23 @@ function UpdateConfigurationSelectionMenu() {
     }
 }
 
-function DeleteConfiguration(){
-    if(confirm("Are you sure you would like to delete this?") == true){
+function DeleteConfiguration() {
+    if (confirm("Are you sure you would like to delete this?") == true) {
         Configs.splice(parseInt(removeConfigurationMenu.value), 1);
 
         window.location.reload();
-    }else{
+    } else {
         return;
     }
 }
 
-function GetIndexOfConfigSelectMenu(){ //Function not working; returning -1
+function GetIndexOfConfigSelectMenu() { //Function not working; returning -1
     var indexValueName = parseInt(document.getElementById("configSelectionforModifications").value);
     console.log(indexValueName); //Number is the index value of the config
     return indexValueName;
 }
 
-function SetCustomizationBoxes(indexValue){
+function SetCustomizationBoxes(indexValue) {
     //Changes the customization boxes to the color corresponding to the current values
     document.getElementById("timerTextConf").value = Configs[indexValue].timerColor;
     document.getElementById("backgroundConf").value = Configs[indexValue].background;
@@ -274,7 +274,7 @@ function SetCustomizationBoxes(indexValue){
     document.getElementById("statsTextConf").value = Configs[indexValue].statsTextColor;
 }
 
-function SaveCustomizations(){
+function SaveCustomizations() {
     var configIndex = GetIndexOfConfigSelectMenu();
 
     Configs[configIndex].timerColor = document.getElementById("timerTextConf").value;
@@ -297,7 +297,7 @@ function SaveCustomizations(){
 var customizationWatch = window.setInterval(function () {
     if (IsSelectionChanged() == true) {
         setConfig = GetActiveConfig();
-        
+
         ForceDrawChart();
     }
 

@@ -74,7 +74,7 @@ var mainFunction = window.setInterval(function () {
     previousSession = currentActiveSession;
     currentActiveSession = GetActiveSession();
 
-    if(previousSession != currentActiveSession){
+    if (previousSession != currentActiveSession) {
         ReloadSessions();
     }
 

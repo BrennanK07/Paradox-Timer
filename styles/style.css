@@ -179,10 +179,13 @@ button:hover {
 
 #ScrambleText {
 	font-weight: lighter;
-	padding-left: auto;
-	padding-right: auto;
+	overflow-y: scroll;
+	height: 65px;
 	left: 0;
 	right: 0;
+
+	padding-left: 5%;
+	padding-right: 5%;
 
 	font-size: 1.5em;
 	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
