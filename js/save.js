@@ -22,6 +22,8 @@ function SaveData(){
 
     InitializeDefaultConfigs();
     localStorage.setItem("ConfigsArrayBkp", JSON.stringify(ConfigData));
+
+    localStorage.setItem("Bkp", 1);
 }
 
 window.addEventListener("beforeunload", function(){
@@ -58,19 +60,19 @@ function LoadData() {
         }
 
         InitializeDefaultConfigs();
-    }else{
+    }else if(localStorage.getItem("Bkp") == 1){
         //console.log("No Save Data Found");
 
-        sessions = JSON.parse(localStorage.getItem("SessionArray"));
+        sessions = JSON.parse(localStorage.getItem("SessionArrayBkp"));
 
         //console.log(JSON.parse(localStorage.getItem("ConfigsArray")));
-        Configs = JSON.parse(localStorage.getItem("ConfigsArray")); //Function re-runs as the configuration settings are initialized
+        Configs = JSON.parse(localStorage.getItem("ConfigsArrayBkp")); //Function re-runs as the configuration settings are initialized
 
         for(var i = 0; i < sessions.length; i++){
             AddSessionToList(sessions[i]);
         }
 
-        setConfig = localStorage.getItem("configurationInUse");
+        setConfig = localStorage.getItem("configurationInUseBkp");
         configurationMenu.selectedIndex = setConfig;
         if(configurationMenu.selectedIndex == -1){
             configurationMenu.selectedIndex = 0;
