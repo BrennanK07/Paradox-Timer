@@ -60,7 +60,7 @@ function LoadData() {
         }
 
         InitializeDefaultConfigs();
-    }else if(localStorage.getItem("Bkp") == 1){
+    /*}else if(localStorage.getItem("Bkp") == 1){
         //console.log("No Save Data Found");
 
         sessions = JSON.parse(localStorage.getItem("SessionArrayBkp"));
@@ -82,6 +82,6 @@ function LoadData() {
             // Code for localStorage/sessionStorage.
         } else {
             alert("WARNING! Your browser does not support Web Storage! Please use another browser to ensure that your data is saved.");
-        }
+        }*/
     }
 }
