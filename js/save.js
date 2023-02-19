@@ -14,6 +14,14 @@ function SaveData(){
     //console.log(JSON.parse(localStorage.getItem("SessionArray")));
 
     localStorage.setItem("Test", 1); //Value indicates if a save has happened already, and will make the load system attempt to load
+
+    //For backups
+    localStorage.setItem("SessionArrayBkp", JSON.stringify(SessionData));
+
+    localStorage.setItem("configurationInUseBkp", setConfig);
+
+    InitializeDefaultConfigs();
+    localStorage.setItem("ConfigsArrayBkp", JSON.stringify(ConfigData));
 }
 
 window.addEventListener("beforeunload", function(){
@@ -52,5 +60,26 @@ function LoadData() {
         InitializeDefaultConfigs();
     }else{
         //console.log("No Save Data Found");
+
+        sessions = JSON.parse(localStorage.getItem("SessionArray"));
+
+        //console.log(JSON.parse(localStorage.getItem("ConfigsArray")));
+        Configs = JSON.parse(localStorage.getItem("ConfigsArray")); //Function re-runs as the configuration settings are initialized
+
+        for(var i = 0; i < sessions.length; i++){
+            AddSessionToList(sessions[i]);
+        }
+
+        setConfig = localStorage.getItem("configurationInUse");
+        configurationMenu.selectedIndex = setConfig;
+        if(configurationMenu.selectedIndex == -1){
+            configurationMenu.selectedIndex = 0;
+        }
+
+        if (typeof (Storage) !== "undefined") {
+            // Code for localStorage/sessionStorage.
+        } else {
+            alert("WARNING! Your browser does not support Web Storage! Please use another browser to ensure that your data is saved.");
+        }
     }
 }
