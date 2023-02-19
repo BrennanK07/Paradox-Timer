@@ -1,8 +1,8 @@
 function openNav() {
-	document.getElementById("settingsMenu").style.width = "100%";
-	OnMainPage = false;
-
-	
+	if (!isSolving) {
+		document.getElementById("settingsMenu").style.width = "100%";
+		OnMainPage = false;
+	}
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
@@ -11,17 +11,19 @@ function closeNav() {
 	OnMainPage = true;
 }
 
-function openInfo(){
-	document.getElementById("infoMenu").style.width = "100%";
-	OnMainPage = false;
+function openInfo() {
+	if (!isSolving) {
+		document.getElementById("infoMenu").style.width = "100%";
+		OnMainPage = false;
+	}
 }
 
-function closeInfo(){
+function closeInfo() {
 	document.getElementById("infoMenu").style.width = "0%";
 	OnMainPage = true;
 }
 
-function OpenCustomization(){
+function OpenCustomization() {
 	//Closes info box simontaneously
 	document.getElementById("settingsMenu").style.width = "0%";
 	OnMainPage = false;
@@ -30,17 +32,19 @@ function OpenCustomization(){
 	OnMainPage = false;
 }
 
-function CloseCustomization(){
+function CloseCustomization() {
 	document.getElementById("customizationMenu").style.width = "0%";
 	OnMainPage = true;
 }
 
-function OpenManual(){
-	document.getElementById("manuallyEnterTimeMenu").style.width = "100%";
-	OnMainPage = false;
+function OpenManual() {
+	if (!isSolving) {
+		document.getElementById("manuallyEnterTimeMenu").style.width = "100%";
+		OnMainPage = false;
+	}
 }
 
-function CloseManual(){
+function CloseManual() {
 	document.getElementById("manuallyEnterTimeMenu").style.width = "0%";
 	OnMainPage = true;
 }
