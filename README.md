@@ -6,7 +6,7 @@ Rubiks Cube Timer - (Name not final)
 * Timer (Yeah that one was obvious)
 * Customizable UI
 * Support to generate scrambles from a variety of cubes
-* Calculate Averages, PB's, Ao5's, A012's and more
+* Calculate Averages, PB's, Ao5's, Ao12's and more
 * Graph
 * Ability to manually enter solves
 * Customization "Themes"
@@ -15,4 +15,5 @@ Rubiks Cube Timer - (Name not final)
 **More features coming in the near future**
 * Mobile support
 * Online mode (For competing against others)
+* 3D Scramble viewer
 **More features to be announced in the future
