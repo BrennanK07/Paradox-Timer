@@ -16,4 +16,5 @@ Rubiks Cube Timer - (Name not final)
 * Mobile support
 * Online mode (For competing against others)
 * 3D Scramble viewer
+<br>
 **More features to be announced in the future
