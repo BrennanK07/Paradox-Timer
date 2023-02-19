@@ -202,7 +202,7 @@ function InitializeDefaultConfigs() {
     if (localStorage.getItem("Test") == 1) {
         var newConfigs = JSON.parse(localStorage.getItem("ConfigsArray"));
 
-        console.log(newConfigs);
+        //console.log(newConfigs);
 
         for (var i = Configs.length; i < newConfigs.length; i++) {
             Configs[i] = newConfigs[i];
@@ -253,7 +253,7 @@ function DeleteConfiguration() {
 
 function GetIndexOfConfigSelectMenu() { //Function not working; returning -1
     var indexValueName = parseInt(document.getElementById("configSelectionforModifications").value);
-    console.log(indexValueName); //Number is the index value of the config
+    //console.log(indexValueName); //Number is the index value of the config
     return indexValueName;
 }
 

@@ -34,3 +34,13 @@ function CloseCustomization(){
 	document.getElementById("customizationMenu").style.width = "0%";
 	OnMainPage = true;
 }
+
+function OpenManual(){
+	document.getElementById("manuallyEnterTimeMenu").style.width = "100%";
+	OnMainPage = false;
+}
+
+function CloseManual(){
+	document.getElementById("manuallyEnterTimeMenu").style.width = "0%";
+	OnMainPage = true;
+}

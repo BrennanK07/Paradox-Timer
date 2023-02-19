@@ -95,3 +95,34 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
         return ('-' + hours.toString() + minutes.toString() + seconds.toString() + milliseconds)
     }
 }
+
+function TimeToSeconds(time){ //Converts XX:YY.ZZZ to X.XXXXXXXXXXXXX (Seconds)
+    let outputTime = 0;
+    
+    time = time.split(":");
+
+    for(var i = 0; i < time.length; i++){
+        time[i] = parseFloat(time[i]);
+    }
+
+    if(ContainsErrors(time)){
+        alert("Error: Format was not entered properly");
+        return;
+    }
+
+    for(var i = 0; i < time.length; i++){
+        outputTime += time[i] * Math.pow(60, (time.length - i - 1));
+    }
+
+    return outputTime;
+}
+
+function ContainsErrors(stringArray){
+    for(var i = 0; i < stringArray.length; i++){
+        if(stringArray[i] == NaN){
+            return true;
+        }
+    }
+
+    return false;
+}

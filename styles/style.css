@@ -416,6 +416,14 @@ element::-webkit-scrollbar {
 	padding-bottom: 0.3em;
 }
 
+#settingsTitle {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	border-top: solid #4285EA;
+	border-bottom: solid #4285EA;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
 #SessionDeleteMenu {
 	width: 15%;
 }

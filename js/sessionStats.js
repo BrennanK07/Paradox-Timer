@@ -313,3 +313,19 @@ function MakeTimePlus2() {
 document.addEventListener('keyup', (event) => {
   delete keysPressed[event.key];
 });
+
+function manuallyAddTime(){
+  var solveTime = document.getElementById("enteredTime").value;
+  if(currentActiveSession == -1){
+    alert("There is no session active. Please open one of them to add a time to it");
+    return;
+  }
+
+  if(isNaN(TimeToSeconds(solveTime))){
+    alert("Error! " + solveTime + " was not put into proper format");
+    return;
+  }
+
+  addTimeToSession(sessions[currentActiveSession].length + 1, solveTime, "-", TimeToSeconds(solveTime), false, false);
+  //number, time, scramble, timeSeconds, DNF, p2
+}
