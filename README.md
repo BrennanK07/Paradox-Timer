@@ -1,4 +1,4 @@
-Rubiks Cube Timer - (Name not final)
+Paradox Timer
 
 -Started as a fun summer side project, but it had grew to be more than just a side project
 
