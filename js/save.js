@@ -1,10 +1,10 @@
 //This file contains all information that allows the user to save their data
 
-function SaveData(){
+function SaveData() {
     var SessionData = sessions;
     var ConfigData = GetConfigs();
 
-    if(ConfigData == [] || configuredSettings == []){
+    if (ConfigData == [] || configuredSettings == []) {
         //Executes when null values may override stored values
         return;
     }
@@ -21,11 +21,11 @@ function SaveData(){
     localStorage.setItem("Test", 1); //Value indicates if a save has happened already, and will make the load system attempt to load
 }
 
-window.addEventListener("beforeunload", function(){
+window.addEventListener("beforeunload", function () {
     SaveData();
- }, false);
+}, false);
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     LoadData();
     //console.log("Loading data");
 });
@@ -38,15 +38,17 @@ function LoadData() {
         //console.log(JSON.parse(localStorage.getItem("ConfigsArray")));
         Configs = JSON.parse(localStorage.getItem("ConfigsArray")); //Function re-runs as the configuration settings are initialized
 
-        configuredSettings = JSON.parse(localStorage.getItem("SettingsArray"));
+        if (JSON.parse(localStorage.getItem("SettingsArray")) == null) {
+            configuredSettings = JSON.parse(localStorage.getItem("SettingsArray"));
+        }
 
-        for(var i = 0; i < sessions.length; i++){
+        for (var i = 0; i < sessions.length; i++) {
             AddSessionToList(sessions[i]);
         }
 
         setConfig = localStorage.getItem("configurationInUse");
         configurationMenu.selectedIndex = setConfig;
-        if(configurationMenu.selectedIndex == -1){
+        if (configurationMenu.selectedIndex == -1) {
             configurationMenu.selectedIndex = 0;
         }
 
@@ -58,7 +60,7 @@ function LoadData() {
 
         InitializeDefaultConfigs();
         UpdateSettings();
-    }else{
+    } else {
         //console.log("No Save Data Found");
         if (typeof (Storage) !== "undefined") {
             // Code for localStorage/sessionStorage.
