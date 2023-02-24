@@ -38,7 +38,7 @@ function LoadData() {
         //console.log(JSON.parse(localStorage.getItem("ConfigsArray")));
         Configs = JSON.parse(localStorage.getItem("ConfigsArray")); //Function re-runs as the configuration settings are initialized
 
-        if (JSON.parse(localStorage.getItem("SettingsArray")) == null) {
+        if (JSON.parse(localStorage.getItem("SettingsArray")) != null) {
             configuredSettings = JSON.parse(localStorage.getItem("SettingsArray"));
         }
 
