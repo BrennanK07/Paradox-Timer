@@ -1,6 +1,11 @@
-Rubiks Cube Timer - (Name not final)
+Paradox Timer
 
 -Started as a fun summer side project, but it had grew to be more than just a side project
+
+**Keybinds & Shortcuts**
+* Q + P **Deletes the most recent solve**
+* L **Makes the most recent solve +2**
+* K **Makes the most recent solve DNF**
 
 **Features**
 * Timer (Yeah that one was obvious)
