@@ -2,6 +2,8 @@ var startTime;
 var TimerString;
 var SolveTime;
 var SolveTimeInSeconds;
+var inspecitonStartTime;
+var inspectionStart = false;
 
 //Main timekeeping function
 var intervalId = window.setInterval(function () {
@@ -12,7 +14,24 @@ var intervalId = window.setInterval(function () {
 
     if (isSolving == true) {
         document.getElementById("timer").innerHTML = TimeString.slice(0, -2);
-    } else {
+    }
+    else if (inspectionStart == true) {
+        document.getElementById("timer").innerHTML = SecondsToTime(15 - (CompareTime(inspecitonStartTime, new Date().getTime() / 1000))).slice(0, -2);
+
+        if (15 - (CompareTime(inspecitonStartTime, new Date().getTime() / 1000)) < 0) { //Ran out of inspection time; Make DNF
+            isSolving = false;
+            waitingToStart = false;
+            if (isPressing) {
+                justFinished = true;
+            }
+            inspectionStart = false;
+            sessionSelect.value.totalSolves++;
+
+            addTimeToSession(GetSolveNumber(), 0.000, document.getElementById("ScrambleText").innerHTML, 0, true, false);
+            MakeTimeDNF();
+        }
+    }
+    else {
         if (SolveTime == undefined) {
             document.getElementById("timer").innerHTML = "0.000";
         }
@@ -25,6 +44,12 @@ var intervalId = window.setInterval(function () {
 
 function StartTimer() {
     startTime = new Date().getTime() / 1000;
+}
+
+function StartInspectionTimer() {
+    inspecitonStartTime = new Date().getTime() / 1000;
+    waitingToStart = false;
+    inspectionStart = true;
 }
 
 function StopTimer() {
@@ -96,30 +121,30 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
     }
 }
 
-function TimeToSeconds(time){ //Converts XX:YY.ZZZ to X.XXXXXXXXXXXXX (Seconds)
+function TimeToSeconds(time) { //Converts XX:YY.ZZZ to X.XXXXXXXXXXXXX (Seconds)
     let outputTime = 0;
-    
+
     time = time.split(":");
 
-    for(var i = 0; i < time.length; i++){
+    for (var i = 0; i < time.length; i++) {
         time[i] = parseFloat(time[i]);
     }
 
-    if(ContainsErrors(time)){
+    if (ContainsErrors(time)) {
         alert("Error: Format was not entered properly");
         return;
     }
 
-    for(var i = 0; i < time.length; i++){
+    for (var i = 0; i < time.length; i++) {
         outputTime += time[i] * Math.pow(60, (time.length - i - 1));
     }
 
     return outputTime;
 }
 
-function ContainsErrors(stringArray){
-    for(var i = 0; i < stringArray.length; i++){
-        if(stringArray[i] == NaN){
+function ContainsErrors(stringArray) {
+    for (var i = 0; i < stringArray.length; i++) {
+        if (stringArray[i] == NaN) {
             return true;
         }
     }

@@ -1,4 +1,5 @@
 //This file contains all main controls that are executed in other scripts
+//UPDATE: This file was planned to be used for everything, but now it is mainly timer controller stuff
 
 let isSolving = false; //Used as a way to determine if the user is solving or not
 let waitingToStart = false; //Active when waiting for the light to turn green
@@ -40,12 +41,23 @@ var mainFunction = window.setInterval(function () {
         }
 
         //Starts timer
-        if (waitingToStart == true && isPressing == false) {
+        if (waitingToStart == true && isPressing == false && configuredSettings[0].value == false) {
             waitingToStart = false;
             isSolving = true;
 
             StartTimer();
             //console.log("Timer Started");
+        }
+        else if(waitingToStart == true && isPressing == false && configuredSettings[0].value == true && inspectionStart == false) { //Starts inspection timer
+            StartInspectionTimer();
+            ChangeTimerColor(Configs[setConfig].timerColor);
+        }
+        else if(waitingToStart == true && isPressing == false && configuredSettings[0].value == true && inspectionStart == true){
+            waitingToStart = false;
+            isSolving = true;
+            inspectionStart = false;
+
+            StartTimer();
         }
 
         //Stops timer

@@ -3,15 +3,20 @@
 function SaveData(){
     var SessionData = sessions;
     var ConfigData = GetConfigs();
+
+    if(ConfigData == [] || configuredSettings == []){
+        //Executes when null values may override stored values
+        return;
+    }
+
     localStorage.setItem("SessionArray", JSON.stringify(SessionData));
 
     localStorage.setItem("configurationInUse", setConfig);
 
     InitializeDefaultConfigs();
     localStorage.setItem("ConfigsArray", JSON.stringify(ConfigData));
-    //console.log(JSON.stringify(sessions))
 
-    //console.log(JSON.parse(localStorage.getItem("SessionArray")));
+    localStorage.setItem("SettingsArray", JSON.stringify(configuredSettings));
 
     localStorage.setItem("Test", 1); //Value indicates if a save has happened already, and will make the load system attempt to load
 }
@@ -27,11 +32,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function LoadData() {
     //console.log("Loading Website Data");
-    if (localStorage.getItem("Test") == 1) {
+    if (localStorage.getItem("Test") == 1 && localStorage.getItem("SettingsArray") != []) {
         sessions = JSON.parse(localStorage.getItem("SessionArray"));
 
         //console.log(JSON.parse(localStorage.getItem("ConfigsArray")));
         Configs = JSON.parse(localStorage.getItem("ConfigsArray")); //Function re-runs as the configuration settings are initialized
+
+        configuredSettings = JSON.parse(localStorage.getItem("SettingsArray"));
 
         for(var i = 0; i < sessions.length; i++){
             AddSessionToList(sessions[i]);
@@ -50,6 +57,7 @@ function LoadData() {
         }
 
         InitializeDefaultConfigs();
+        UpdateSettings();
     }else{
         //console.log("No Save Data Found");
         if (typeof (Storage) !== "undefined") {

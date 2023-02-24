@@ -101,7 +101,7 @@
         <!-- Overlay content -->
         <div class="overlay-content">
             <a onclick="OpenCustomization()">Customization</a>
-            <a href="#">Timer</a>
+            <a onclick="OpenTimerSettings()">Timer</a>
             <a href="#">Extra Features</a>
             <a href="#">Advanced</a>
         </div>
@@ -226,6 +226,7 @@
 
             <label id="SessionTitle" class="title" id="title">Website Views</label>
             <a title="viewCounter"><img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=ymjyl5dx7zh9h4tk5ne7pt9ujsclyy8g" border="0" title="View Counter" alt="free counters"></a>
+        </div>
     </div>
 
     <div id="customizationMenu" class="overlay">
@@ -331,7 +332,7 @@
                     <br>
 
                     <label
-                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">
                         Title Text Color </label>
                     <input type="color" id="titleTextConf" class="ConfigurationMenu">
 
@@ -339,7 +340,7 @@
                     <br>
 
                     <label
-                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Scramble
+                        style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">
                         Title Stripe Color </label>
                     <input type="color" id="titleStripeConf" class="ConfigurationMenu">
 
@@ -409,10 +410,19 @@
     </div>
 
     <div id="timerSettingsMenu" class="overlay">
-        <a href="javascript:void(0)" class="closebtn" onclick="CloseTimer()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="CloseTimerSettings()">&times;</a>
 
         <div class="overlay-content">
             <label style="color: white" id="SessionTitle" class="title" id="title">Timer Settings</label>
+            <br><br>
+            <button style="width: 15%" onclick="UpdateSettings()">Cancel</button>
+            <button style="width: 15%" onclick="ApplySettingChanges(), CloseTimerSettings()">Apply</button>
+
+            <h2 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Inspection Timer</h2>
+            <label class="switch" id="enableInspectionTimer">
+                <input type="checkbox" id="enableInspectionTimerCheck">
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
 

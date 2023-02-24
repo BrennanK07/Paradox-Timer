@@ -14,8 +14,8 @@ function ForceDrawChart() {
 function drawChart() {
     sessionData = GetSessionData();
 
-    if (currentActiveSession == -1 || sessionData[currentActiveSession].totalSolves == 0) {
-        graphArray = [ //ADD SUPPORT FOR PB'S SOON
+    if (currentActiveSession == -1 || sessionData[currentActiveSession].totalSolves == 0 || IsAllDNF()) {
+        graphArray = [
             ['Task', 'Solve Time', 'Ao5', 'Ao12'],
             ['1', [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
         ];
@@ -27,6 +27,8 @@ function drawChart() {
             'title': '',
             'width': `100%`,
             'height': `20%`,
+            'hAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
+            'vAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
             'backgroundColor': { fill: Configs[GetActiveConfig()].rightSideBarBackground }
 
         };
@@ -56,6 +58,8 @@ function drawChart() {
         'title': '',
         'width': `100%`,
         'height': `20%`,
+        'hAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
+        'vAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
         'backgroundColor': { fill: Configs[setConfig].rightSideBarBackground },
     };
 
