@@ -1,6 +1,6 @@
 Paradox Timer
 
--Started as a fun summer side project, but it had grew to be more than just a side project
+-Started in July 2022 as a side project
 
 **Keybinds & Shortcuts**
 * Q + P **Deletes the most recent solve**
@@ -12,14 +12,17 @@ Paradox Timer
 * Customizable UI
 * Support to generate scrambles from a variety of cubes
 * Calculate Averages, PB's, Ao5's, Ao12's and more
+* Difference Calculator (Calculates the difference from your solve to your average)
 * Graph
 * Ability to manually enter solves
 * Customization "Themes"
+* Support for different fonts
 * Sessions
 
 **More features coming in the near future**
 * Mobile support
 * Online mode (For competing against others)
 * 3D Scramble viewer
+* Sound effects (Play on PB, time stops, etc.)
 <br>
 **More features to be announced in the future
