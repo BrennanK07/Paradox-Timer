@@ -1,7 +1,11 @@
 var configuredSettings = [];
 
 //Array stores all settings for the website
-var configuredSettings = [{name: "TimerInspect", value: false}]
+var configuredSettings = [{name: "TimerInspect", value: false}, {name: "TimerFont", value: 0}];
+
+function InitConfigSettings(){
+	var configuredSettings = [{name: "TimerInspect", value: false}, {name: "TimerFont", value: 0}]
+}
 
 function ApplySettingChanges(){
 	//Checks all settings and applies their values
@@ -10,17 +14,66 @@ function ApplySettingChanges(){
 	}else{
 		configuredSettings[0].value = false;
 	}
+
+	configuredSettings[1].value = document.getElementById("timerFontSelect").selectedIndex;
+
+	UpdateUI();
 }
 
 function UpdateSettings(){
 	//Updates the settings menus to match what is stored in localstorage
 	document.getElementById("enableInspectionTimerCheck").checked = configuredSettings[0].value;
+
+	document.getElementById("timerFontSelect").selectedIndex = configuredSettings[1].value;
+
+	UpdateUI();
+}
+
+function UpdateUI(){
+	var timerStyle = document.getElementById("timer");
+	//For font changing
+
+	if(configuredSettings[1].value == 0){
+		timerStyle.style.fontFamily = "sans-serif";
+		timerStyle.style.fontWeight = "bold";
+		timerStyle.style.fontSize = "10vw";
+	}
+	else if(configuredSettings[1].value == 1){
+		timerStyle.style.fontFamily = "Calculator";
+		timerStyle.style.fontWeight = "bold";
+		timerStyle.style.fontSize = "9vw";
+	}
+	else if(configuredSettings[1].value == 2){
+		timerStyle.style.fontFamily = "LCD";
+		timerStyle.style.fontWeight = "normal";
+		timerStyle.style.fontSize = "12vw";
+	}
+	else if(configuredSettings[1].value == 3){
+		timerStyle.style.fontFamily = "LCD2";
+		timerStyle.style.fontWeight = "normal";
+		timerStyle.style.fontSize = "15vw";
+	}
+	else if(configuredSettings[1].value == 4){
+		timerStyle.style.fontFamily = "Pixel";
+		timerStyle.style.fontWeight = "normal";
+		timerStyle.style.fontSize = "8vw";
+	}
+	else if(configuredSettings[1].value == 5){
+		timerStyle.style.fontFamily = "Retro";
+		timerStyle.style.fontWeight = "normal";
+		timerStyle.style.fontSize = "12vw";
+	}
+	else if(configuredSettings[1].value == 6){
+		timerStyle.style.fontFamily = "Retro2";
+		timerStyle.style.fontWeight = "normal";
+		timerStyle.style.fontSize = "7vw";
+	}
 }
 
 //For menus
 
 function openNav() {
-	if (!isSolving) {
+	if (!isSolving && !inspectionStart) {
 		document.getElementById("settingsMenu").style.width = "100%";
 		OnMainPage = false;
 	}
@@ -33,7 +86,7 @@ function closeNav() {
 }
 
 function openInfo() {
-	if (!isSolving) {
+	if (!isSolving && !inspectionStart) {
 		document.getElementById("infoMenu").style.width = "100%";
 		OnMainPage = false;
 	}
@@ -73,7 +126,7 @@ function CloseCustomization() {
 }
 
 function OpenManual() {
-	if (!isSolving) {
+	if (!isSolving && !inspectionStart) {
 		document.getElementById("manuallyEnterTimeMenu").style.width = "100%";
 		OnMainPage = false;
 	}

@@ -54,10 +54,6 @@
     <div class="main" id="main">
         <h1 id="InfoBox">Click here to refocus</h1>
         <h2 id="timer">0.000</h2>
-
-        <div class="menuButtonArray">
-
-        </div>
     </div>
 
     <div class="buttonRow">
@@ -222,10 +218,12 @@
             <br>
             <!label id="SessionTitle" class="title" id="title">Contributions</label>
 
-            <br>
+                <br>
 
-            <label id="SessionTitle" class="title" id="title">Website Views</label>
-            <a title="viewCounter"><img src="https://counter4.optistats.ovh/private/freecounterstat.php?c=ymjyl5dx7zh9h4tk5ne7pt9ujsclyy8g" border="0" title="View Counter" alt="free counters"></a>
+                <label id="SessionTitle" class="title" id="title">Website Views</label>
+                <a title="viewCounter"><img
+                        src="https://counter4.optistats.ovh/private/freecounterstat.php?c=ymjyl5dx7zh9h4tk5ne7pt9ujsclyy8g"
+                        border="0" title="View Counter" alt="free counters"></a>
         </div>
     </div>
 
@@ -398,7 +396,8 @@
         <div class="overlay-content">
             <label style="color: white" id="SessionTitle" class="title" id="title">Manually Add Times</label>
 
-            <h1 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1em; font-weight: lighter;">
+            <h1
+                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1em; font-weight: lighter;">
                 Enter time in XX:YY.ZZZ format. Ex: 1:59.045</h1>
 
             <input type="text" id="enteredTime" placeholder="Time" style="font-size: 1.5em; width: 18%">
@@ -418,11 +417,29 @@
             <button style="width: 15%" onclick="UpdateSettings()">Cancel</button>
             <button style="width: 15%" onclick="ApplySettingChanges(), CloseTimerSettings()">Apply</button>
 
-            <h2 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Inspection Timer</h2>
+            <h2
+                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                Inspection Timer</h2>
             <label class="switch" id="enableInspectionTimer">
                 <input type="checkbox" id="enableInspectionTimerCheck">
                 <span class="slider round"></span>
             </label>
+
+            <br>
+            <br>
+
+            <h2
+                style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+                Timer Font</h2>
+            <select name="timerFont" id="timerFontSelect" style="width: 20%;">
+                <option value="default">Default</option>
+                <option value="calculator">Calculator</option>
+                <option value="lcd">LCD</option>
+                <option value="lcd2">LCD 2</option>
+                <option value="pixel">Pixel</option>
+                <option value="retro">Retro</option>
+                <option value="retro2">Retro 2</option>
+            </select>
         </div>
     </div>
 

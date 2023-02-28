@@ -1,6 +1,12 @@
 //This file contains all information that allows the user to save their data
 
+var dataLoaded = false;
+
 function SaveData() {
+    if(!dataLoaded){
+        SaveData();
+    }
+
     var SessionData = sessions;
     var ConfigData = GetConfigs();
 
@@ -26,6 +32,7 @@ window.addEventListener("beforeunload", function () {
 }, false);
 
 document.addEventListener("DOMContentLoaded", function () {
+    InitConfigSettings();
     LoadData();
     //console.log("Loading data");
 });
@@ -37,8 +44,11 @@ function LoadData() {
 
         //console.log(JSON.parse(localStorage.getItem("ConfigsArray")));
         Configs = JSON.parse(localStorage.getItem("ConfigsArray")); //Function re-runs as the configuration settings are initialized
-        
-        configuredSettings = JSON.parse(localStorage.getItem("SettingsArray"));
+
+        //var configuredSettings = [{name: "TimerInspect", value: false}, {name: "TimerFont", value: 0}];
+        for (var i = 0; i < JSON.parse(localStorage.getItem("SettingsArray")).length; i++) {
+            configuredSettings[i] = JSON.parse(localStorage.getItem("SettingsArray"))[i];
+        }
 
         for (var i = 0; i < sessions.length; i++) {
             AddSessionToList(sessions[i]);
@@ -66,4 +76,6 @@ function LoadData() {
             alert("WARNING! Your browser does not support Web Storage! Please use another browser to ensure that your data is saved.");
         }
     }
+
+    dataLoaded = true;
 }

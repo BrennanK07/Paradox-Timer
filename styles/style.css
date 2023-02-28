@@ -2,11 +2,118 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+@font-face {
+	font-family: 'Calculator';
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/Calculator.ttf);
+}
+
+@font-face {
+	font-family: 'LCD';
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/LCD.ttf);
+}
+
+@font-face {
+	font-family: 'LCD2';
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/LCD2.ttf);
+}
+
+@font-face {
+	font-family: 'Pixel';
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/Pixel.ttf);
+}
+
+@font-face {
+	font-family: 'Retro';
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/Retro.ttf);
+}
+
+@font-face {
+	font-family: 'Retro2';
+	font-style: normal;
+	font-weight: 500;
+	src: url(fonts/Retro2.ttf);
+}
+
+.main {
+	/*
+    border: 2px dotted;
+	color: #fff;
+	*/
+	
+	height: 98vh;
+	width: 70%;
+
+	margin-left: 15%;
+	margin-right: 15%;
+	/* Same as the width of the sidebar */
+}
+
+#timer {
+	/*DEBUG
+    border: 2px dotted;
+    END OF DEBUG*/
+
+
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	color: #ffffff;
+	text-align: center;
+	font-size: 15vw;
+	font-weight: bold;
+	font-family: sans-serif;
+	/*Old fonts: 'Monsterrat', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', */
+	line-height: 34px;
+	font-variant-numeric: tabular-nums;
+
+	text-size-adjust: auto;
+
+	text-shadow: 10px 10px 20px #0000008e;
+
+
+
+	/*Helps align vertically*/
+	width: auto;
+	margin-left: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	top: 50%;
+	bottom: 0;
+	vertical-align: center;
+	text-align: center;
+	display: grid;
+
+	/*Removes the highlighting feature from the timer*/
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+	/*
+      Introduced in IE 10.
+      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+    */
+	-ms-user-select: none;
+	user-select: none;
+}
 
 html {
 	/*background-color: #232323;*/
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 }
 
 h1 {
@@ -84,7 +191,7 @@ select {
 	color: #fff;
 	font-weight: lighter;
 	text-align: center;
-	appearance: none;
+	appearance: menulist;
 
 	background-color: #212121;
 	color: #fff;
@@ -169,14 +276,6 @@ button:hover {
 	width: 15%;
 }
 
-.main {
-	margin-left: 15%;
-	margin-right: 15%;
-	margin-top: 350px;
-
-	/* Same as the width of the sidebar */
-}
-
 #ScrambleText {
 	font-weight: lighter;
 	overflow-y: scroll;
@@ -202,56 +301,6 @@ button:hover {
 
 a {
 	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
-}
-
-#timer {
-	/*DEBUG
-    border:0;
-    border: 2px dotted;
-    END OF DEBUG*/
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: #ffffff;
-	text-align: center;
-	font-size: 15vw;
-	font-weight: bold;
-	font-family: sans-serif;
-	/*Old fonts: 'Monsterrat', 'Roboto', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', */
-	line-height: 34px;
-	font-variant-numeric: tabular-nums;
-
-	text-size-adjust: auto;
-
-	text-shadow: 10px 10px 20px #0000008e;
-
-
-
-	/*Helps align vertically*/
-	width: auto;
-	margin-left: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-	margin-right: auto;
-	left: 0;
-	right: 0;
-	top: 50%;
-	bottom: 0;
-	vertical-align: center;
-	text-align: center;
-	display: grid;
-
-	/*Removes the highlighting feature from the timer*/
-	-moz-user-select: -moz-none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
-
-	/*
-      Introduced in IE 10.
-      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-    */
-	-ms-user-select: none;
-	user-select: none;
 }
 
 #bottom {
