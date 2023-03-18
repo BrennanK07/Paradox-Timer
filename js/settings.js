@@ -36,17 +36,17 @@ function UpdateUI(){
 	if(configuredSettings[1].value == 0){
 		timerStyle.style.fontFamily = "sans-serif";
 		timerStyle.style.fontWeight = "bold";
-		timerStyle.style.fontSize = "10vw";
+		timerStyle.style.fontSize = "11.5vw";
 	}
 	else if(configuredSettings[1].value == 1){
 		timerStyle.style.fontFamily = "Calculator";
 		timerStyle.style.fontWeight = "bold";
-		timerStyle.style.fontSize = "9vw";
+		timerStyle.style.fontSize = "10.5vw";
 	}
 	else if(configuredSettings[1].value == 2){
 		timerStyle.style.fontFamily = "LCD";
 		timerStyle.style.fontWeight = "normal";
-		timerStyle.style.fontSize = "12vw";
+		timerStyle.style.fontSize = "13.5vw";
 	}
 	else if(configuredSettings[1].value == 3){
 		timerStyle.style.fontFamily = "LCD2";
@@ -56,17 +56,17 @@ function UpdateUI(){
 	else if(configuredSettings[1].value == 4){
 		timerStyle.style.fontFamily = "Pixel";
 		timerStyle.style.fontWeight = "normal";
-		timerStyle.style.fontSize = "8vw";
+		timerStyle.style.fontSize = "9.5vw";
 	}
 	else if(configuredSettings[1].value == 5){
 		timerStyle.style.fontFamily = "Retro";
 		timerStyle.style.fontWeight = "normal";
-		timerStyle.style.fontSize = "12vw";
+		timerStyle.style.fontSize = "13.5vw";
 	}
 	else if(configuredSettings[1].value == 6){
 		timerStyle.style.fontFamily = "Retro2";
 		timerStyle.style.fontWeight = "normal";
-		timerStyle.style.fontSize = "7vw";
+		timerStyle.style.fontSize = "8.5vw";
 	}
 }
 
@@ -134,5 +134,15 @@ function OpenManual() {
 
 function CloseManual() {
 	document.getElementById("manuallyEnterTimeMenu").style.width = "0%";
+	OnMainPage = true;
+}
+
+function OpenWelcome() {
+	document.getElementById("welcomeMenu").style.width = "100%";
+	OnMainPage = false;
+}
+
+function CloseWelcome() {
+	document.getElementById("welcomeMenu").style.width = "0%";
 	OnMainPage = true;
 }

@@ -81,7 +81,7 @@ function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format
     }
 
     let minutes = Math.floor(timeInSeconds / 60) - (Math.floor(timeInSeconds / 3600) * 60);
-    if (minutes < 10 && minutes != 0) {
+    if (minutes < 10 && minutes != 0 && hours == 0) {
         minutes = "" + minutes.toString() + ":";
     }
     else if (minutes == 0 && hours == 0) {

@@ -327,6 +327,7 @@ function manuallyAddTime() {
 	}
 
 	addTimeToSession(sessions[currentActiveSession].length + 1, solveTime, "-", TimeToSeconds(solveTime), false, false);
+	document.getElementById("enteredTime").value = "";
 	//number, time, scramble, timeSeconds, DNF, p2
 }
 

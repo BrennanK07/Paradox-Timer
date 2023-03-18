@@ -58,6 +58,10 @@
 	/* Same as the width of the sidebar */
 }
 
+.emphasized {
+	font-style: italic; 
+}
+
 #timer {
 	/*DEBUG
     border: 2px dotted;

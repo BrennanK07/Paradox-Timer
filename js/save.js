@@ -1,5 +1,9 @@
 //This file contains all information that allows the user to save their data
 
+if(localStorage.getItem("Test") == null){ //Opens the welcome screen
+    OpenWelcome();
+}
+
 var dataLoaded = false;
 
 function SaveData() {
