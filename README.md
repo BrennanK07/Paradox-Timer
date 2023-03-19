@@ -1,4 +1,4 @@
-Paradox Timer
+<h1>Paradox Timer</h1>
 
 -Started in July 2022 as a side project
 
