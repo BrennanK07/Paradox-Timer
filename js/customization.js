@@ -194,6 +194,25 @@ var NavyBlueConfig = {
     statsTextColor: NavyPallette[0]
 };
 
+var FireAndIce = ["#FB3640", "#605F5E", "#1D3461", "#1F487E", "#247BA0"];
+
+var FireAndIceConfig = {
+    name: "Fire And Ice",
+    timerColor: FireAndIce[0],
+    background: FireAndIce[4],
+    leftSideBarBackground: FireAndIce[3],
+    rightSideBarBackground: FireAndIce[3],
+    scrambleText: FireAndIce[3],
+    scrambleBackground: FireAndIce[0],
+    titleTextColor: FireAndIce[0],
+    titleStripeColor: FireAndIce[2],
+    buttonBackgroundColor: FireAndIce[1],
+    buttonTextColor: FireAndIce[4],
+    tableColor: FireAndIce[0],
+    tableTextColor: FireAndIce[0],
+    statsTextColor: FireAndIce[0]
+};
+
 InitializeDefaultConfigs();
 function InitializeDefaultConfigs() {
     Configs = [];
@@ -221,6 +240,7 @@ function GetDefaultConfigs() {
     Configs[7] = SolarizedDarkConfig;
     Configs[8] = LightConfig;
     Configs[9] = NavyBlueConfig;
+    Configs[10] = FireAndIceConfig;
 }
 
 UpdateConfigurationSelectionMenu();
