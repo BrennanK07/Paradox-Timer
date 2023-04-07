@@ -118,6 +118,12 @@ body{
 	user-select: none;
 }
 
+#graph{
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
+
 html {
 	/*background-color: #232323;*/
 	width: 100%;
