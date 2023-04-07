@@ -8,7 +8,7 @@
 * K **Makes the most recent solve DNF**
 
 **Features**
-* Timer (Yeah that one was obvious)
+* Timer (I can guarantee you didn't expect this to be a feature)
 * Customizable UI
 * Support to generate scrambles from a variety of cubes
 * Calculate Averages, PB's, Ao5's, Ao12's and more
