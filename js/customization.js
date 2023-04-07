@@ -240,7 +240,7 @@ function GetDefaultConfigs() {
     Configs[7] = SolarizedDarkConfig;
     Configs[8] = LightConfig;
     Configs[9] = NavyBlueConfig;
-    Configs[10] = FireAndIceConfig;
+    //Configs[10] = FireAndIceConfig;
 }
 
 UpdateConfigurationSelectionMenu();
