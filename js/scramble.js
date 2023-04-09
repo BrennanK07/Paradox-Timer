@@ -347,51 +347,30 @@ function GenerateScramble(scrambleType) {
     if (scrambleType == "megaminx") {
         ChangeTextSize(1.25);
         generatedScramble = "";
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 9; j++) {
-                if (Random(2) == 0) {
-                    generatedScramble += "R";
-                }
-                else {
-                    generatedScramble += "D"
-                }
 
-                if (Random(2) == 0) {
+        for(let i = 0; i < 6; i++){
+            for(let j = 0; j < 5; j++){
+                generatedScramble += "R";
+
+                if(Random(2) == 0){
                     generatedScramble += "++ ";
-                }
-                else {
-                    generatedScramble += "-- "
-                }
-            }
-
-            if (Random(2) == 0) {
-                generatedScramble += " U ";
-            }
-            else {
-                generatedScramble += " U' "
-            }
-
-            for (let j = 0; j < 9; j++) {
-                if (Random(2) == 0) {
-                    generatedScramble += "R";
-                }
-                else {
-                    generatedScramble += "D"
+                }else{
+                    generatedScramble += "-- ";
                 }
 
-                if (Random(2) == 0) {
+                generatedScramble += "D";
+
+                if(Random(2) == 0){
                     generatedScramble += "++ ";
-                }
-                else {
-                    generatedScramble += "-- "
+                }else{
+                    generatedScramble += "-- ";
                 }
             }
 
-            if (Random(2) == 0) {
-                generatedScramble += " U";
-            }
-            else {
-                generatedScramble += " U'"
+            if(Random(2) == 0){
+                generatedScramble += "U ";
+            }else{
+                generatedScramble += "U' ";
             }
         }
     }
@@ -399,7 +378,7 @@ function GenerateScramble(scrambleType) {
     if (scrambleType == "pyraminx") {
         generatedScramble = "";
 
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 12; i++) {
             while (randomNumber == oldRandomNumber) {
                 randomNumber = Random(3);
             }
@@ -494,15 +473,30 @@ function GenerateScramble(scrambleType) {
 
             if (randomNumber == 0) {
                 //U, D
-                generatedScramble += "L";
+                if (Random(2) == 0) {
+                    generatedScramble += "U"
+                }
+                else {
+                    generatedScramble += "D"
+                }
             }
             else if (randomNumber == 1) {
                 //L, R
-                generatedScramble += "U";
+                if (Random(2) == 0) {
+                    generatedScramble += "L"
+                }
+                else {
+                    generatedScramble += "R"
+                }
             }
             else {
                 //F, B
-                generatedScramble += "R";
+                if (Random(2) == 0) {
+                    generatedScramble += "F"
+                }
+                else {
+                    generatedScramble += "B"
+                }
             }
 
             if (Random(2) == 1) {
@@ -574,8 +568,8 @@ function GenerateScramble(scrambleType) {
         ChangeTextSize(1.25);
         generatedScramble = ""
         for (var i = 0; i < 15; i++) {
-            var TopNotation = Random(10) - 5;
-            var BottomNotation = Random(10) - 5;
+            var TopNotation = Random(12) - 5;
+            var BottomNotation = Random(12) - 5;
 
             //Eliminates the chance of having a "(0, 0)" notation
             while (TopNotation == 0 && BottomNotation == 0) {
