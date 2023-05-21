@@ -18,6 +18,7 @@ var newConfigName = document.getElementById("ConfigurationName");
 var configurationMenu = document.getElementById("configSelection");
 var configurationMenuForMod = document.getElementById("configSelectionforModifications");
 var removeConfigurationMenu = document.getElementById("removeConfigSelection");
+var exportConfigurationMenu = document.getElementById("ExportConfigurationSelection");
 
 var setConfig;
 
@@ -258,6 +259,8 @@ function UpdateConfigurationSelectionMenu() {
         configurationMenu.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>"
         configurationMenuForMod.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>";
         removeConfigurationMenu.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>";
+        exportConfigurationMenu.innerHTML += `<option value = "` + i + `">` + Configs[i].name + "</option>";
+
     }
 }
 
@@ -268,6 +271,30 @@ function DeleteConfiguration() {
         window.location.reload();
     } else {
         return;
+    }
+}
+
+function ImportConfig(){
+    importedData = JSON.parse(document.getElementById("ImportConfigurationSelection").value);
+
+    if(confirm("Import " + importedData.name + "?")){
+        Configs[Configs.length] = importedData;
+        UpdateConfigurationSelectionMenu();
+        alert("Configuration added!");
+    }
+}
+
+function ExportConfig() {
+    let configToExport = document.getElementById("ExportConfigurationSelection").value;
+
+    if (confirm("Exported Data: " + JSON.stringify(Configs[parseInt(configToExport)]) + "\n\nWould you like to copy to the clipboard?")) {
+        //Copies Data to the Clipboard
+        let dummyObject = document.createElement("dummyObj");
+        dummyObject.innerText = JSON.stringify(Configs[parseInt(configToExport)]);
+
+        console.log(dummyObject.innerText)
+
+        navigator.clipboard.writeText(dummyObject.innerText);
     }
 }
 
@@ -310,6 +337,8 @@ function SaveCustomizations() {
     Configs[configIndex].tableColor = document.getElementById("tableBorderConf").value;
     Configs[configIndex].tableTextColor = document.getElementById("tableTextConf").value;
     Configs[configIndex].statsTextColor = document.getElementById("statsTextConf").value;
+
+    drawChart();
 
     SetCustomizations(Configs[configIndex]);
 }

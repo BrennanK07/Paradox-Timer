@@ -208,10 +208,10 @@
 
                     <h2
                         style="color: white; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
-                        @erattey_3</h2>
+                        @erattey</h2>
 
-                    <a href="https://www.instagram.com/erattey_3/" target="_blank">
-                        <img href="https://www.instagram.com/erattey_3/"
+                    <a href="https://www.instagram.com/erattey/" target="_blank">
+                        <img href="https://www.instagram.com/erattey/"
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/2048px-Instagram_logo_2016.svg.png"
                             style="width:10%;height:10%">
                     </a>
@@ -250,6 +250,8 @@
                 </select>
             </div>
 
+            <br>
+
             <div id="CreateNewConfiguration">
                 <h1
                     style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
@@ -260,6 +262,8 @@
                     style="font-size: 1.5em; width: 15%">Create Configuration</button>
                 <br>
             </div>
+
+            <br>
 
             <div id="RemoveConfiguration">
                 <h1
@@ -273,6 +277,8 @@
                     style="font-size: 1.5em; width: 15%">Delete Configuration</button>
                 <br>
             </div>
+
+            <br>
 
             <div id="EditExistingConfiguration">
                 <h1
@@ -388,12 +394,44 @@
                         style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.5em; font-weight:lighter">Stats
                         Text </label>
                     <input type="color" id="statsTextConf" class="ConfigurationMenu">
+
+                    <br>
+                    
+                    <button style="width:20%;" onclick="SaveCustomizations()">Save Changes</button>
                 </div>
             </div>
 
             <br>
 
-            <button style="width:20%;" onclick="SaveCustomizations()">Save Changes</button>
+            <div id="ExportConfiguration">
+                <h1
+                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
+                    Export Configuration</h1>
+                <select name="ExportConfigurationSelection" id="ExportConfigurationSelection" class="button"
+                    style="width: 15%">
+                </select>
+                <br>
+                <button id="ExportConfiguration" onclick="ExportConfig()" type="button"
+                    style="font-size: 1.5em; width: 15%">Export</button>
+                <br>
+            </div>
+
+            <br>
+
+            <div id="ImportConfiguration">
+                <h1
+                    style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
+                    Import Configuration</h1>
+                <input name="ImportConfigurationSelection" id="ImportConfigurationSelection"
+                    style="width: 15%" placeholder="Paste Configuration Here">
+                </select>
+                <br>
+                <button id="ImportConfiguration" onclick="ImportConfig()" type="button"
+                    style="font-size: 1.5em; width: 15%">Import</button>
+                <br>
+            </div>
+
+            <br>
         </div>
     </div>
 
@@ -488,6 +526,5 @@
 <script src="js/timer.js"></script>
 <script src="js/save.js"></script>
 <script src="js/customization.js"></script>
-<script src="js/cube_preview.js"></script>
 <script type="text/javascript" src="js/graph.js"></script>
 <script src="js/main.js"></script>
