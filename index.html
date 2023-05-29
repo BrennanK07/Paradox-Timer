@@ -20,7 +20,7 @@
     </section>
 
     <div class="Lsidenav" id="Lsidenav">
-        <button onclick="OpenManual()" id="manuallyEnterTimes" class="MMbutton"
+        <button onclick="OpenManual()" id="manuallyEnterTimes" class="MMbutton button"
             style="max-width:100%; border-left: #ffffff 0px solid; border-right: #ffffff 0px solid;">Manually Enter
             Times</button>
         <div class="tableHeader">
@@ -76,11 +76,11 @@
                 <option value="3multi">3x3 Multi-Blind</option>
             </select>
 
-            <button onclick="openNav()" class="MMbutton">Settings</button>
+            <button onclick="openNav()" class="MMbutton button">Settings</button>
 
-            <button id="Info" class="MMbutton" onclick="openInfo()">Information</button>
+            <button id="Info" class="MMbutton button" onclick="openInfo()">Information</button>
 
-            <button onclick="OpenSessionGenerator()" class="MMbutton">Session Manager</button>
+            <button onclick="OpenSessionGenerator()" class="MMbutton button">Session Manager</button>
 
             <select id="Sessions" class="MMbutton">
                 <option value="notSet" hidden>Select a Session</option>
@@ -141,7 +141,7 @@
 
                 <br>
 
-                <button id="CreateSession" onclick="GetSessionInfo()" type="button">Create Session</button>
+                <button id="CreateSession" onclick="GetSessionInfo()" type="button" class="butotn">Create Session</button>
 
                 <br>
                 <br>
@@ -154,7 +154,7 @@
 
                 <br>
 
-                <button id="DeleteSessionButton" type="button"
+                <button id="DeleteSessionButton" type="button" class="button"
                     onclick="RemoveSession(document.getElementById(`SessionDeleteMenu`).value)">Delete Session</button>
             </form>
 
@@ -241,7 +241,19 @@
         <!-- Overlay content -->
         <div class="overlay-content">
             <label style="color: white" id="SessionTitle" class="title" id="title">Customization Menu</label>
-            <div id="ActiveConfiguration">
+
+            <br><br>
+
+            <div class="tab">
+                <button class="tablinks" onclick="openPage(event, 'ActiveConfiguration')">Active Configuration</button>
+                <button class="tablinks" onclick="openPage(event, 'CreateNewConfiguration')">Create New Configuration</button>
+                <button class="tablinks" onclick="openPage(event, 'RemoveConfiguration')">Remove Configuration</button>
+                <button class="tablinks" onclick="openPage(event, 'EditExistingConfiguration')">Edit Existing Configurations</button>
+                <button class="tablinks" onclick="openPage(event, 'ExportConfiguration')">Export Configuration</button>
+                <button class="tablinks" onclick="openPage(event, 'ImportConfiguration')">Import Configuration</button>
+            </div>
+
+            <div id="ActiveConfiguration" class="tabcontent">
                 <h1
                     style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
                     Active Configuration</h1>
@@ -250,22 +262,20 @@
                 </select>
             </div>
 
-            <br>
 
-            <div id="CreateNewConfiguration">
+            <div id="CreateNewConfiguration" class="tabcontent">
                 <h1
                     style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
                     Create New Configuration</h1>
                 <input type="text" id="ConfigurationName" placeholder="Configuration Name" style="font-size: 1.5em">
                 <br>
-                <button id="CreateConfiguration" onclick="CreateNewConfiguration()" type="button"
+                <button id="CreateConfiguration" onclick="CreateNewConfiguration()" type="button" class="button"
                     style="font-size: 1.5em; width: 15%">Create Configuration</button>
                 <br>
             </div>
 
-            <br>
 
-            <div id="RemoveConfiguration">
+            <div id="RemoveConfiguration" class="tabcontent">
                 <h1
                     style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
                     Remove Configuration</h1>
@@ -273,14 +283,13 @@
                     style="width: 15%">
                 </select>
                 <br>
-                <button id="DeleteConfiguration" onclick="DeleteConfiguration()" type="button"
+                <button id="DeleteConfiguration" onclick="DeleteConfiguration()" type="button" class="button"
                     style="font-size: 1.5em; width: 15%">Delete Configuration</button>
                 <br>
             </div>
 
-            <br>
 
-            <div id="EditExistingConfiguration">
+            <div id="EditExistingConfiguration" class="tabcontent">
                 <h1
                     style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
                     Edit Existing Configuration</h1>
@@ -396,14 +405,14 @@
                     <input type="color" id="statsTextConf" class="ConfigurationMenu">
 
                     <br>
+                    <br>
                     
-                    <button style="width:20%;" onclick="SaveCustomizations()">Save Changes</button>
+                    <button style="width:20%;" onclick="SaveCustomizations()" class="button">Save Changes</button>
                 </div>
             </div>
 
-            <br>
 
-            <div id="ExportConfiguration">
+            <div id="ExportConfiguration" class="tabcontent">
                 <h1
                     style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
                     Export Configuration</h1>
@@ -411,14 +420,13 @@
                     style="width: 15%">
                 </select>
                 <br>
-                <button id="ExportConfiguration" onclick="ExportConfig()" type="button"
+                <button id="ExportConfiguration" onclick="ExportConfig()" type="button" class="button"
                     style="font-size: 1.5em; width: 15%">Export</button>
                 <br>
             </div>
 
-            <br>
 
-            <div id="ImportConfiguration">
+            <div id="ImportConfiguration" class="tabcontent">
                 <h1
                     style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 2em">
                     Import Configuration</h1>
@@ -426,7 +434,7 @@
                     style="width: 15%" placeholder="Paste Configuration Here">
                 </select>
                 <br>
-                <button id="ImportConfiguration" onclick="ImportConfig()" type="button"
+                <button id="ImportConfiguration" onclick="ImportConfig()" type="button" class="button"
                     style="font-size: 1.5em; width: 15%">Import</button>
                 <br>
             </div>
@@ -449,7 +457,7 @@
             <br>
             <br>
 
-            <button id="timeEnteredConfirmed" style="width: 18%" onclick="manuallyAddTime()">Enter Time</button>
+            <button id="timeEnteredConfirmed" style="width: 18%" onclick="manuallyAddTime()" class="button">Enter Time</button>
         </div>
     </div>
 
@@ -459,8 +467,8 @@
         <div class="overlay-content">
             <label style="color: white" id="SessionTitle" class="title" id="title">Timer Settings</label>
             <br><br>
-            <button style="width: 15%" onclick="UpdateSettings()">Cancel</button>
-            <button style="width: 15%" onclick="ApplySettingChanges(), CloseTimerSettings()">Apply</button>
+            <button style="width: 15%" onclick="UpdateSettings()" class="button">Cancel</button>
+            <button style="width: 15%" onclick="ApplySettingChanges(), CloseTimerSettings()" class="button">Apply</button>
 
             <h2
                 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">

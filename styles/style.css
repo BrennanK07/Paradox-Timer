@@ -49,7 +49,7 @@
     border: 2px dotted;
 	color: #fff;
 	*/
-	
+
 	height: 98vh;
 	width: 70%;
 
@@ -59,10 +59,10 @@
 }
 
 .emphasized {
-	font-style: italic; 
+	font-style: italic;
 }
 
-body{
+body {
 	overflow-y: hidden;
 }
 
@@ -118,7 +118,7 @@ body{
 	user-select: none;
 }
 
-#graph{
+#graph {
 	position: absolute;
 	bottom: 10px;
 	width: 100%;
@@ -221,7 +221,7 @@ select:focus {
 	background-color: #212121;
 }
 
-button {
+.button {
 	width: 100%;
 	border: none;
 	font-family: 'Open Sans', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
@@ -235,7 +235,7 @@ button {
 	font-weight: lighter;
 }
 
-button:hover {
+.button:hover {
 	background-color: #717171;
 	transition: 0.2s;
 }
@@ -667,4 +667,61 @@ input:checked+.slider:before {
 
 .slider.round:before {
 	border-radius: 50%;
+}
+
+
+/*For Tabbed Menus*/
+/* Style the tab */
+.tab {
+	overflow: hidden;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+	background-color: #666;
+	font-weight: bold;
+	float: left;
+	outline: 2px #000;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	padding-bottom: 24px;
+	/*border: 1px solid #ccc;*/
+	border-top: none;
+}
+
+.tabcontent {
+	animation: fadeEffect 0.5s;
+	/* Fading effect takes 0.5 seconds */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
 }
