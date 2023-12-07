@@ -137,6 +137,18 @@ function CloseManual() {
 	OnMainPage = true;
 }
 
+function OpenExtraStats() {
+	if (!isSolving && !inspectionStart) {
+		document.getElementById("extraStatisticsMenu").style.width = "100%";
+		OnMainPage = false;
+	}
+}
+
+function CloseExtraStats() {
+	document.getElementById("extraStatisticsMenu").style.width = "0%";
+	OnMainPage = true;
+}
+
 function OpenWelcome() {
 	document.getElementById("welcomeMenu").style.width = "100%";
 	OnMainPage = false;

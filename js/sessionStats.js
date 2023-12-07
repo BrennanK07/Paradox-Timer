@@ -18,6 +18,9 @@ function addToTable(number, time, difference) {
 //state of 1 = +2
 //state of 2 = DNF
 function addTimeToSession(number, time, scramble, timeSeconds, DNF, p2) { //DNF and plus 2
+	//Updates customizations because they do not apply to newly created objects until re-run
+	UpdateConfigs();
+
 	CalculateAverage();
 	sessions[currentActiveSession].totalSolves++;
 	//addToTable(number + 1, time, CalculateDifference(timeSeconds)); Stuff is added to table on reload
@@ -339,4 +342,162 @@ function IsAllDNF() {
 	}
 
 	return true;
+}
+
+//For Extra Statistics Menu
+function UpdateExtraStatisticsMenu(){
+
+	if(currentActiveSession == -1){
+		document.getElementById("errorFromEnteredValuesTextbox").innerHTML = "Error! Select a session from the main menu first";
+		return;
+	}
+
+	startInputBox = document.getElementById("startIndexField");
+	endInputBox = document.getElementById("endIndexField");
+
+
+	startValue = parseInt(startInputBox.value);
+	endValue = parseInt(endInputBox.value);
+
+	//Adjusts because users don't understand that everything should start counting at 0
+	startValue -= 1;
+	endValue -= 1;
+
+
+	if(isNaN(startValue) || isNaN(endValue) || startValue < 0 || endValue < 0 || startValue > endValue || endValue >= sessions[currentActiveSession].solves.length){
+		//Failed, one or more of the values do not work.
+		document.getElementById("errorFromEnteredValuesTextbox").innerHTML = "Error! The value(s) entered do not work!";
+
+		return;
+	}else{
+		//Calcualtes data and puts it in the table
+		document.getElementById("errorFromEnteredValuesTextbox").innerHTML = "";
+
+		document.getElementById("extraStatAverage").innerHTML = SecondsToTime(CalculateAverageOverInterval(startValue, endValue));
+
+		document.getElementById("extraStatMedian").innerHTML = SecondsToTime(CalculateMedianOverInterval(startValue, endValue));
+
+		document.getElementById("extraStatWorstAo5").innerHTML = SecondsToTime(CalculateWorstAo5OverInterval(startValue, endValue));
+
+		document.getElementById("extraStatWorstAo12").innerHTML = SecondsToTime(CalculateWorstAo12OverInterval(startValue, endValue));
+
+		document.getElementById("extraStatPercentPlus2").innerHTML = CalculatePercentPlus2OverInterval(startValue, endValue);
+
+		document.getElementById("extraStatAveragePercentDNF").innerHTML = CalculatePercentDNFOverInterval(startValue, endValue);
+	}
+}
+
+function CalculateAverageOverInterval(min, max){
+	if (currentActiveSession != -1) {
+		var average = 0
+		for (let i = min; i < max; i++) {
+			average += sessions[currentActiveSession].solves[i].timeSeconds;
+		}
+		average = average / (max - min);
+		return average; //'average' returns in seconds form, can be converted later
+	}
+}
+
+function CalculateMedianOverInterval(min, max){
+	let sortedTimes = sessions[currentActiveSession].solves.map(object => object.timeSeconds);
+
+	//Adjusts array size to fit all values allowed
+	sortedTimes = sortedTimes.slice(min, max);
+
+	sortedTimes = sortedTimes.sort();
+	//console.log(sortedTimes);
+
+	if(sortedTimes.length % 2 == 0){
+		//even, average the two middle values
+		return (sortedTimes[Math.floor(sortedTimes.length / 2)] + sortedTimes[Math.floor(sortedTimes.length / 2) - 1]) / 2;
+	}
+	else{
+		return sortedTimes[Math.floor(sortedTimes.length / 2)];
+	}
+}
+
+function CalculateWorstAo5OverInterval(min, max){
+	let ao5List = [];
+
+	if((max - min) + 1 < 5){
+		return "-";
+	}
+	else{
+		//Adds all ao5's to a list and calculates which is the worst
+		for(i = min; i < max - 4; i++){
+			//console.log(i, i + 4);
+			ao5List.push(CalculateAverageOverInterval(i, i + 4));
+		}
+
+		return Math.max(...ao5List);
+	}
+}
+
+function CalculateWorstAo12OverInterval(min, max){
+	let ao12List = [];
+
+	if((max - min) + 1 < 12){
+		return "-";
+	}
+	else{
+		//Adds all ao12's to a list and calculates which is the worst
+		for(i = min; i < max - 11; i++){
+			//console.log(i, i + 11);
+			ao12List.push(CalculateAverageOverInterval(i, i + 11));
+		}
+
+		return Math.max(...ao12List);
+	}
+}
+
+function CalculateAverageOverInterval(minAOI, maxAOI){
+	//Follows same algorithm as ao5, where highest and lowest values are subtracted
+	let aoi = 0;
+	let solves = [];
+	let index = 0;
+
+	if (sessions[currentActiveSession].totalSolves >= (maxAOI - minAOI + 1) || (maxAOI - minAOI) > 1) {
+		for (let i = minAOI; i < maxAOI + 1; i++) {
+			//console.log(minAOI, maxAOI, ":", i)
+			aoi += sessions[currentActiveSession].solves[i].timeSeconds;
+			solves[index] = sessions[currentActiveSession].solves[i].timeSeconds;
+			index++;
+
+			//console.log(aoi);
+		}
+
+		aoi = aoi - Math.min.apply(Math, solves);
+		aoi = aoi - Math.max.apply(Math, solves);
+
+		aoi = aoi / (maxAOI - minAOI - 1);
+
+		return aoi;
+	} 
+	else {
+		return "-";
+	}
+}
+
+function CalculatePercentPlus2OverInterval(min, max){
+	let totalPlus2 = 0;
+
+	for(let i = min; i < max + 1; i++){
+		if(sessions[currentActiveSession].solves[i].plus2 == true){
+			totalPlus2++;
+		}
+	}
+
+	return (Math.round((totalPlus2 / (max - min + 1)) * 1000) / 10) + "%";
+}
+
+function CalculatePercentDNFOverInterval(min, max){
+	let totalDNF = 0;
+
+	for(let i = min; i < max + 1; i++){
+		if(sessions[currentActiveSession].solves[i].DNF == true){
+			totalDNF++;
+		}
+	}
+
+	return (Math.round((totalDNF / (max - min + 1)) * 1000) / 10) + "%";
 }

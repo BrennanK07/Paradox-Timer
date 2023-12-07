@@ -37,9 +37,14 @@
                 </tr>
             </tbody>
         </table>
+
+        <br>
+        <br>
     </div>
 
     <div class="Rsidenav" id="Rsidenav">
+        <button onclick="OpenExtraStats()" id="manuallyEnterTimes" class="MMbutton button"
+            style="max-width:100%; border-left: #ffffff 0px solid; border-right: #ffffff 0px solid;">Extra Statistics</button>
         <div id="graph"></div>
 
         <h1 id="title" class="title">Statistics</h1>
@@ -141,7 +146,7 @@
 
                 <br>
 
-                <button id="CreateSession" onclick="GetSessionInfo()" type="button" class="butotn">Create Session</button>
+                <button id="CreateSession" onclick="GetSessionInfo()" type="button" class="button">Create Session</button>
 
                 <br>
                 <br>
@@ -223,6 +228,7 @@
             <unit id="contributions">
                 <h2 style="color: white; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">u/hpxvzhjfgb</h2>
                 <h2 style="color: white; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">u/the_swest</h2>
+                <h2 style="color: white; font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">u/onlybuggin44</h2>
             </unit>
 
             <br>
@@ -461,6 +467,65 @@
         </div>
     </div>
 
+    <div id="extraStatisticsMenu" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="CloseExtraStats()">&times;</a>
+
+        <div class="overlay-content">
+            <label style="color: white" id="SessionTitle" class="title" id="title">Extra Statistics</label>
+
+            <br>
+            <br>
+            <h1
+                id="errorFromEnteredValuesTextbox" style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1em; font-weight: lighter;">
+                </h1>
+
+            <input class="numbericalInputField" type="text" id="startIndexField" placeholder="Start">
+            <input class="numbericalInputField" type="text" id="endIndexField" placeholder="End">
+
+            <br>
+            <button style="width: 15%" class="button" onclick="UpdateExtraStatisticsMenu()">Calculate</button>
+
+            <br>
+            <br>
+
+            <table id="extraStatisticsTable">
+                <tr>
+                    <th>Average</th>
+                    <th id="extraStatAverage">-</th>
+                </tr>
+
+                <tr>
+                    <th>Median</th>
+                    <th id="extraStatMedian">-</th>
+                </tr>
+
+                <tr>
+                    <th>Worst Ao5</th>
+                    <th id="extraStatWorstAo5">-</th>
+                </tr>
+
+                <tr>
+                    <th>Worst Ao12</th>
+                    <th id="extraStatWorstAo12">-</th>
+                </tr>
+
+                <tr>
+                    <th>% +2</th>
+                    <th id="extraStatPercentPlus2">-</th>
+                </tr>
+
+                <tr>
+                    <th>% DNF</th>
+                    <th id="extraStatAveragePercentDNF">-</th>
+                </tr>
+
+
+            </table>
+
+            
+        </div>
+    </div>
+
     <div id="timerSettingsMenu" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="CloseTimerSettings()">&times;</a>
 
@@ -516,7 +581,7 @@
 
             <h2
                 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
-                v1.39</h2>
+                v1.43</h2>
 
         </div>
     </div>

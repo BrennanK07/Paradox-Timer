@@ -79,6 +79,9 @@ function ReloadSessions() {
 	}
 
 	ForceDrawChart();
+
+	//Resets time table to make sure it matches the configuration set
+	UpdateConfigs();
 }
 
 function OpenSessionGenerator() {

@@ -1,5 +1,6 @@
 //This file contains all main controls that are executed in other scripts
 //UPDATE: This file was planned to be used for everything, but now it is mainly timer controller stuff
+//ANOTHER UPDATE: I dont know what I was thinking when I started this project thinking I would use main.js for all main functions, but im not
 
 let isSolving = false; //Used as a way to determine if the user is solving or not
 let waitingToStart = false; //Active when waiting for the light to turn green

@@ -64,6 +64,10 @@ function CompareTime(startingTime, currentTime) {
 function SecondsToTime(timeInSeconds) { //Converts seconds to proper time format as XX:YY.ZZZ
     let isNegataive = false;
 
+    if(timeInSeconds == "-"){
+        return "-";
+    }
+
     if (timeInSeconds == NaN) {
         return (0.000);
     }

@@ -214,6 +214,105 @@ var FireAndIceConfig = {
     statsTextColor: FireAndIce[0]
 };
 
+var Ivy = ["#1C201E", "#373A38", "#909590", "#9AE19D", "#537A5A"];
+
+var IvyConfig = {
+    name: "Ivy",
+    timerColor: Ivy[3],
+    background: Ivy[0],
+    leftSideBarBackground: Ivy[1],
+    rightSideBarBackground: Ivy[1],
+    scrambleText: Ivy[0],
+    scrambleBackground: Ivy[3],
+    titleTextColor: Ivy[3],
+    titleStripeColor: Ivy[2],
+    buttonBackgroundColor: Ivy[3],
+    buttonTextColor: Ivy[0],
+    tableColor: Ivy[4],
+    tableTextColor: Ivy[3],
+    statsTextColor: Ivy[3]
+}
+
+var OceanBlue = ["#03045E", "#00507A", "#00B4D8", "#90E0EF", "#CAF0F8"];
+
+var OceanBlueConfig = {
+    name: "Ocean Blue",
+    timerColor: OceanBlue[3],
+    background: OceanBlue[0],
+    leftSideBarBackground: OceanBlue[1],
+    rightSideBarBackground: OceanBlue[1],
+    scrambleText: OceanBlue[0],
+    scrambleBackground: OceanBlue[3],
+    titleTextColor: OceanBlue[3],
+    titleStripeColor: OceanBlue[2],
+    buttonBackgroundColor: OceanBlue[3],
+    buttonTextColor: OceanBlue[0],
+    tableColor: OceanBlue[4],
+    tableTextColor: OceanBlue[3],
+    statsTextColor: OceanBlue[3]
+}
+
+var Forest = ["#312509", "#65532F", "#A3BBAD", "#357266", "#0E3B43"];
+
+var ForestConfig = {
+    name: "Forest",
+    timerColor: Forest[3],
+    background: Forest[0],
+    leftSideBarBackground: Forest[2],
+    rightSideBarBackground: Forest[2],
+    scrambleText: Forest[0],
+    scrambleBackground: Forest[3],
+    titleTextColor: Forest[1],
+    titleStripeColor: Forest[1],
+    buttonBackgroundColor: Forest[3],
+    buttonTextColor: Forest[0],
+    tableColor: Forest[4],
+    tableTextColor: Forest[3],
+    statsTextColor: Forest[3]
+}
+
+//Random hex code snippet from w3Resource
+const random_hex_color_code = () => {
+    let n = (Math.random() * 0xfffff * 1000000).toString(16);
+    return '#' + n.slice(0, 6);
+};
+
+var ClownConfig = {
+    name: "Clown",
+    timerColor: random_hex_color_code(),
+    background: random_hex_color_code(),
+    leftSideBarBackground: random_hex_color_code(),
+    rightSideBarBackground: random_hex_color_code(),
+    scrambleText: random_hex_color_code(),
+    scrambleBackground: random_hex_color_code(),
+    titleTextColor: random_hex_color_code(),
+    titleStripeColor: random_hex_color_code(),
+    buttonBackgroundColor: random_hex_color_code(),
+    buttonTextColor: random_hex_color_code(),
+    tableColor: random_hex_color_code(),
+    tableTextColor: random_hex_color_code(),
+    statsTextColor: random_hex_color_code()
+}
+
+var HotAndCold = ["#283d3b", "#095258", "#edddd4", "#c44536", "#974e45"];
+
+var HotAndColdConfig = {
+    name: "Joker",
+    timerColor: HotAndCold[2],
+    background: HotAndCold[0],
+    leftSideBarBackground: HotAndCold[1],
+    rightSideBarBackground: HotAndCold[1],
+    scrambleText: HotAndCold[0],
+    scrambleBackground: HotAndCold[2],
+    titleTextColor: HotAndCold[2],
+    titleStripeColor: HotAndCold[4],
+    buttonBackgroundColor: HotAndCold[3],
+    buttonTextColor: HotAndCold[0],
+    tableColor: HotAndCold[2],
+    tableTextColor: HotAndCold[2],
+    statsTextColor: HotAndCold[2]
+}
+
 InitializeDefaultConfigs();
 function InitializeDefaultConfigs() {
     Configs = [];
@@ -241,7 +340,11 @@ function GetDefaultConfigs() {
     Configs[7] = SolarizedDarkConfig;
     Configs[8] = LightConfig;
     Configs[9] = NavyBlueConfig;
-    //Configs[10] = FireAndIceConfig;
+    Configs[10] = IvyConfig;
+    Configs[11] = OceanBlueConfig;
+    Configs[12] = ForestConfig;
+    Configs[13] = ClownConfig;
+    Configs[14] = HotAndColdConfig;
 }
 
 UpdateConfigurationSelectionMenu();
@@ -374,7 +477,7 @@ function GetConfigs() {
     return Configs;
 }
 
-/*var UpdateConfigs = window.setInterval(function () {
+function UpdateConfigs(){
     var layout = Configs[GetActiveConfig()];
     var tableColor = document.querySelectorAll('td, th, tr');
     var tableTextColor = document.getElementById("tableBody");
@@ -384,7 +487,9 @@ function GetConfigs() {
     });
 
     tableTextColor.style.color = layout.tableTextColor;
-}, 10);*/ //Wrote this function months ago, dk tf it was for
+}
+//Wrote this function months ago, dk tf it was for
+//UPDATE: I finally realized that this is to update new elements getting added to the html to ensure they match the configuration set
 
 function SetCustomizations(layout) {
     timer.style.color = layout.timerColor;
