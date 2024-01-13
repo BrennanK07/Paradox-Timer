@@ -45,7 +45,7 @@
     <div class="Rsidenav" id="Rsidenav">
         <button onclick="OpenExtraStats()" id="manuallyEnterTimes" class="MMbutton button"
             style="max-width:100%; border-left: #ffffff 0px solid; border-right: #ffffff 0px solid;">Extra Statistics</button>
-        <div id="graph" onclick=""></div>
+        <div id="graph" onclick="OpenEnlargedGraph(); ForceDrawChart()"></div>
 
         <h1 id="title" class="title">Statistics</h1>
 
@@ -589,10 +589,9 @@
     <div id="graphMenu" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="CloseEnlargedGraph()">&times;</a>
 
-        <div class="overlay-content">
-            <label style="color: white" id="SessionTitle" class="title" id="title">Enlarged Graph</label>
-            
+        <div class="overlay-content" style="height: 90%; transition: 0s;">       
             <div id="enlargedGraph"></div>
+            <br><button class="" onclick="">Open In New Tab</button>
         </div>
     </div>
 

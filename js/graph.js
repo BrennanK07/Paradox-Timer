@@ -36,6 +36,7 @@ function drawChart() {
 
     };
 
+    //Exception to draw the graph with minimal information as there is no other data present to draw.
     if (currentActiveSession == -1 || sessionData[currentActiveSession].totalSolves == 0 || IsAllDNF()) {
         graphArray = [
             ['Task', 'Solve Time', 'Ao5', 'Ao12'],
@@ -55,6 +56,7 @@ function drawChart() {
         return;
     }
 
+    //If data is present
     sessionData = GetSessionData();
 
     graphArray = [
@@ -69,17 +71,7 @@ function drawChart() {
 
     var data = google.visualization.arrayToDataTable(graphArray);
 
-    // Optional; add a title and set the width and height of the chart
-    var options = {
-        'title': '',
-        'width': `100%`,
-        'height': `20%`,
-        'hAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
-        'vAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
-        'backgroundColor': { fill: Configs[setConfig].rightSideBarBackground },
-    };
-
-    // Display the chart inside the <div> element with id="piechart"
+    // Display the chart inside the <div>
     var chart = new google.visualization.LineChart(document.getElementById('graph'));
     chart.draw(data, options);
 
@@ -106,6 +98,7 @@ function formatTime(timeToFormat) {
     return timeToFormat;
 }
 
+//
 function splitMulti(str, tokens) {
     var tempChar = tokens[0]; // We can use the first token as a temporary join character
     for (var i = 1; i < tokens.length; i++) {

@@ -127,9 +127,9 @@ body {
 #enlargedGraph {
 	position: static;
 	padding-top: 2%;
-	width: 50%;
+	width: 90%;
+	height: 80%;
 	margin: auto;
-
 }
 
 html {
@@ -355,8 +355,8 @@ a {
 /* Position the content inside the overlay */
 .overlay-content {
 	position: relative;
-	top: 25%;
-	/* 25% from the top */
+	top: 10%;
+	/* 10% from the top */
 	width: 100%;
 	/* 100% width */
 	text-align: center;
