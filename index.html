@@ -45,7 +45,7 @@
     <div class="Rsidenav" id="Rsidenav">
         <button onclick="OpenExtraStats()" id="manuallyEnterTimes" class="MMbutton button"
             style="max-width:100%; border-left: #ffffff 0px solid; border-right: #ffffff 0px solid;">Extra Statistics</button>
-        <div id="graph"></div>
+        <div id="graph" onclick=""></div>
 
         <h1 id="title" class="title">Statistics</h1>
 
@@ -581,8 +581,18 @@
 
             <h2
                 style="color: white; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
-                v1.45</h2>
+                v1.46</h2>
 
+        </div>
+    </div>
+
+    <div id="graphMenu" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="CloseEnlargedGraph()">&times;</a>
+
+        <div class="overlay-content">
+            <label style="color: white" id="SessionTitle" class="title" id="title">Enlarged Graph</label>
+            
+            <div id="enlargedGraph"></div>
         </div>
     </div>
 

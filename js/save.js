@@ -66,6 +66,7 @@ function LoadData() {
 
         if (typeof (Storage) !== "undefined") {
             // Code for localStorage/sessionStorage.
+            //It's been months since I wrote this script I hope this was supposed to be left blank
         } else {
             alert("WARNING! Your browser does not support Web Storage! Please use another browser to ensure that your data is saved.");
         }

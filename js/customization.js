@@ -26,14 +26,14 @@ var setConfig;
 var DefaultConfig = {
     name: "Default",
     timerColor: "#FFFFFF",
-    background: "#444444",
+    background: "#212121",
     leftSideBarBackground: "#333333",
     rightSideBarBackground: "#333333",
     scrambleText: "#FFFFFF",
-    scrambleBackground: "#222222",
+    scrambleBackground: "#666666",
     titleTextColor: "#FFFFFF",
     titleStripeColor: "#4285EA",
-    buttonBackgroundColor: "#212121",
+    buttonBackgroundColor: "#444444",
     buttonTextColor: "#FFFFFF",
     tableColor: "#FFFFFF",
     tableTextColor: "#FFFFFF",
@@ -294,7 +294,7 @@ var ClownConfig = {
     statsTextColor: random_hex_color_code()
 }
 
-var HotAndCold = ["#283d3b", "#095258", "#edddd4", "#c44536", "#974e45"];
+var HotAndCold = ["#283d3b", "#093238", "#edddd4", "#c44536", "#974e45"];
 
 var HotAndColdConfig = {
     name: "Joker",
@@ -470,6 +470,8 @@ function IsSelectionChanged() {
 function GetActiveConfig() {
     let currentIndex = configurationMenu.value;
     SetCustomizations(Configs[currentIndex]);
+    
+    UpdateConfigs();
     return currentIndex;
 }
 
@@ -478,7 +480,7 @@ function GetConfigs() {
 }
 
 function UpdateConfigs(){
-    var layout = Configs[GetActiveConfig()];
+    var layout = Configs[configurationMenu.value];
     var tableColor = document.querySelectorAll('td, th, tr');
     var tableTextColor = document.getElementById("tableBody");
 
@@ -530,6 +532,8 @@ function SetCustomizations(layout) {
     statsTextColor.forEach(statObject => {
         statObject.style.color = layout.statsTextColor;
     });
+
+    
 }
 
 function CreateNewConfiguration() {

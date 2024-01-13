@@ -14,6 +14,28 @@ function ForceDrawChart() {
 function drawChart() {
     sessionData = GetSessionData();
 
+    // Optional; add a title and set the width and height of the chart
+    var options = {
+        'title': '',
+        'width': `100%`,
+        'height': `20%`,
+        'hAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
+        'vAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
+        'backgroundColor': { fill: Configs[GetActiveConfig()].rightSideBarBackground }
+
+    };
+
+    // Optional; add a title and set the width and height of the chart
+    var enlargedChartOptions = {
+        'title': '',
+        'width': `90%`,
+        'height': `60%`,
+        'hAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
+        'vAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
+        'backgroundColor': { fill: Configs[GetActiveConfig()].rightSideBarBackground }
+
+    };
+
     if (currentActiveSession == -1 || sessionData[currentActiveSession].totalSolves == 0 || IsAllDNF()) {
         graphArray = [
             ['Task', 'Solve Time', 'Ao5', 'Ao12'],
@@ -22,19 +44,13 @@ function drawChart() {
 
         var data = google.visualization.arrayToDataTable(graphArray);
 
-        // Optional; add a title and set the width and height of the chart
-        var options = {
-            'title': '',
-            'width': `100%`,
-            'height': `20%`,
-            'hAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
-            'vAxis': {textStyle: {color: Configs[setConfig].titleTextColor}},
-            'backgroundColor': { fill: Configs[GetActiveConfig()].rightSideBarBackground }
-
-        };
         // Display the chart inside the <div> element with id="piechart"
         var chart = new google.visualization.LineChart(document.getElementById('graph'));
         chart.draw(data, options);
+
+        //For enlarged graph
+        var chart2 = new google.visualization.LineChart(document.getElementById('enlargedGraph'));
+        chart2.draw(data, enlargedChartOptions);
 
         return;
     }
@@ -66,6 +82,10 @@ function drawChart() {
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.LineChart(document.getElementById('graph'));
     chart.draw(data, options);
+
+    //For enlarged graph
+    var chart2 = new google.visualization.LineChart(document.getElementById('enlargedGraph'));
+    chart2.draw(data, enlargedChartOptions);
 }
 
 function formatTime(timeToFormat) {

@@ -159,6 +159,17 @@ function CloseWelcome() {
 	OnMainPage = true;
 }
 
+function OpenEnlargedGraph(){
+	document.getElementById("graphMenu").style.width = "100%";
+	drawChart();
+	OnMainPage = false;
+}
+
+function CloseEnlargedGraph(){
+	document.getElementById("graphMenu").style.width = "0%";
+	OnMainPage = true;
+}
+
 function openPage(evt, pageName) {
 	// Declare all variables
 	var i, tabcontent, tablinks;
